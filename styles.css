@@ -5,9 +5,9 @@
 }
 
 body{
-    font-family:'Inter',sans-serif;
-    background:#0a0a0a;
+    background:#090909;
     color:white;
+    font-family:'Inter',sans-serif;
 }
 
 /* GLOBAL */
@@ -18,51 +18,65 @@ body{
 
 .screen{
     min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     padding:30px;
+
     background:
     radial-gradient(
         circle at top,
-        #1a1a1a 0%,
-        #080808 70%
+        #1b1b1b 0%,
+        #090909 70%
     );
 }
 
-/* AUTH */
+/* CARD */
 
-.auth-card{
+.card{
     width:100%;
     max-width:460px;
-    background:#141414;
+
+    background:#121212;
+
     border:1px solid #242424;
+
     border-radius:26px;
+
     padding:42px;
+
     box-shadow:
     0 15px 45px rgba(0,0,0,.45);
 }
 
-.logo-area{
+/* LOGO */
+
+.logo{
+    font-size:48px;
     text-align:center;
-    margin-bottom:34px;
 }
 
-.logo-ball{
-    font-size:42px;
-}
-
-.logo-area h1{
-    margin-top:10px;
+h1{
+    text-align:center;
     color:#d4af37;
-    font-size:42px;
+
+    font-size:40px;
     font-weight:800;
-    letter-spacing:2px;
+
+    margin-top:12px;
 }
 
-.logo-area p{
-    margin-top:8px;
+.subtitle{
+    text-align:center;
+
     color:#9a9a9a;
+
+    margin-top:10px;
+    margin-bottom:32px;
+
+    line-height:1.6;
 }
 
 /* INPUTS */
@@ -73,8 +87,11 @@ body{
 
 .input-group label{
     display:block;
+
     margin-bottom:10px;
+
     color:#d4af37;
+
     font-size:14px;
     font-weight:600;
 }
@@ -82,26 +99,34 @@ body{
 input,
 select{
     width:100%;
+
     padding:15px;
+
+    background:#0d0d0d;
+
+    border:1px solid #2d2d2d;
+
     border-radius:14px;
-    border:1px solid #303030;
-    background:#0f0f0f;
+
     color:white;
+
     font-size:15px;
+
     transition:.25s;
 }
 
 input:focus,
 select:focus{
     outline:none;
+
     border-color:#d4af37;
+
     box-shadow:
-    0 0 12px rgba(212,175,55,.2);
+    0 0 10px rgba(212,175,55,.2);
 }
 
 input:disabled{
     opacity:.45;
-    cursor:not-allowed;
 }
 
 /* BUTTONS */
@@ -109,7 +134,9 @@ input:disabled{
 button{
     border:none;
     cursor:pointer;
+
     transition:.25s;
+
     font-family:'Inter',sans-serif;
 }
 
@@ -117,46 +144,64 @@ button{
 #signup-btn,
 #connect-league-btn{
     width:100%;
+
     background:#d4af37;
+
     color:#111;
+
     padding:15px;
+
     border-radius:14px;
+
     font-weight:700;
     font-size:15px;
-    margin-top:6px;
+
+    margin-top:8px;
 }
 
 #login-btn:hover,
 #signup-btn:hover,
 #connect-league-btn:hover{
-    background:#e9c44d;
+    background:#e8c24a;
+
     transform:translateY(-2px);
 }
 
 .secondary-btn{
     width:100%;
+
     background:transparent;
+
+    border:1px solid #333;
+
     color:#d4af37;
-    border:1px solid #3a3a3a;
+
     padding:15px;
+
     border-radius:14px;
+
     font-weight:600;
 }
 
 .secondary-btn:hover{
-    background:#1b1b1b;
+    background:#1a1a1a;
 }
 
 .divider{
     text-align:center;
-    color:#8d8d8d;
+
+    color:#8a8a8a;
+
     margin:18px 0;
 }
 
 .helper-text{
     color:#8d8d8d;
+
+    line-height:1.7;
+
     font-size:13px;
-    line-height:1.6;
+
     margin-bottom:22px;
 }
 
@@ -164,27 +209,31 @@ button{
 
 header{
     width:100%;
+
     background:#111;
-    border-bottom:1px solid #232323;
+
+    border-bottom:1px solid #242424;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     padding:18px 32px;
+
     position:sticky;
     top:0;
+
     z-index:100;
 }
 
-.brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
+/* BRAND */
 
-.brand-name{
+.brand{
     color:#d4af37;
-    font-size:26px;
+
+    font-size:28px;
     font-weight:800;
+
     letter-spacing:1px;
 }
 
@@ -195,21 +244,27 @@ nav{
     gap:10px;
 }
 
-.nav-btn{
+.tab-btn{
     background:transparent;
-    color:#b8b8b8;
+
+    color:#b3b3b3;
+
     padding:11px 18px;
+
     border-radius:12px;
+
     font-weight:600;
 }
 
-.nav-btn:hover{
-    background:#1c1c1c;
+.tab-btn:hover{
+    background:#1b1b1b;
+
     color:#d4af37;
 }
 
-.nav-btn.active{
+.active-tab-btn{
     background:#d4af37;
+
     color:#111;
 }
 
@@ -222,34 +277,45 @@ nav{
 }
 
 #plan-badge{
-    background:#1f1f1f;
+    background:#1b1b1b;
+
+    border:1px solid #303030;
+
     color:#d4af37;
-    padding:9px 14px;
+
+    padding:10px 14px;
+
     border-radius:12px;
+
     font-size:13px;
     font-weight:700;
 }
 
 #logout-btn{
     background:#1a1a1a;
-    color:white;
+
     border:1px solid #303030;
+
+    color:white;
+
     padding:11px 16px;
+
     border-radius:12px;
 }
 
 #logout-btn:hover{
-    background:#262626;
+    background:#252525;
 }
 
-/* TABS */
+/* CONTENT */
 
-.tab-section{
+.tab-content{
     display:none;
+
     padding:34px;
 }
 
-.active-tab{
+.active-content{
     display:block;
 }
 
@@ -257,113 +323,3 @@ nav{
 
 .hero-card{
     background:#141414;
-    border:1px solid #242424;
-    border-radius:24px;
-    padding:34px;
-    margin-bottom:28px;
-}
-
-.hero-card h2{
-    color:#d4af37;
-    font-size:34px;
-    margin-bottom:12px;
-}
-
-.hero-card p{
-    color:#a0a0a0;
-    line-height:1.7;
-}
-
-/* PREMIUM */
-
-.premium-card{
-    background:
-    linear-gradient(
-        135deg,
-        #171717 0%,
-        #101010 100%
-    );
-
-    border:1px solid #d4af37;
-    border-radius:24px;
-
-    padding:30px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.premium-left h3{
-    color:#d4af37;
-    font-size:24px;
-    margin-bottom:10px;
-}
-
-.premium-left p{
-    color:#c2c2c2;
-    line-height:1.7;
-    max-width:650px;
-}
-
-#upgrade-btn{
-    background:#d4af37;
-    color:#111;
-    padding:16px 24px;
-    border-radius:14px;
-    font-weight:800;
-    font-size:15px;
-    min-width:220px;
-}
-
-#upgrade-btn:hover{
-    background:#ebc74f;
-    transform:translateY(-2px);
-}
-
-/* MOBILE */
-
-@media(max-width:950px){
-
-    header{
-        flex-direction:column;
-        gap:18px;
-        padding:24px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .premium-card{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    #upgrade-btn{
-        width:100%;
-    }
-
-}
-
-@media(max-width:600px){
-
-    .auth-card{
-        padding:28px;
-    }
-
-    .hero-card{
-        padding:24px;
-    }
-
-    .hero-card h2{
-        font-size:28px;
-    }
-
-    .tab-section{
-        padding:20px;
-    }
-
-}
