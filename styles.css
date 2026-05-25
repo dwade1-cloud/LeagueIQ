@@ -6,19 +6,46 @@
 
 body{
     font-family:'Inter',sans-serif;
-    background:#0b0b0b;
-    color:#f5f5f5;
+    background:#0a0a0a;
+    color:white;
 }
+
+/* GLOBAL */
 
 .hidden{
     display:none !important;
 }
 
-/* LOGO */
+.screen{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    background:
+    radial-gradient(
+        circle at top,
+        #1a1a1a 0%,
+        #080808 70%
+    );
+}
+
+/* AUTH */
+
+.auth-card{
+    width:100%;
+    max-width:460px;
+    background:#141414;
+    border:1px solid #242424;
+    border-radius:26px;
+    padding:42px;
+    box-shadow:
+    0 15px 45px rgba(0,0,0,.45);
+}
 
 .logo-area{
     text-align:center;
-    margin-bottom:28px;
+    margin-bottom:34px;
 }
 
 .logo-ball{
@@ -26,56 +53,40 @@ body{
 }
 
 .logo-area h1{
+    margin-top:10px;
     color:#d4af37;
-    font-size:40px;
+    font-size:42px;
+    font-weight:800;
     letter-spacing:2px;
-    margin-top:8px;
 }
 
 .logo-area p{
-    color:#8d8d8d;
     margin-top:8px;
-}
-
-/* AUTH + SIGNUP + CONNECT */
-
-#auth-screen,
-#signup-screen,
-#league-connect-screen{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:
-    linear-gradient(
-        180deg,
-        #111 0%,
-        #050505 100%
-    );
-}
-
-.auth-card,
-.connect-card{
-    width:430px;
-    background:#151515;
-    border:1px solid #262626;
-    border-radius:22px;
-    padding:42px;
-    box-shadow:
-    0 12px 35px rgba(0,0,0,.45);
+    color:#9a9a9a;
 }
 
 /* INPUTS */
 
+.input-group{
+    margin-bottom:20px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:10px;
+    color:#d4af37;
+    font-size:14px;
+    font-weight:600;
+}
+
 input,
 select{
     width:100%;
-    background:#0f0f0f;
+    padding:15px;
+    border-radius:14px;
     border:1px solid #303030;
-    border-radius:12px;
+    background:#0f0f0f;
     color:white;
-    padding:14px;
-    margin-bottom:18px;
     font-size:15px;
     transition:.25s;
 }
@@ -85,19 +96,12 @@ select:focus{
     outline:none;
     border-color:#d4af37;
     box-shadow:
-    0 0 10px rgba(212,175,55,.25);
+    0 0 12px rgba(212,175,55,.2);
 }
 
 input:disabled{
     opacity:.45;
     cursor:not-allowed;
-}
-
-label{
-    display:block;
-    margin-bottom:10px;
-    color:#d4af37;
-    font-weight:600;
 }
 
 /* BUTTONS */
@@ -106,24 +110,26 @@ button{
     border:none;
     cursor:pointer;
     transition:.25s;
+    font-family:'Inter',sans-serif;
 }
 
 #login-btn,
-#create-account-btn,
-#connect-btn{
+#signup-btn,
+#connect-league-btn{
     width:100%;
     background:#d4af37;
     color:#111;
-    border-radius:12px;
-    padding:14px;
+    padding:15px;
+    border-radius:14px;
     font-weight:700;
     font-size:15px;
+    margin-top:6px;
 }
 
 #login-btn:hover,
-#create-account-btn:hover,
-#connect-btn:hover{
-    background:#e7c34c;
+#signup-btn:hover,
+#connect-league-btn:hover{
+    background:#e9c44d;
     transform:translateY(-2px);
 }
 
@@ -131,41 +137,42 @@ button{
     width:100%;
     background:transparent;
     color:#d4af37;
-    border:1px solid #393939;
-    border-radius:12px;
-    padding:14px;
+    border:1px solid #3a3a3a;
+    padding:15px;
+    border-radius:14px;
+    font-weight:600;
 }
 
 .secondary-btn:hover{
-    background:#1a1a1a;
+    background:#1b1b1b;
 }
 
-/* TEXT */
-
-.small-text{
+.divider{
     text-align:center;
-    color:#858585;
-    margin:
-    18px 0 12px;
+    color:#8d8d8d;
+    margin:18px 0;
 }
 
 .helper-text{
+    color:#8d8d8d;
     font-size:13px;
-    color:#8a8a8a;
     line-height:1.6;
-    margin-top:-6px;
     margin-bottom:22px;
 }
 
 /* APP */
 
 header{
+    width:100%;
+    background:#111;
+    border-bottom:1px solid #232323;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#111;
-    border-bottom:1px solid #252525;
-    padding:18px 36px;
+    padding:18px 32px;
+    position:sticky;
+    top:0;
+    z-index:100;
 }
 
 .brand{
@@ -176,51 +183,187 @@ header{
 
 .brand-name{
     color:#d4af37;
-    font-size:24px;
+    font-size:26px;
     font-weight:800;
     letter-spacing:1px;
 }
+
+/* NAV */
 
 nav{
     display:flex;
     gap:10px;
 }
 
-.tab-btn{
+.nav-btn{
     background:transparent;
-    color:#b5b5b5;
-    padding:10px 18px;
-    border-radius:10px;
+    color:#b8b8b8;
+    padding:11px 18px;
+    border-radius:12px;
     font-weight:600;
 }
 
-.tab-btn:hover{
-    background:#1d1d1d;
+.nav-btn:hover{
+    background:#1c1c1c;
     color:#d4af37;
 }
 
-.tab-btn.active{
+.nav-btn.active{
     background:#d4af37;
     color:#111;
 }
 
-.tab-content{
+/* HEADER RIGHT */
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+#plan-badge{
+    background:#1f1f1f;
+    color:#d4af37;
+    padding:9px 14px;
+    border-radius:12px;
+    font-size:13px;
+    font-weight:700;
+}
+
+#logout-btn{
+    background:#1a1a1a;
+    color:white;
+    border:1px solid #303030;
+    padding:11px 16px;
+    border-radius:12px;
+}
+
+#logout-btn:hover{
+    background:#262626;
+}
+
+/* TABS */
+
+.tab-section{
     display:none;
     padding:34px;
 }
 
-.tab-content.active{
+.active-tab{
     display:block;
 }
 
-h2{
-    color:#d4af37;
-    margin-bottom:24px;
+/* HERO */
+
+.hero-card{
+    background:#141414;
+    border:1px solid #242424;
+    border-radius:24px;
+    padding:34px;
+    margin-bottom:28px;
 }
 
-.card{
-    background:#161616;
-    border:1px solid #262626;
-    border-radius:18px;
-    padding:26px;
+.hero-card h2{
+    color:#d4af37;
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.hero-card p{
+    color:#a0a0a0;
+    line-height:1.7;
+}
+
+/* PREMIUM */
+
+.premium-card{
+    background:
+    linear-gradient(
+        135deg,
+        #171717 0%,
+        #101010 100%
+    );
+
+    border:1px solid #d4af37;
+    border-radius:24px;
+
+    padding:30px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.premium-left h3{
+    color:#d4af37;
+    font-size:24px;
+    margin-bottom:10px;
+}
+
+.premium-left p{
+    color:#c2c2c2;
+    line-height:1.7;
+    max-width:650px;
+}
+
+#upgrade-btn{
+    background:#d4af37;
+    color:#111;
+    padding:16px 24px;
+    border-radius:14px;
+    font-weight:800;
+    font-size:15px;
+    min-width:220px;
+}
+
+#upgrade-btn:hover{
+    background:#ebc74f;
+    transform:translateY(-2px);
+}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+    header{
+        flex-direction:column;
+        gap:18px;
+        padding:24px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .premium-card{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    #upgrade-btn{
+        width:100%;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .auth-card{
+        padding:28px;
+    }
+
+    .hero-card{
+        padding:24px;
+    }
+
+    .hero-card h2{
+        font-size:28px;
+    }
+
+    .tab-section{
+        padding:20px;
+    }
+
 }
