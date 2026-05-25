@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>LeagueIQ</title>
-
-<!-- GOOGLE FONT -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,45 +16,52 @@ href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;80
 rel="stylesheet"
 >
 
+<link rel="stylesheet" href="styles.css">
+
 <!-- FIREBASE -->
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
 
-<link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
 
-<!-- LOGIN SCREEN -->
+<!-- LOGIN -->
 
-<div id="login-screen" class="screen">
+<section
+id="login-screen"
+class="screen">
 
-    <div class="auth-card">
+    <div class="card">
 
-        <div class="logo-area">
+        <div class="logo">
 
-            <div class="logo-ball">⚾</div>
-
-            <h1>LEAGUEIQ</h1>
-
-            <p>
-                Fantasy Baseball Intelligence
-            </p>
+            ⚾
 
         </div>
+
+        <h1>
+
+            LEAGUEIQ
+
+        </h1>
+
+        <p class="subtitle">
+
+            Fantasy Baseball Intelligence
+
+        </p>
 
         <div class="input-group">
 
             <label>Email</label>
 
             <input
-                type="email"
-                id="login-email"
-                placeholder="Enter Email"
-            >
+            type="email"
+            id="login-email"
+            placeholder="Enter Email">
 
         </div>
 
@@ -64,10 +70,9 @@ rel="stylesheet"
             <label>Password</label>
 
             <input
-                type="password"
-                id="login-password"
-                placeholder="Enter Password"
-            >
+            type="password"
+            id="login-password"
+            placeholder="Enter Password">
 
         </div>
 
@@ -84,8 +89,8 @@ rel="stylesheet"
         </div>
 
         <button
-            id="goto-signup-btn"
-            class="secondary-btn">
+        id="show-signup-btn"
+        class="secondary-btn">
 
             Create Account
 
@@ -93,35 +98,42 @@ rel="stylesheet"
 
     </div>
 
-</div>
+</section>
 
-<!-- SIGNUP SCREEN -->
+<!-- SIGNUP -->
 
-<div id="signup-screen" class="screen hidden">
+<section
+id="signup-screen"
+class="screen hidden">
 
-    <div class="auth-card">
+    <div class="card">
 
-        <div class="logo-area">
+        <div class="logo">
 
-            <div class="logo-ball">⚾</div>
-
-            <h1>LEAGUEIQ</h1>
-
-            <p>
-                Create Your Account
-            </p>
+            ⚾
 
         </div>
+
+        <h1>
+
+            Create Account
+
+        </h1>
+
+        <p class="subtitle">
+
+            Start Building Your LeagueIQ Profile
+
+        </p>
 
         <div class="input-group">
 
             <label>Full Name</label>
 
             <input
-                type="text"
-                id="signup-name"
-                placeholder="Enter Full Name"
-            >
+            type="text"
+            id="signup-name"
+            placeholder="Enter Full Name">
 
         </div>
 
@@ -130,10 +142,9 @@ rel="stylesheet"
             <label>Email</label>
 
             <input
-                type="email"
-                id="signup-email"
-                placeholder="Enter Email"
-            >
+            type="email"
+            id="signup-email"
+            placeholder="Enter Email">
 
         </div>
 
@@ -142,10 +153,9 @@ rel="stylesheet"
             <label>Password</label>
 
             <input
-                type="password"
-                id="signup-password"
-                placeholder="Create Password"
-            >
+            type="password"
+            id="signup-password"
+            placeholder="Create Password">
 
         </div>
 
@@ -154,10 +164,9 @@ rel="stylesheet"
             <label>Confirm Password</label>
 
             <input
-                type="password"
-                id="signup-confirm"
-                placeholder="Confirm Password"
-            >
+            type="password"
+            id="signup-confirm"
+            placeholder="Confirm Password">
 
         </div>
 
@@ -165,7 +174,7 @@ rel="stylesheet"
 
             <label>Fantasy Experience</label>
 
-            <select id="experience-level">
+            <select id="signup-experience">
 
                 <option value="">
                     Select Experience
@@ -200,8 +209,8 @@ rel="stylesheet"
         </div>
 
         <button
-            id="back-login-btn"
-            class="secondary-btn">
+        id="back-login-btn"
+        class="secondary-btn">
 
             Back To Login
 
@@ -209,27 +218,33 @@ rel="stylesheet"
 
     </div>
 
-</div>
+</section>
 
 <!-- LEAGUE CONNECT -->
 
-<div
-    id="league-connect-screen"
-    class="screen hidden">
+<section
+id="league-screen"
+class="screen hidden">
 
-    <div class="auth-card">
+    <div class="card">
 
-        <div class="logo-area">
+        <div class="logo">
 
-            <div class="logo-ball">⚾</div>
-
-            <h1>LEAGUEIQ</h1>
-
-            <p>
-                Connect Your League
-            </p>
+            ⚾
 
         </div>
+
+        <h1>
+
+            Connect League
+
+        </h1>
+
+        <p class="subtitle">
+
+            Sync Your Fantasy League
+
+        </p>
 
         <div class="input-group">
 
@@ -266,22 +281,21 @@ rel="stylesheet"
             <label>League ID</label>
 
             <input
-                type="text"
-                id="league-id"
-                placeholder="Enter League ID"
-                disabled
-            >
+            type="text"
+            id="league-id"
+            placeholder="Enter League ID"
+            disabled>
 
         </div>
 
-        <div class="helper-text">
+        <p class="helper-text">
 
             Find this unique ID through your
-            league settings or inside the URL
+            league settings or from the URL
             while logged into your fantasy
-            platform on a web browser.
+            platform on web.
 
-        </div>
+        </p>
 
         <button id="connect-league-btn">
 
@@ -291,11 +305,13 @@ rel="stylesheet"
 
     </div>
 
-</div>
+</section>
 
-<!-- MAIN APP -->
+<!-- APP -->
 
-<div id="app-container" class="hidden">
+<div
+id="app-container"
+class="hidden">
 
     <!-- HEADER -->
 
@@ -303,45 +319,39 @@ rel="stylesheet"
 
         <div class="brand">
 
-            <span class="logo-ball">
-                ⚾
-            </span>
-
-            <span class="brand-name">
-                LEAGUEIQ
-            </span>
+            ⚾ LEAGUEIQ
 
         </div>
 
         <nav>
 
             <button
-                class="nav-btn active"
-                data-tab="team-tab">
+            class="tab-btn active-tab-btn"
+            data-tab="team-tab">
 
                 Team
 
             </button>
 
             <button
-                class="nav-btn"
-                data-tab="trade-tab">
+            class="tab-btn"
+            data-tab="trade-tab">
 
                 Trade
 
             </button>
 
             <button
-                class="nav-btn"
-                data-tab="league-tab">
+            class="tab-btn"
+            data-tab="league-tab">
 
                 League
 
             </button>
 
             <button
-                class="nav-btn"
-                data-tab="players-tab">
+            class="tab-btn"
+            data-tab="players-tab">
 
                 Players
 
@@ -351,11 +361,11 @@ rel="stylesheet"
 
         <div class="header-right">
 
-            <span id="plan-badge">
+            <div id="plan-badge">
 
                 FREE PLAN
 
-            </span>
+            </div>
 
             <button id="logout-btn">
 
@@ -367,45 +377,49 @@ rel="stylesheet"
 
     </header>
 
-    <!-- TEAM TAB -->
+    <!-- TEAM -->
 
     <section
-        id="team-tab"
-        class="tab-section active-tab">
+    id="team-tab"
+    class="tab-content active-content">
 
         <div class="hero-card">
 
             <h2>
-                My Team
+
+                Team Dashboard
+
             </h2>
 
             <p>
-                LeagueIQ roster grades and analytics
+
+                LeagueIQ team analytics,
+                grades, and roster breakdowns
                 will appear here.
+
             </p>
 
         </div>
 
-        <!-- PREMIUM -->
-
         <div
-            id="premium-card"
-            class="premium-card">
+        id="premium-card"
+        class="premium-card">
 
-            <div class="premium-left">
+            <div>
 
                 <h3>
+
                     Upgrade To LeagueIQ Premium
+
                 </h3>
 
                 <p>
 
-                    Unlock:
-                    All 9 grades,
-                    unlimited trade analysis,
+                    Unlock all 9 player grades,
+                    advanced analytics,
                     league odds,
-                    advanced player profiles,
-                    and future premium AI tools.
+                    unlimited trade analysis,
+                    and premium features.
 
                 </p>
 
@@ -421,63 +435,75 @@ rel="stylesheet"
 
     </section>
 
-    <!-- TRADE TAB -->
+    <!-- TRADE -->
 
     <section
-        id="trade-tab"
-        class="tab-section">
+    id="trade-tab"
+    class="tab-content">
 
         <div class="hero-card">
 
             <h2>
+
                 Trade Analyzer
+
             </h2>
 
             <p>
-                Compare trades and calculate
-                player value impact.
+
+                Analyze trades and compare
+                player value.
+
             </p>
 
         </div>
 
     </section>
 
-    <!-- LEAGUE TAB -->
+    <!-- LEAGUE -->
 
     <section
-        id="league-tab"
-        class="tab-section">
+    id="league-tab"
+    class="tab-content">
 
         <div class="hero-card">
 
             <h2>
-                League Dashboard
+
+                League Rankings
+
             </h2>
 
             <p>
-                League rankings, playoff odds,
-                and team comparisons.
+
+                Team rankings, league odds,
+                and comparisons.
+
             </p>
 
         </div>
 
     </section>
 
-    <!-- PLAYERS TAB -->
+    <!-- PLAYERS -->
 
     <section
-        id="players-tab"
-        class="tab-section">
+    id="players-tab"
+    class="tab-content">
 
         <div class="hero-card">
 
             <h2>
+
                 Player Search
+
             </h2>
 
             <p>
+
                 Search all MLB players and
                 view LeagueIQ grades.
+
             </p>
 
         </div>
