@@ -1,7 +1,27 @@
-// ELEMENTS
+// FIREBASE CONFIG
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCcJchr26rP-GeW_6FYa5sXxpHQPT5k0eY",
+    authDomain: "leagueiq-d3e04.firebaseapp.com",
+    projectId: "leagueiq-d3e04",
+    storageBucket: "leagueiq-d3e04.firebasestorage.app",
+    messagingSenderId: "938215290237",
+    appId: "1:938215290237:web:b9c4dd35e0d53772a88814"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+
+// SCREENS
 
 const authScreen =
     document.getElementById("auth-screen");
+
+const signupScreen =
+    document.getElementById("signup-screen");
 
 const leagueScreen =
     document.getElementById("league-connect-screen");
@@ -9,40 +29,188 @@ const leagueScreen =
 const appContainer =
     document.getElementById("app-container");
 
+
+// BUTTONS
+
 const loginBtn =
     document.getElementById("login-btn");
 
-const signupBtn =
-    document.getElementById("signup-btn");
+const gotoSignup =
+    document.getElementById("goto-signup");
+
+const backLogin =
+    document.getElementById("back-login");
+
+const createAccountBtn =
+    document.getElementById(
+        "create-account-btn"
+    );
 
 const connectBtn =
     document.getElementById("connect-btn");
 
+
+// LEAGUE
+
 const platformSelect =
-    document.getElementById("platform-select");
+    document.getElementById(
+        "platform-select"
+    );
 
 const leagueIdInput =
-    document.getElementById("league-id");
+    document.getElementById(
+        "league-id"
+    );
 
 
-// PLATFORM DROPDOWN LOGIC
+// SIGNUP SCREEN
+
+gotoSignup.addEventListener(
+    "click",
+    () => {
+
+        authScreen.classList.add(
+            "hidden"
+        );
+
+        signupScreen.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+backLogin.addEventListener(
+    "click",
+    () => {
+
+        signupScreen.classList.add(
+            "hidden"
+        );
+
+        authScreen.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+
+// PLATFORM DROPDOWN
 
 platformSelect.addEventListener(
     "change",
     () => {
 
+        leagueIdInput.disabled =
+            platformSelect.value === "";
+
+    }
+);
+
+
+// CREATE ACCOUNT
+
+createAccountBtn.addEventListener(
+    "click",
+    () => {
+
+        const name =
+            document.getElementById(
+                "signup-name"
+            ).value;
+
+        const email =
+            document.getElementById(
+                "signup-email"
+            ).value;
+
+        const password =
+            document.getElementById(
+                "signup-password"
+            ).value;
+
+        const confirm =
+            document.getElementById(
+                "signup-confirm"
+            ).value;
+
+        const experience =
+            document.getElementById(
+                "experience"
+            ).value;
+
         if (
-            platformSelect.value !== ""
+            !name ||
+            !email ||
+            !password ||
+            !confirm
         ) {
 
-            leagueIdInput.disabled =
-                false;
+            alert(
+                "Please complete all required fields."
+            );
 
-        } else {
-
-            leagueIdInput.disabled =
-                true;
+            return;
         }
+
+        if (
+            password !== confirm
+        ) {
+
+            alert(
+                "Passwords do not match."
+            );
+
+            return;
+        }
+
+        auth
+        .createUserWithEmailAndPassword(
+            email,
+            password
+        )
+        .then(
+            userCredential => {
+
+                const uid =
+                    userCredential.user.uid;
+
+                return db
+                .collection("users")
+                .doc(uid)
+                .set({
+
+                    name:name,
+                    email:email,
+                    experience:experience,
+                    createdAt:
+                    Date.now()
+
+                });
+
+            }
+        )
+        .then(() => {
+
+            signupScreen.classList.add(
+                "hidden"
+            );
+
+            leagueScreen.classList.remove(
+                "hidden"
+            );
+
+        })
+        .catch(
+            error => {
+
+                alert(
+                    error.message
+                );
+
+            }
+        );
 
     }
 );
@@ -56,67 +224,69 @@ loginBtn.addEventListener(
 
         const email =
             document.getElementById(
-                "email"
+                "login-email"
             ).value;
 
         const password =
             document.getElementById(
-                "password"
+                "login-password"
             ).value;
 
-        if (
-            email.trim() === "" ||
-            password.trim() === ""
-        ) {
+        auth
+        .signInWithEmailAndPassword(
+            email,
+            password
+        )
+        .then(
+            userCredential => {
 
-            alert(
-                "Please enter email and password."
-            );
+                const uid =
+                    userCredential.user.uid;
 
-            return;
-        }
+                db.collection("users")
+                .doc(uid)
+                .get()
+                .then(
+                    doc => {
 
-        localStorage.setItem(
-            "leagueiqUser",
-            email
-        );
+                        if (
+                            doc.exists &&
+                            doc.data().leagueID
+                        ) {
 
-        authScreen.classList.add(
-            "hidden"
-        );
+                            authScreen.classList.add(
+                                "hidden"
+                            );
 
-        // CHECK IF LEAGUE ALREADY SAVED
+                            appContainer.classList.remove(
+                                "hidden"
+                            );
 
-        const savedLeague =
-            localStorage.getItem(
-                "leagueID"
-            );
+                        } else {
 
-        if (savedLeague) {
+                            authScreen.classList.add(
+                                "hidden"
+                            );
 
-            appContainer.classList.remove(
-                "hidden"
-            );
+                            leagueScreen.classList.remove(
+                                "hidden"
+                            );
 
-        } else {
+                        }
 
-            leagueScreen.classList.remove(
-                "hidden"
-            );
-        }
+                    }
+                );
 
-    }
-);
+            }
+        )
+        .catch(
+            error => {
 
+                alert(
+                    error.message
+                );
 
-// CREATE ACCOUNT
-
-signupBtn.addEventListener(
-    "click",
-    () => {
-
-        alert(
-            "Account creation system coming in LeagueIQ V2."
+            }
         );
 
     }
@@ -137,62 +307,31 @@ connectBtn.addEventListener(
 
         if (
             platform === "" ||
-            leagueID.trim() === ""
+            leagueID === ""
         ) {
 
             alert(
-                "Please select platform and enter League ID."
+                "Select platform and enter League ID."
             );
 
             return;
         }
 
-        localStorage.setItem(
-            "platform",
-            platform
-        );
+        const uid =
+            auth.currentUser.uid;
 
-        localStorage.setItem(
-            "leagueID",
+        db.collection("users")
+        .doc(uid)
+        .update({
+
+            platform:
+            platform,
+
+            leagueID:
             leagueID
-        );
 
-        leagueScreen.classList.add(
-            "hidden"
-        );
-
-        appContainer.classList.remove(
-            "hidden"
-        );
-
-    }
-);
-
-
-// AUTO LOGIN
-
-window.addEventListener(
-    "load",
-    () => {
-
-        const savedUser =
-            localStorage.getItem(
-                "leagueiqUser"
-            );
-
-        const savedLeague =
-            localStorage.getItem(
-                "leagueID"
-            );
-
-        if (
-            savedUser &&
-            savedLeague
-        ) {
-
-            authScreen.classList.add(
-                "hidden"
-            );
+        })
+        .then(() => {
 
             leagueScreen.classList.add(
                 "hidden"
@@ -202,13 +341,58 @@ window.addEventListener(
                 "hidden"
             );
 
+        });
+
+    }
+);
+
+
+// AUTO LOGIN
+
+auth.onAuthStateChanged(
+    user => {
+
+        if (user) {
+
+            db.collection("users")
+            .doc(user.uid)
+            .get()
+            .then(
+                doc => {
+
+                    if (
+                        doc.exists &&
+                        doc.data().leagueID
+                    ) {
+
+                        authScreen.classList.add(
+                            "hidden"
+                        );
+
+                        signupScreen.classList.add(
+                            "hidden"
+                        );
+
+                        leagueScreen.classList.add(
+                            "hidden"
+                        );
+
+                        appContainer.classList.remove(
+                            "hidden"
+                        );
+
+                    }
+
+                }
+            );
+
         }
 
     }
 );
 
 
-// TAB SWITCHING
+// TABS
 
 const tabButtons =
     document.querySelectorAll(
@@ -249,38 +433,15 @@ tabButtons.forEach(
                 );
 
                 document
-                    .getElementById(
-                        target
-                    )
-                    .classList.add(
-                        "active"
-                    );
+                .getElementById(
+                    target
+                )
+                .classList.add(
+                    "active"
+                );
 
             }
         );
 
     }
 );
-
-
-// TRADE BUTTON
-
-const tradeBtn =
-    document.querySelector(
-        ".gold-btn"
-    );
-
-if (tradeBtn) {
-
-    tradeBtn.addEventListener(
-        "click",
-        () => {
-
-            alert(
-                "Trade Analyzer coming in LeagueIQ V2."
-            );
-
-        }
-    );
-
-}
