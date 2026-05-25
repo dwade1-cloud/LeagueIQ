@@ -1,75 +1,67 @@
 // FIREBASE CONFIG
 
 const firebaseConfig = {
+
     apiKey: "AIzaSyCcJchr26rP-GeW_6FYa5sXxpHQPT5k0eY",
-    authDomain: "leagueiq-d3e04.firebaseapp.com",
-    projectId: "leagueiq-d3e04",
-    storageBucket: "leagueiq-d3e04.firebasestorage.app",
-    messagingSenderId: "938215290237",
-    appId: "1:938215290237:web:b9c4dd35e0d53772a88814"
+
+    authDomain:
+    "leagueiq-d3e04.firebaseapp.com",
+
+    projectId:
+    "leagueiq-d3e04",
+
+    storageBucket:
+    "leagueiq-d3e04.firebasestorage.app",
+
+    messagingSenderId:
+    "938215290237",
+
+    appId:
+    "1:938215290237:web:b9c4dd35e0d53772a88814"
+
 };
+
+// INITIALIZE
 
 firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
-const db = firebase.firestore();
 
+const db = firebase.firestore();
 
 // SCREENS
 
-const authScreen =
-    document.getElementById("auth-screen");
+const loginScreen =
+document.getElementById(
+    "login-screen"
+);
 
 const signupScreen =
-    document.getElementById("signup-screen");
+document.getElementById(
+    "signup-screen"
+);
 
-const leagueScreen =
-    document.getElementById("league-connect-screen");
+const leagueConnectScreen =
+document.getElementById(
+    "league-connect-screen"
+);
 
 const appContainer =
-    document.getElementById("app-container");
+document.getElementById(
+    "app-container"
+);
 
+// LOGIN / SIGNUP NAVIGATION
 
-// BUTTONS
-
-const loginBtn =
-    document.getElementById("login-btn");
-
-const gotoSignup =
-    document.getElementById("goto-signup");
-
-const backLogin =
-    document.getElementById("back-login");
-
-const createAccountBtn =
-    document.getElementById(
-        "create-account-btn"
-    );
-
-const connectBtn =
-    document.getElementById("connect-btn");
-
-
-// LEAGUE
-
-const platformSelect =
-    document.getElementById(
-        "platform-select"
-    );
-
-const leagueIdInput =
-    document.getElementById(
-        "league-id"
-    );
-
-
-// SIGNUP SCREEN
-
-gotoSignup.addEventListener(
+document
+.getElementById(
+    "goto-signup-btn"
+)
+.addEventListener(
     "click",
     () => {
 
-        authScreen.classList.add(
+        loginScreen.classList.add(
             "hidden"
         );
 
@@ -80,7 +72,11 @@ gotoSignup.addEventListener(
     }
 );
 
-backLogin.addEventListener(
+document
+.getElementById(
+    "back-login-btn"
+)
+.addEventListener(
     "click",
     () => {
 
@@ -88,252 +84,236 @@ backLogin.addEventListener(
             "hidden"
         );
 
-        authScreen.classList.remove(
+        loginScreen.classList.remove(
             "hidden"
         );
 
     }
 );
 
+// SIGN UP
 
-// PLATFORM DROPDOWN
-
-platformSelect.addEventListener(
-    "change",
-    () => {
-
-        leagueIdInput.disabled =
-            platformSelect.value === "";
-
-    }
-);
-
-
-// CREATE ACCOUNT
-
-createAccountBtn.addEventListener(
+document
+.getElementById(
+    "signup-btn"
+)
+.addEventListener(
     "click",
-    () => {
+    async () => {
 
         const name =
-            document.getElementById(
-                "signup-name"
-            ).value;
+        document.getElementById(
+            "signup-name"
+        ).value;
 
         const email =
-            document.getElementById(
-                "signup-email"
-            ).value;
+        document.getElementById(
+            "signup-email"
+        ).value;
 
         const password =
-            document.getElementById(
-                "signup-password"
-            ).value;
+        document.getElementById(
+            "signup-password"
+        ).value;
 
         const confirm =
-            document.getElementById(
-                "signup-confirm"
-            ).value;
+        document.getElementById(
+            "signup-confirm"
+        ).value;
 
         const experience =
-            document.getElementById(
-                "experience"
-            ).value;
+        document.getElementById(
+            "experience-level"
+        ).value;
 
-        if (
+        if(
             !name ||
             !email ||
             !password ||
             !confirm
-        ) {
+        ){
 
             alert(
-                "Please complete all required fields."
+                "Please complete all fields."
             );
 
             return;
+
         }
 
-        if (
-            password !== confirm
-        ) {
+        if(password !== confirm){
 
             alert(
                 "Passwords do not match."
             );
 
             return;
+
         }
 
-        auth
-        .createUserWithEmailAndPassword(
-            email,
-            password
-        )
-        .then(
-            userCredential => {
+        try {
 
-                const uid =
-                    userCredential.user.uid;
+            const userCredential =
+            await auth
+            .createUserWithEmailAndPassword(
+                email,
+                password
+            );
 
-                return db
-                .collection("users")
-                .doc(uid)
-                .set({
+            const user =
+                userCredential.user;
 
-                    name:name,
-                    email:email,
-                    experience:experience,
-                    createdAt:
-                    Date.now()
+            await db
+            .collection("users")
+            .doc(user.uid)
+            .set({
 
-                });
+                name:name,
+                email:email,
+                experience:experience,
+                plan:"free",
+                platform:"",
+                leagueID:"",
+                createdAt:
+                new Date()
 
-            }
-        )
-        .then(() => {
+            });
 
             signupScreen.classList.add(
                 "hidden"
             );
 
-            leagueScreen.classList.remove(
+            leagueConnectScreen
+            .classList.remove(
                 "hidden"
             );
 
-        })
-        .catch(
-            error => {
+        } catch(error){
 
-                alert(
-                    error.message
-                );
+            alert(error.message);
 
-            }
-        );
+        }
 
     }
 );
-
 
 // LOGIN
 
-loginBtn.addEventListener(
+document
+.getElementById(
+    "login-btn"
+)
+.addEventListener(
     "click",
-    () => {
+    async () => {
 
         const email =
-            document.getElementById(
-                "login-email"
-            ).value;
+        document.getElementById(
+            "login-email"
+        ).value;
 
         const password =
-            document.getElementById(
-                "login-password"
-            ).value;
+        document.getElementById(
+            "login-password"
+        ).value;
 
-        auth
-        .signInWithEmailAndPassword(
-            email,
-            password
-        )
-        .then(
-            userCredential => {
+        try {
 
-                const uid =
-                    userCredential.user.uid;
+            await auth
+            .signInWithEmailAndPassword(
+                email,
+                password
+            );
 
-                db.collection("users")
-                .doc(uid)
-                .get()
-                .then(
-                    doc => {
+        } catch(error){
 
-                        if (
-                            doc.exists &&
-                            doc.data().leagueID
-                        ) {
+            alert(error.message);
 
-                            authScreen.classList.add(
-                                "hidden"
-                            );
-
-                            appContainer.classList.remove(
-                                "hidden"
-                            );
-
-                        } else {
-
-                            authScreen.classList.add(
-                                "hidden"
-                            );
-
-                            leagueScreen.classList.remove(
-                                "hidden"
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        )
-        .catch(
-            error => {
-
-                alert(
-                    error.message
-                );
-
-            }
-        );
+        }
 
     }
 );
 
+// AUTH STATE
 
-// CONNECT LEAGUE
+auth.onAuthStateChanged(
+async (user) => {
 
-connectBtn.addEventListener(
-    "click",
-    () => {
+    if(user){
 
-        const platform =
-            platformSelect.value;
+        const doc =
+        await db
+        .collection("users")
+        .doc(user.uid)
+        .get();
 
-        const leagueID =
-            leagueIdInput.value;
+        const userData =
+            doc.data();
 
-        if (
-            platform === "" ||
-            leagueID === ""
-        ) {
+        // PLAN BADGE
 
-            alert(
-                "Select platform and enter League ID."
-            );
+        const planBadge =
+        document.getElementById(
+            "plan-badge"
+        );
 
-            return;
+        if(
+            userData.plan === "pro"
+        ){
+
+            planBadge.innerText =
+            "PRO PLAN";
+
+            document
+            .getElementById(
+                "premium-card"
+            )
+            .style.display =
+            "none";
+
+        } else {
+
+            planBadge.innerText =
+            "FREE PLAN";
+
         }
 
-        const uid =
-            auth.currentUser.uid;
+        // CHECK LEAGUE CONNECT
 
-        db.collection("users")
-        .doc(uid)
-        .update({
+        if(
+            !userData.platform ||
+            !userData.leagueID
+        ){
 
-            platform:
-            platform,
+            loginScreen.classList.add(
+                "hidden"
+            );
 
-            leagueID:
-            leagueID
+            signupScreen.classList.add(
+                "hidden"
+            );
 
-        })
-        .then(() => {
+            appContainer.classList.add(
+                "hidden"
+            );
 
-            leagueScreen.classList.add(
+            leagueConnectScreen
+            .classList.remove(
+                "hidden"
+            );
+
+        } else {
+
+            loginScreen.classList.add(
+                "hidden"
+            );
+
+            signupScreen.classList.add(
+                "hidden"
+            );
+
+            leagueConnectScreen
+            .classList.add(
                 "hidden"
             );
 
@@ -341,107 +321,263 @@ connectBtn.addEventListener(
                 "hidden"
             );
 
-        });
+        }
+
+    } else {
+
+        loginScreen.classList.remove(
+            "hidden"
+        );
+
+        signupScreen.classList.add(
+            "hidden"
+        );
+
+        leagueConnectScreen
+        .classList.add(
+            "hidden"
+        );
+
+        appContainer.classList.add(
+            "hidden"
+        );
 
     }
+
+});
+
+// PLATFORM SELECT
+
+const platformSelect =
+document.getElementById(
+    "platform-select"
 );
 
+const leagueInput =
+document.getElementById(
+    "league-id"
+);
 
-// AUTO LOGIN
+platformSelect.addEventListener(
+    "change",
+    () => {
 
-auth.onAuthStateChanged(
-    user => {
+        if(platformSelect.value){
 
-        if (user) {
+            leagueInput.disabled =
+            false;
 
-            db.collection("users")
-            .doc(user.uid)
-            .get()
-            .then(
-                doc => {
+        } else {
 
-                    if (
-                        doc.exists &&
-                        doc.data().leagueID
-                    ) {
-
-                        authScreen.classList.add(
-                            "hidden"
-                        );
-
-                        signupScreen.classList.add(
-                            "hidden"
-                        );
-
-                        leagueScreen.classList.add(
-                            "hidden"
-                        );
-
-                        appContainer.classList.remove(
-                            "hidden"
-                        );
-
-                    }
-
-                }
-            );
+            leagueInput.disabled =
+            true;
 
         }
 
     }
 );
 
+// CONNECT LEAGUE
 
-// TABS
+document
+.getElementById(
+    "connect-league-btn"
+)
+.addEventListener(
+    "click",
+    async () => {
 
-const tabButtons =
-    document.querySelectorAll(
-        ".tab-btn"
-    );
+        const user =
+            auth.currentUser;
 
-const tabContents =
-    document.querySelectorAll(
-        ".tab-content"
-    );
+        const platform =
+        platformSelect.value;
 
-tabButtons.forEach(
-    button => {
+        const leagueID =
+        leagueInput.value;
 
-        button.addEventListener(
-            "click",
-            () => {
+        if(
+            !platform ||
+            !leagueID
+        ){
 
-                const target =
-                    button.dataset.tab;
+            alert(
+                "Please complete all fields."
+            );
 
-                tabButtons.forEach(
-                    btn =>
-                    btn.classList.remove(
-                        "active"
-                    )
-                );
+            return;
 
-                tabContents.forEach(
-                    tab =>
-                    tab.classList.remove(
-                        "active"
-                    )
-                );
+        }
 
-                button.classList.add(
-                    "active"
-                );
+        try {
 
-                document
-                .getElementById(
-                    target
-                )
-                .classList.add(
-                    "active"
-                );
+            await db
+            .collection("users")
+            .doc(user.uid)
+            .update({
 
-            }
-        );
+                platform:platform,
+                leagueID:leagueID
+
+            });
+
+            leagueConnectScreen
+            .classList.add(
+                "hidden"
+            );
+
+            appContainer.classList.remove(
+                "hidden"
+            );
+
+        } catch(error){
+
+            alert(error.message);
+
+        }
 
     }
 );
+
+// NAVIGATION
+
+const navButtons =
+document.querySelectorAll(
+    ".nav-btn"
+);
+
+const tabSections =
+document.querySelectorAll(
+    ".tab-section"
+);
+
+navButtons.forEach(
+(button) => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            navButtons.forEach(
+            (btn) => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+            tabSections.forEach(
+            (tab) => {
+
+                tab.classList.remove(
+                    "active-tab"
+                );
+
+            });
+
+            button.classList.add(
+                "active"
+            );
+
+            document
+            .getElementById(
+                button.dataset.tab
+            )
+            .classList.add(
+                "active-tab"
+            );
+
+        }
+    );
+
+}
+);
+
+// LOGOUT
+
+document
+.getElementById(
+    "logout-btn"
+)
+.addEventListener(
+    "click",
+    async () => {
+
+        await auth.signOut();
+
+    }
+);
+
+// STRIPE CHECKOUT
+
+const upgradeBtn =
+document.getElementById(
+    "upgrade-btn"
+);
+
+if(upgradeBtn){
+
+    upgradeBtn.addEventListener(
+        "click",
+        async () => {
+
+            const user =
+                auth.currentUser;
+
+            if(!user){
+
+                alert(
+                    "You must be logged in."
+                );
+
+                return;
+
+            }
+
+            try {
+
+                const response =
+                await fetch(
+
+                    "PASTE_CREATE_CHECKOUT_SESSION_FUNCTION_URL",
+
+                    {
+
+                        method:"POST",
+
+                        headers:{
+                            "Content-Type":
+                            "application/json"
+                        },
+
+                        body:JSON.stringify({
+
+                            uid:user.uid
+
+                        })
+
+                    }
+
+                );
+
+                const data =
+                    await response.json();
+
+                window.location.href =
+                    data.url;
+
+            } catch(error){
+
+                console.error(error);
+
+                alert(
+                    "Stripe checkout failed."
+                );
+
+            }
+
+        }
+    );
+
+}
