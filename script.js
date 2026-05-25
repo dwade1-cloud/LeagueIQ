@@ -21,7 +21,7 @@ const firebaseConfig = {
 
 };
 
-// INITIALIZE
+// INITIALIZE FIREBASE
 
 firebase.initializeApp(firebaseConfig);
 
@@ -41,9 +41,9 @@ document.getElementById(
     "signup-screen"
 );
 
-const leagueConnectScreen =
+const leagueScreen =
 document.getElementById(
-    "league-connect-screen"
+    "league-screen"
 );
 
 const appContainer =
@@ -55,7 +55,7 @@ document.getElementById(
 
 document
 .getElementById(
-    "goto-signup-btn"
+    "show-signup-btn"
 )
 .addEventListener(
     "click",
@@ -91,7 +91,7 @@ document
     }
 );
 
-// SIGN UP
+// SIGNUP
 
 document
 .getElementById(
@@ -123,7 +123,7 @@ document
 
         const experience =
         document.getElementById(
-            "experience-level"
+            "signup-experience"
         ).value;
 
         if(
@@ -169,11 +169,17 @@ document
             .set({
 
                 name:name,
+
                 email:email,
+
                 experience:experience,
+
                 plan:"free",
+
                 platform:"",
+
                 leagueID:"",
+
                 createdAt:
                 new Date()
 
@@ -183,8 +189,7 @@ document
                 "hidden"
             );
 
-            leagueConnectScreen
-            .classList.remove(
+            leagueScreen.classList.remove(
                 "hidden"
             );
 
@@ -278,7 +283,7 @@ async (user) => {
 
         }
 
-        // CHECK LEAGUE CONNECT
+        // CHECK LEAGUE
 
         if(
             !userData.platform ||
@@ -297,8 +302,7 @@ async (user) => {
                 "hidden"
             );
 
-            leagueConnectScreen
-            .classList.remove(
+            leagueScreen.classList.remove(
                 "hidden"
             );
 
@@ -312,8 +316,7 @@ async (user) => {
                 "hidden"
             );
 
-            leagueConnectScreen
-            .classList.add(
+            leagueScreen.classList.add(
                 "hidden"
             );
 
@@ -333,8 +336,7 @@ async (user) => {
             "hidden"
         );
 
-        leagueConnectScreen
-        .classList.add(
+        leagueScreen.classList.add(
             "hidden"
         );
 
@@ -417,12 +419,12 @@ document
             .update({
 
                 platform:platform,
+
                 leagueID:leagueID
 
             });
 
-            leagueConnectScreen
-            .classList.add(
+            leagueScreen.classList.add(
                 "hidden"
             );
 
@@ -439,45 +441,45 @@ document
     }
 );
 
-// NAVIGATION
+// TAB NAVIGATION
 
-const navButtons =
+const tabButtons =
 document.querySelectorAll(
-    ".nav-btn"
+    ".tab-btn"
 );
 
-const tabSections =
+const tabContents =
 document.querySelectorAll(
-    ".tab-section"
+    ".tab-content"
 );
 
-navButtons.forEach(
+tabButtons.forEach(
 (button) => {
 
     button.addEventListener(
         "click",
         () => {
 
-            navButtons.forEach(
+            tabButtons.forEach(
             (btn) => {
 
                 btn.classList.remove(
-                    "active"
+                    "active-tab-btn"
                 );
 
             });
 
-            tabSections.forEach(
+            tabContents.forEach(
             (tab) => {
 
                 tab.classList.remove(
-                    "active-tab"
+                    "active-content"
                 );
 
             });
 
             button.classList.add(
-                "active"
+                "active-tab-btn"
             );
 
             document
@@ -485,97 +487,8 @@ navButtons.forEach(
                 button.dataset.tab
             )
             .classList.add(
-                "active-tab"
+                "active-content"
             );
-
-        }
-    );
-
-}
-);
-
-// LOGOUT
-
-document
-.getElementById(
-    "logout-btn"
-)
-.addEventListener(
-    "click",
-    async () => {
-
-        await auth.signOut();
-
-    }
-);
-
-// STRIPE CHECKOUT
-
-const upgradeBtn =
-document.getElementById(
-    "upgrade-btn"
-);
-
-if(upgradeBtn){
-
-    upgradeBtn.addEventListener(
-        "click",
-        async () => {
-
-            const user =
-                auth.currentUser;
-
-            if(!user){
-
-                alert(
-                    "You must be logged in."
-                );
-
-                return;
-
-            }
-
-            try {
-
-                const response =
-                await fetch(
-
-                    "PASTE_CREATE_CHECKOUT_SESSION_FUNCTION_URL",
-
-                    {
-
-                        method:"POST",
-
-                        headers:{
-                            "Content-Type":
-                            "application/json"
-                        },
-
-                        body:JSON.stringify({
-
-                            uid:user.uid
-
-                        })
-
-                    }
-
-                );
-
-                const data =
-                    await response.json();
-
-                window.location.href =
-                    data.url;
-
-            } catch(error){
-
-                console.error(error);
-
-                alert(
-                    "Stripe checkout failed."
-                );
-
-            }
 
         }
     );
