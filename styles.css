@@ -10,42 +10,37 @@ body{
     color:#f5f5f5;
 }
 
-/* GLOBAL */
-
 .hidden{
-    display:none;
+    display:none !important;
 }
 
-h1{
-    font-size:42px;
-    font-weight:800;
-    color:#d4af37;
-    letter-spacing:2px;
-}
-
-h2{
-    color:#d4af37;
-    margin-bottom:24px;
-    font-size:30px;
-}
-
-.logo-ball{
-    font-size:38px;
-}
+/* LOGO */
 
 .logo-area{
     text-align:center;
-    margin-bottom:30px;
+    margin-bottom:28px;
 }
 
-.logo-area p{
-    color:#9a9a9a;
+.logo-ball{
+    font-size:42px;
+}
+
+.logo-area h1{
+    color:#d4af37;
+    font-size:40px;
+    letter-spacing:2px;
     margin-top:8px;
 }
 
-/* AUTH + CONNECT */
+.logo-area p{
+    color:#8d8d8d;
+    margin-top:8px;
+}
+
+/* AUTH + SIGNUP + CONNECT */
 
 #auth-screen,
+#signup-screen,
 #league-connect-screen{
     min-height:100vh;
     display:flex;
@@ -54,29 +49,31 @@ h2{
     background:
     linear-gradient(
         180deg,
-        #111111 0%,
-        #070707 100%
+        #111 0%,
+        #050505 100%
     );
 }
 
 .auth-card,
 .connect-card{
-    width:420px;
+    width:430px;
     background:#151515;
     border:1px solid #262626;
-    border-radius:20px;
-    padding:40px;
+    border-radius:22px;
+    padding:42px;
     box-shadow:
     0 12px 35px rgba(0,0,0,.45);
 }
 
+/* INPUTS */
+
 input,
 select{
     width:100%;
-    background:#101010;
-    color:white;
-    border:1px solid #333;
+    background:#0f0f0f;
+    border:1px solid #303030;
     border-radius:12px;
+    color:white;
     padding:14px;
     margin-bottom:18px;
     font-size:15px;
@@ -88,11 +85,11 @@ select:focus{
     outline:none;
     border-color:#d4af37;
     box-shadow:
-    0 0 12px rgba(212,175,55,.25);
+    0 0 10px rgba(212,175,55,.25);
 }
 
 input:disabled{
-    opacity:.5;
+    opacity:.45;
     cursor:not-allowed;
 }
 
@@ -101,21 +98,6 @@ label{
     margin-bottom:10px;
     color:#d4af37;
     font-weight:600;
-}
-
-.helper-text{
-    font-size:13px;
-    line-height:1.6;
-    color:#8d8d8d;
-    margin-top:-5px;
-    margin-bottom:22px;
-}
-
-.small-text{
-    text-align:center;
-    color:#888;
-    margin-top:16px;
-    margin-bottom:12px;
 }
 
 /* BUTTONS */
@@ -127,65 +109,77 @@ button{
 }
 
 #login-btn,
-#connect-btn,
-.gold-btn{
+#create-account-btn,
+#connect-btn{
     width:100%;
     background:#d4af37;
     color:#111;
-    padding:14px;
     border-radius:12px;
+    padding:14px;
     font-weight:700;
     font-size:15px;
 }
 
 #login-btn:hover,
-#connect-btn:hover,
-.gold-btn:hover{
-    background:#e3bf4b;
+#create-account-btn:hover,
+#connect-btn:hover{
+    background:#e7c34c;
     transform:translateY(-2px);
 }
 
 .secondary-btn{
     width:100%;
     background:transparent;
-    border:1px solid #3b3b3b;
     color:#d4af37;
-    padding:14px;
+    border:1px solid #393939;
     border-radius:12px;
+    padding:14px;
 }
 
 .secondary-btn:hover{
-    background:#1b1b1b;
+    background:#1a1a1a;
 }
 
-/* HEADER */
+/* TEXT */
+
+.small-text{
+    text-align:center;
+    color:#858585;
+    margin:
+    18px 0 12px;
+}
+
+.helper-text{
+    font-size:13px;
+    color:#8a8a8a;
+    line-height:1.6;
+    margin-top:-6px;
+    margin-bottom:22px;
+}
+
+/* APP */
 
 header{
-    background:#121212;
-    border-bottom:1px solid #232323;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:18px 40px;
-    position:sticky;
-    top:0;
-    z-index:100;
+    background:#111;
+    border-bottom:1px solid #252525;
+    padding:18px 36px;
 }
 
 .brand{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
 }
 
 .brand-name{
+    color:#d4af37;
     font-size:24px;
     font-weight:800;
-    color:#d4af37;
     letter-spacing:1px;
 }
-
-/* NAV */
 
 nav{
     display:flex;
@@ -194,14 +188,14 @@ nav{
 
 .tab-btn{
     background:transparent;
-    color:#b8b8b8;
+    color:#b5b5b5;
     padding:10px 18px;
     border-radius:10px;
     font-weight:600;
 }
 
 .tab-btn:hover{
-    background:#1c1c1c;
+    background:#1d1d1d;
     color:#d4af37;
 }
 
@@ -210,115 +204,23 @@ nav{
     color:#111;
 }
 
-/* CONTENT */
-
 .tab-content{
     display:none;
-    padding:35px;
+    padding:34px;
 }
 
 .tab-content.active{
     display:block;
 }
 
+h2{
+    color:#d4af37;
+    margin-bottom:24px;
+}
+
 .card{
-    background:#171717;
+    background:#161616;
     border:1px solid #262626;
     border-radius:18px;
     padding:26px;
-    margin-bottom:24px;
-    box-shadow:
-    0 6px 18px rgba(0,0,0,.35);
-}
-
-.card h3{
-    color:#d4af37;
-    margin-bottom:18px;
-}
-
-/* TABLES */
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th{
-    background:#101010;
-    color:#d4af37;
-    text-align:left;
-    padding:14px;
-}
-
-td{
-    padding:14px;
-    border-bottom:1px solid #252525;
-}
-
-tr:hover{
-    background:#1a1a1a;
-}
-
-/* LOCK */
-
-.locked-card{
-    margin-top:22px;
-    background:#101010;
-    border:1px dashed #555;
-    border-radius:12px;
-    padding:18px;
-    color:#7f7f7f;
-    text-align:center;
-}
-
-.trade-result{
-    margin-top:18px;
-    color:#d4af37;
-    font-weight:600;
-}
-
-.player-card{
-    margin-top:24px;
-    background:#111;
-    border:1px solid #282828;
-    border-radius:16px;
-    padding:22px;
-}
-
-.player-card h3{
-    color:#d4af37;
-    margin-bottom:8px;
-}
-
-.grade-box{
-    margin-top:18px;
-    background:#d4af37;
-    color:#111;
-    padding:14px;
-    border-radius:10px;
-    font-weight:700;
-}
-
-/* MOBILE */
-
-@media(max-width:850px){
-
-    header{
-        flex-direction:column;
-        gap:18px;
-    }
-
-    nav{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    .auth-card,
-    .connect-card{
-        width:92%;
-    }
-
-    .tab-content{
-        padding:20px;
-    }
 }
