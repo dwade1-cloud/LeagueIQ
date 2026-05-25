@@ -5,16 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LeagueIQ</title>
 
+<!-- FIREBASE -->
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
 <link rel="stylesheet" href="styles.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- LOGIN PAGE -->
+<!-- LOGIN -->
 
 <div id="auth-screen">
 
@@ -30,26 +37,34 @@
 
             <input
                 type="email"
+                id="login-email"
                 placeholder="Email"
-                id="email"
             >
 
             <input
                 type="password"
+                id="login-password"
                 placeholder="Password"
-                id="password"
             >
 
             <button id="login-btn">
+
                 Log In
+
             </button>
 
             <div class="small-text">
+
                 Don't have an account?
+
             </div>
 
-            <button id="signup-btn" class="secondary-btn">
+            <button
+                id="goto-signup"
+                class="secondary-btn">
+
                 Create Account
+
             </button>
 
         </div>
@@ -58,9 +73,89 @@
 
 </div>
 
-<!-- LEAGUE CONNECT PAGE -->
+<!-- SIGNUP -->
 
-<div id="league-connect-screen" class="hidden">
+<div
+    id="signup-screen"
+    class="hidden">
+
+    <div class="auth-card">
+
+        <div class="logo-area">
+            <div class="logo-ball">⚾</div>
+            <h1>LEAGUEIQ</h1>
+            <p>Create Account</p>
+        </div>
+
+        <input
+            type="text"
+            id="signup-name"
+            placeholder="Full Name">
+
+        <input
+            type="email"
+            id="signup-email"
+            placeholder="Email">
+
+        <input
+            type="password"
+            id="signup-password"
+            placeholder="Password">
+
+        <input
+            type="password"
+            id="signup-confirm"
+            placeholder="Confirm Password">
+
+        <select id="experience">
+
+            <option value="">
+                Fantasy Experience (Optional)
+            </option>
+
+            <option>
+                Beginner
+            </option>
+
+            <option>
+                Intermediate
+            </option>
+
+            <option>
+                Advanced
+            </option>
+
+        </select>
+
+        <button id="create-account-btn">
+
+            Create Account
+
+        </button>
+
+        <div class="small-text">
+
+            Already have an account?
+
+        </div>
+
+        <button
+            id="back-login"
+            class="secondary-btn">
+
+            Back To Login
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- LEAGUE CONNECT -->
+
+<div
+    id="league-connect-screen"
+    class="hidden">
 
     <div class="connect-card">
 
@@ -70,7 +165,11 @@
             <p>Connect Your League</p>
         </div>
 
-        <label>Fantasy Platform</label>
+        <label>
+
+            Fantasy Platform
+
+        </label>
 
         <select id="platform-select">
 
@@ -78,25 +177,29 @@
                 Select Platform
             </option>
 
-            <option value="Sleeper">
+            <option>
                 Sleeper
             </option>
 
-            <option value="ESPN">
+            <option>
                 ESPN
             </option>
 
-            <option value="Yahoo">
+            <option>
                 Yahoo
             </option>
 
-            <option value="Fantrax">
+            <option>
                 Fantrax
             </option>
 
         </select>
 
-        <label>League ID</label>
+        <label>
+
+            League ID
+
+        </label>
 
         <input
             type="text"
@@ -107,15 +210,17 @@
 
         <div class="helper-text">
 
-            Find your league's unique ID through league
-            settings or within the URL/search bar while
-            logged into your fantasy platform through a
-            web browser.
+            Find this unique ID through your
+            league settings or inside the URL
+            when logged into your fantasy
+            platform on a web browser.
 
         </div>
 
         <button id="connect-btn">
+
             Connect League
+
         </button>
 
     </div>
@@ -124,15 +229,22 @@
 
 <!-- MAIN APP -->
 
-<div id="app-container" class="hidden">
+<div
+    id="app-container"
+    class="hidden">
 
     <header>
 
         <div class="brand">
 
-            <span class="logo-ball">⚾</span>
+            <span class="logo-ball">
+                ⚾
+            </span>
+
             <span class="brand-name">
+
                 LEAGUEIQ
+
             </span>
 
         </div>
@@ -175,189 +287,68 @@
 
     </header>
 
-    <!-- TEAM -->
-
     <section
         id="team"
         class="tab-content active">
 
-        <h2>My Team</h2>
+        <h2>
+
+            My Team
+
+        </h2>
 
         <div class="card">
 
-            <h3>Roster</h3>
+            <h3>
 
-            <table>
+                Team Dashboard
 
-                <thead>
+            </h3>
 
-                    <tr>
-                        <th>Player</th>
-                        <th>Pos</th>
-                        <th>Position Grade</th>
-                        <th>Premium</th>
-                    </tr>
+            <p>
 
-                </thead>
+                LeagueIQ team data and grades
+                will appear here.
 
-                <tbody>
-
-                    <tr>
-                        <td>CJ Abrams</td>
-                        <td>SS</td>
-                        <td>95</td>
-                        <td>🔒</td>
-                    </tr>
-
-                    <tr>
-                        <td>Juan Soto</td>
-                        <td>OF</td>
-                        <td>91</td>
-                        <td>🔒</td>
-                    </tr>
-
-                    <tr>
-                        <td>Ben Rice</td>
-                        <td>C</td>
-                        <td>87</td>
-                        <td>🔒</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
+            </p>
 
         </div>
 
     </section>
-
-    <!-- TRADE -->
 
     <section
         id="trade"
         class="tab-content">
 
-        <h2>Trade Analyzer</h2>
+        <h2>
 
-        <div class="card">
+            Trade Analyzer
 
-            <label>Give</label>
-
-            <input
-                type="text"
-                placeholder="Player Name">
-
-            <label>Receive</label>
-
-            <input
-                type="text"
-                placeholder="Player Name">
-
-            <button class="gold-btn">
-
-                Analyze Trade
-
-            </button>
-
-            <div class="trade-result">
-
-                Free Plan:
-                2 analyses/week
-
-            </div>
-
-        </div>
+        </h2>
 
     </section>
-
-    <!-- LEAGUE -->
 
     <section
         id="league"
         class="tab-content">
 
-        <h2>League</h2>
+        <h2>
 
-        <div class="card">
+            League
 
-            <table>
-
-                <thead>
-
-                    <tr>
-                        <th>Rank</th>
-                        <th>Team</th>
-                        <th>Record</th>
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-                        <td>1</td>
-                        <td>Diamond Kings</td>
-                        <td>6-1</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>League Leaders</td>
-                        <td>5-2</td>
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-            <div class="locked-card">
-
-                🔒 Playoff Odds (Premium)
-
-            </div>
-
-        </div>
+        </h2>
 
     </section>
-
-    <!-- PLAYERS -->
 
     <section
         id="players"
         class="tab-content">
 
-        <h2>Players</h2>
+        <h2>
 
-        <div class="card">
+            Players
 
-            <input
-                type="text"
-                placeholder="Search Player..."
-            >
-
-            <div class="player-card">
-
-                <h3>Juan Soto</h3>
-
-                <p>
-                    Age 26 • OF • Yankees
-                </p>
-
-                <div class="grade-box">
-
-                    Position Grade: 91
-
-                </div>
-
-                <div class="locked-card">
-
-                    🔒 Premium Grades + Advanced Stats
-
-                </div>
-
-            </div>
-
-        </div>
+        </h2>
 
     </section>
 
