@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FullCount</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- LOGIN / LEAGUE CONNECT SCREEN -->
+
+<div id="login-screen">
+
+    <div class="login-card">
+
+        <div class="logo-area">
+            ⚾
+            <h1>FULLCOUNT</h1>
+            <p>Baseball Intelligence</p>
+        </div>
+
+        <div class="league-connect">
+
+            <label>Paste League ID</label>
+
+            <input
+                type="text"
+                placeholder="Enter League ID"
+                id="league-id"
+            >
+
+            <button id="connect-btn">
+                Connect League
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MAIN APP -->
+
+<div id="app-container" class="hidden">
+
+    <!-- TOP NAV -->
+
+    <header>
+
+        <div class="brand">
+
+            <span class="logo-ball">⚾</span>
+            <span class="brand-name">FULLCOUNT</span>
+
+        </div>
+
+        <nav>
+
+            <button class="tab-btn active" data-tab="team">
+                Team
+            </button>
+
+            <button class="tab-btn" data-tab="trade">
+                Trade
+            </button>
+
+            <button class="tab-btn" data-tab="league">
+                League
+            </button>
+
+            <button class="tab-btn" data-tab="players">
+                Players
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- TEAM TAB -->
+
+    <section id="team" class="tab-content active">
+
+        <h2>My Team</h2>
+
+        <div class="card">
+
+            <h3>Roster</h3>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Pos</th>
+                        <th>Pos Grade</th>
+                        <th>Premium</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>CJ Abrams</td>
+                        <td>SS</td>
+                        <td>95</td>
+                        <td>🔒</td>
+                    </tr>
+
+                    <tr>
+                        <td>Juan Soto</td>
+                        <td>OF</td>
+                        <td>91</td>
+                        <td>🔒</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ben Rice</td>
+                        <td>C</td>
+                        <td>87</td>
+                        <td>🔒</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <!-- TRADE TAB -->
+
+    <section id="trade" class="tab-content">
+
+        <h2>Trade Analyzer</h2>
+
+        <div class="card">
+
+            <label>Give</label>
+            <input type="text" placeholder="Player Name">
+
+            <label>Receive</label>
+            <input type="text" placeholder="Player Name">
+
+            <button class="gold-btn">
+                Analyze Trade
+            </button>
+
+            <div class="trade-result">
+                Free Plan:
+                2 analyses/week
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LEAGUE TAB -->
+
+    <section id="league" class="tab-content">
+
+        <h2>League Standings</h2>
+
+        <div class="card">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Team</th>
+                        <th>Record</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Diamond Kings</td>
+                        <td>6-1</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Full Send</td>
+                        <td>5-2</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+            <div class="locked-card">
+                🔒 Playoff Odds (Premium)
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PLAYERS TAB -->
+
+    <section id="players" class="tab-content">
+
+        <h2>Players</h2>
+
+        <div class="card">
+
+            <input
+                type="text"
+                placeholder="Search Player..."
+            >
+
+            <div class="player-card">
+
+                <h3>Juan Soto</h3>
+
+                <p>Age 26 • OF • Yankees</p>
+
+                <div class="grade-box">
+                    Position Grade: 91
+                </div>
+
+                <div class="locked-card">
+                    🔒 Advanced Grades + Stats
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
