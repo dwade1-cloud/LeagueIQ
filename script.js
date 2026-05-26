@@ -497,15 +497,34 @@ tabButtons.forEach(
 
 // LOGOUT
 
-document
-.getElementById(
+const logoutBtn =
+document.getElementById(
     "logout-btn"
-)
-.addEventListener(
-    "click",
-    async () => {
-
-        await auth.signOut();
-
-    }
 );
+
+if(logoutBtn){
+
+    logoutBtn.addEventListener(
+        "click",
+        async () => {
+
+            try {
+
+                await auth.signOut();
+
+                location.reload();
+
+            } catch(error){
+
+                console.error(error);
+
+                alert(
+                    "Logout failed."
+                );
+
+            }
+
+        }
+    );
+
+}
