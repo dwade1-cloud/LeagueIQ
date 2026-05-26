@@ -21,45 +21,6 @@ const firebaseConfig = {
 
 };
 
-// DROPDOWN OVERLAY
-
-const overlay =
-document.getElementById(
-    "dropdown-overlay"
-);
-
-const selects =
-document.querySelectorAll(
-    "select"
-);
-
-selects.forEach(
-(select) => {
-
-    select.addEventListener(
-        "focus",
-        () => {
-
-            overlay.classList.add(
-                "active"
-            );
-
-        }
-    );
-
-    select.addEventListener(
-        "blur",
-        () => {
-
-            overlay.classList.remove(
-                "active"
-            );
-
-        }
-    );
-
-});
-
 // INITIALIZE FIREBASE
 
 firebase.initializeApp(firebaseConfig);
@@ -581,3 +542,42 @@ window.addEventListener(
 
     }
 );
+
+// DROPDOWN OVERLAY
+
+const overlay =
+document.getElementById(
+    "dropdown-overlay"
+);
+
+const selects =
+document.querySelectorAll(
+    "select"
+);
+
+selects.forEach(
+(select) => {
+
+    select.addEventListener(
+        "focus",
+        () => {
+
+            overlay.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+    select.addEventListener(
+        "blur",
+        () => {
+
+            overlay.classList.remove(
+                "active"
+            );
+
+        }
+    );
+
+});
