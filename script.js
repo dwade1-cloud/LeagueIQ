@@ -126,6 +126,11 @@ document
             "signup-experience"
         ).value;
 
+        const favoriteSport =
+        document.getElementById(
+            "signup-sport"
+        ).value;
+
         if(
             !name ||
             !email ||
@@ -171,6 +176,8 @@ document
                 name:name,
 
                 email:email,
+
+                favoriteSport:favoriteSport,
 
                 experience:experience,
 
