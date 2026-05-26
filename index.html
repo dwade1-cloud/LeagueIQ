@@ -429,34 +429,89 @@ class="screen hidden"
 
         <!-- BUTTON -->
 
-	<div class="continue-btn-wrap">
+	<div class="league-action-buttons">
 
-	    <button
-            id="continue-dashboard-btn"
-            disabled
-            >
-		Continue To Dashboard
-            </button>
+    	    <button
+    	    id="back-dashboard-btn"
+    	    class="secondary-btn"
+    	    >
+        	Back To Dashboard
+    	    </button>
 
-        </div>
+    	    <button
+    	    id="continue-dashboard-btn"
+    	    disabled
+    	    >
+        	Continue To Dashboard
+    	    </button>
+
+	</div>
 
 </div>
 
 <!-- APP -->
 
 <div
-id="app-container"
-class="hidden">
+id="app-container">
 
     <!-- HEADER -->
 
     <header>
 
-        <div class="brand">
+        <div class="header-left">
 
-            LEAGUEIQ
+    	    <div class="brand">
 
-        </div>
+        	LEAGUEIQ
+
+    	    </div>
+
+    	    <!-- FANTASY LEAGUES DROPDOWN -->
+
+    	    <div class="league-dropdown">
+
+        	<button
+        	id="league-dropdown-btn"
+        	class="league-dropdown-btn"
+        	>
+
+            	    Fantasy Leagues
+
+        	</button>
+
+        	<div
+        	id="league-dropdown-menu"
+        	class="league-dropdown-menu hidden"
+        	>
+
+            	    <!-- CONNECTED LEAGUES -->
+
+            	    <button
+            	    class="league-item-btn"
+            	    >
+                	Cleveland Dynasty
+            	    </button>
+
+            	    <button
+            	    class="league-item-btn"
+            	    >
+                	Money League
+            	    </button>
+
+            	    <!-- ADD LEAGUE -->
+
+            	    <button
+            	    id="add-league-btn"
+            	    class="add-league-btn"
+            	    >
+                	+ Add League
+            	    </button>
+
+        	</div>
+
+    	    </div>
+
+	</div>
 
         <nav>
 

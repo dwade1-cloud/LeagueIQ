@@ -710,3 +710,76 @@ leagueIdInput.addEventListener(
 
     }
 );
+
+// FANTASY LEAGUES DROPDOWN
+
+const leagueDropdownBtn =
+document.getElementById(
+    "league-dropdown-btn"
+);
+
+const leagueDropdownMenu =
+document.getElementById(
+    "league-dropdown-menu"
+);
+
+leagueDropdownBtn.addEventListener(
+    "click",
+    () => {
+
+        leagueDropdownMenu.classList.toggle(
+            "hidden"
+        );
+
+    }
+);
+
+// ADD LEAGUE BUTTON
+
+const addLeagueBtn =
+document.getElementById(
+    "add-league-btn"
+);
+
+addLeagueBtn.addEventListener(
+    "click",
+    () => {
+
+        appContainer.classList.add(
+            "hidden"
+        );
+
+        leagueScreen.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+// BACK TO DASHBOARD
+
+const backDashboardBtn =
+document.getElementById(
+    "back-dashboard-btn"
+);
+
+backDashboardBtn.addEventListener(
+    "click",
+    () => {
+
+        if(
+            auth.currentUser
+        ){
+
+            leagueScreen.classList.add(
+                "hidden"
+            );
+
+            appContainer.classList.remove(
+                "hidden"
+            );
+
+        }
+
+    }
+);

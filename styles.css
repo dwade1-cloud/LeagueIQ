@@ -433,3 +433,156 @@ input[type=number]{
     -moz-appearance:textfield;
 
 }
+
+/* HEADER LEFT */
+
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+}
+
+/* DROPDOWN */
+
+.league-dropdown{
+
+    position:relative;
+
+}
+
+/* DROPDOWN BUTTON */
+
+.league-dropdown-btn{
+
+    background:#1a1a1a;
+
+    border:1px solid #303030;
+
+    color:#d4af37;
+
+    padding:11px 16px;
+
+    border-radius:12px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.league-dropdown-btn:hover{
+
+    background:#252525;
+
+}
+
+/* DROPDOWN MENU */
+
+.league-dropdown-menu{
+
+    position:absolute;
+
+    top:55px;
+
+    left:0;
+
+    width:240px;
+
+    background:#141414;
+
+    border:1px solid #2d2d2d;
+
+    border-radius:18px;
+
+    padding:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+    z-index:999;
+
+    box-shadow:
+    0 10px 35px rgba(0,0,0,.45);
+
+}
+
+/* LEAGUE BUTTONS */
+
+.league-item-btn{
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    text-align:left;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.league-item-btn:hover{
+
+    background:#2a2a2a;
+
+    color:#d4af37;
+
+}
+
+/* ADD LEAGUE BUTTON */
+
+.add-league-btn{
+
+    background:#d4af37;
+
+    color:#111;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-weight:800;
+
+    transition:.25s;
+
+}
+
+.add-league-btn:hover{
+
+    background:#e8c24a;
+
+}
+
+<div class="league-action-buttons">
+
+    <button
+    id="back-dashboard-btn"
+    class="secondary-btn"
+    >
+        Back To Dashboard
+    </button>
+
+    <button
+    id="continue-dashboard-btn"
+    disabled
+    >
+        Continue To Dashboard
+    </button>
+
+</div>
