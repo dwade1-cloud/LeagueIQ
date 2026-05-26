@@ -493,4 +493,4 @@ tabButtons.forEach(
         }
     );
 
-}
+});
