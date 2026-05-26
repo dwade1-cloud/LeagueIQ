@@ -324,35 +324,44 @@ nav{
 .hero-card{
     background:#141414;
 
-/* DROPDOWN OVERLAY */
+/* IMPROVED SELECT STYLING */
 
-.dropdown-overlay{
+select{
 
-    position:fixed;
+    background:#101010 !important;
 
-    top:0;
-    left:0;
+    border:2px solid #303030 !important;
 
-    width:100%;
-    height:100%;
+    color:#ffffff;
 
-    background:rgba(0,0,0,.45);
+    font-weight:600;
 
-    backdrop-filter:blur(2px);
+    position:relative;
 
-    z-index:90;
+    z-index:5;
 
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.25s;
 }
 
-.dropdown-overlay.active{
+select:focus{
 
-    opacity:1;
+    border-color:#d4af37 !important;
 
-    pointer-events:auto;
+    box-shadow:
+    0 0 0 3px rgba(212,175,55,.25),
+    0 10px 25px rgba(0,0,0,.45);
+
+    background:#181818 !important;
+
+}
+
+/* DROPDOWN OPTIONS */
+
+option{
+
+    background:#121212;
+
+    color:white;
+
+    font-size:15px;
 
 }
