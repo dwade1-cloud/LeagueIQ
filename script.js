@@ -494,3 +494,18 @@ tabButtons.forEach(
     );
 
 });
+
+// LOGOUT
+
+document
+.getElementById(
+    "logout-btn"
+)
+.addEventListener(
+    "click",
+    async () => {
+
+        await auth.signOut();
+
+    }
+);
