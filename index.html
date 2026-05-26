@@ -238,92 +238,209 @@ class="screen hidden">
 
 </section>
 
-<!-- LEAGUE CONNECT -->
+<!-- LEAGUE CONNECT SCREEN -->
 
-<section
-id="league-screen"
-class="screen hidden">
+<div
+id="league-connect-screen"
+class="screen hidden"
+>
 
     <div class="card">
 
-        <div class="logo">
-
-            ⚾
-
-        </div>
-
         <h1>
-
-            Connect League
-
+            Add League
         </h1>
 
         <p class="subtitle">
-
-            Sync Your Fantasy League
-
+            Connect your fantasy league
+            to LeagueIQ
         </p>
+
+        <!-- SPORT -->
 
         <div class="input-group">
 
-            <label>Fantasy Platform</label>
+            <label>
+                Sport
+            </label>
 
-            <select id="platform-select">
+            <select
+            id="sport-select"
+            required
+            >
 
                 <option value="">
-                    Select Platform
+                    Select Sport
                 </option>
 
-                <option value="Sleeper">
-                    Sleeper
-                </option>
-
-                <option value="ESPN">
-                    ESPN
-                </option>
-
-                <option value="Yahoo">
-                    Yahoo
-                </option>
-
-                <option value="Fantrax">
-                    Fantrax
+                <option value="mlb">
+                    MLB
                 </option>
 
             </select>
 
         </div>
 
+        <!-- PLATFORM -->
+
         <div class="input-group">
 
-            <label>League ID</label>
+            <label>
+                Fantasy Platform
+            </label>
 
-            <input
-            type="text"
-            id="league-id"
-            placeholder="Enter League ID"
-            disabled>
+            <select
+            id="platform-select"
+            disabled
+            required
+            >
+
+                <option value="">
+                    Select Platform
+                </option>
+
+                <option value="sleeper">
+                    Sleeper
+                </option>
+
+            </select>
 
         </div>
 
-        <p class="helper-text">
+        <!-- LEAGUE NAME -->
 
-            Find this unique ID through your
-            league settings or from the URL
-            while logged into your fantasy
-            platform on web.
+        <div class="input-group">
 
-        </p>
+            <label>
+                League Name
+            </label>
 
-        <button id="connect-league-btn">
+            <input
+            type="text"
+            id="league-name"
+            placeholder="Customize League Name"
+            disabled
+            >
 
-            Connect League
+            <div
+            style="
+            margin-top:12px;
+            display:flex;
+            align-items:center;
+            gap:10px;
+            "
+            >
 
-        </button>
+                <input
+                type="checkbox"
+                id="auto-import-name"
+                style="
+                width:18px;
+                height:18px;
+                "
+                disabled
+                >
 
-    </div>
+                <span
+                style="
+                color:#9a9a9a;
+                font-size:14px;
+                "
+                >
+                    Auto Import League Name
+                </span>
 
-</section>
+            </div>
+
+        </div>
+
+        <!-- League ID -->
+
+        <div class="input-group">
+
+            <label>
+                League ID
+            </label>
+
+            <input
+            type="text"
+            id="league-id-input"
+            placeholder="Enter League ID"
+	    pattern="[0-9]*"
+            disabled
+            >
+
+        </div>
+
+        <!-- LEAGUE TYPE -->
+
+        <div class="input-group">
+
+            <label>
+                League Type
+            </label>
+
+            <select
+            id="league-type"
+            disabled
+            required
+            >
+
+                <option value="">
+                    Select League Type
+                </option>
+
+                <option value="redraft">
+                    Redraft
+                </option>
+
+                <option value="dynasty">
+                    Dynasty
+                </option>
+
+                <option value="keeper">
+                    Keeper
+                </option>
+
+		<option value="bestball">
+		    Best Ball
+		</option>
+
+            </select>
+
+        </div>
+
+        <!-- FANTASY NAME -->
+
+        <div class="input-group">
+
+            <label>
+                Fantasy Name
+            </label>
+
+            <input
+            type="text"
+            id="fantasy-name"
+            placeholder="Enter Fantasy Team Name"
+            disabled
+            >
+
+        </div>
+
+        <!-- BUTTON -->
+
+	<div class="continue-btn-wrap">
+
+	    <button
+            id="continue-dashboard-btn"
+            disabled
+            >
+		Continue To Dashboard
+            </button>
+
+        </div>
+
+</div>
 
 <!-- APP -->
 
@@ -337,7 +454,7 @@ class="hidden">
 
         <div class="brand">
 
-            ⚾ LEAGUEIQ
+            LEAGUEIQ
 
         </div>
 

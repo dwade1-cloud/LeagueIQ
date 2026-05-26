@@ -43,7 +43,7 @@ document.getElementById(
 
 const leagueScreen =
 document.getElementById(
-    "league-screen"
+    "league-connect-screen"
 );
 
 const appContainer =
@@ -355,99 +355,6 @@ async (user) => {
 
 });
 
-// PLATFORM SELECT
-
-const platformSelect =
-document.getElementById(
-    "platform-select"
-);
-
-const leagueInput =
-document.getElementById(
-    "league-id"
-);
-
-platformSelect.addEventListener(
-    "change",
-    () => {
-
-        if(platformSelect.value){
-
-            leagueInput.disabled =
-            false;
-
-        } else {
-
-            leagueInput.disabled =
-            true;
-
-        }
-
-    }
-);
-
-// CONNECT LEAGUE
-
-document
-.getElementById(
-    "connect-league-btn"
-)
-.addEventListener(
-    "click",
-    async () => {
-
-        const user =
-            auth.currentUser;
-
-        const platform =
-        platformSelect.value;
-
-        const leagueID =
-        leagueInput.value;
-
-        if(
-            !platform ||
-            !leagueID
-        ){
-
-            alert(
-                "Please complete all fields."
-            );
-
-            return;
-
-        }
-
-        try {
-
-            await db
-            .collection("users")
-            .doc(user.uid)
-            .update({
-
-                platform:platform,
-
-                leagueID:leagueID
-
-            });
-
-            leagueScreen.classList.add(
-                "hidden"
-            );
-
-            appContainer.classList.remove(
-                "hidden"
-            );
-
-        } catch(error){
-
-            alert(error.message);
-
-        }
-
-    }
-);
-
 // TAB NAVIGATION
 
 const tabButtons =
@@ -543,43 +450,263 @@ window.addEventListener(
     }
 );
 
-// LOGOUT BUTTON
+// LEAGUE CONNECT FLOW
 
-window.addEventListener(
-    "load",
+const sportSelect =
+document.getElementById(
+    "sport-select"
+);
+
+const platformSelectNew =
+document.getElementById(
+    "platform-select"
+);
+
+const leagueNameInput =
+document.getElementById(
+    "league-name"
+);
+
+const autoImportCheckbox =
+document.getElementById(
+    "auto-import-name"
+);
+
+const leagueIdInput =
+document.getElementById(
+    "league-id-input"
+);
+
+const leagueTypeSelect =
+document.getElementById(
+    "league-type"
+);
+
+const fantasyNameInput =
+document.getElementById(
+    "fantasy-name"
+);
+
+const continueDashboardBtn =
+document.getElementById(
+    "continue-dashboard-btn"
+);
+
+// SPORT SELECT
+
+sportSelect.addEventListener(
+    "change",
     () => {
 
-        const logoutBtn =
-        document.getElementById(
-            "logout-btn"
-        );
+        if(
+            sportSelect.value
+        ){
 
-        if(logoutBtn){
-
-            logoutBtn.onclick =
-            async () => {
-
-                try {
-
-                    await firebase
-                    .auth()
-                    .signOut();
-
-                    location.reload();
-
-                } catch(error){
-
-                    console.error(error);
-
-                    alert(
-                        "Logout failed."
-                    );
-
-                }
-
-            };
+            platformSelectNew.disabled =
+            false;
 
         }
+
+    }
+);
+
+// PLATFORM SELECT
+
+platformSelectNew.addEventListener(
+    "change",
+    () => {
+
+        if(
+            platformSelectNew.value
+        ){
+
+            leagueNameInput.disabled =
+            false;
+
+            autoImportCheckbox.disabled =
+            false;
+
+        }
+
+    }
+);
+
+// LEAGUE NAME
+
+leagueNameInput.addEventListener(
+    "input",
+    () => {
+
+        if(
+            leagueNameInput.value
+        ){
+
+            leagueIdInput.disabled =
+            false;
+
+        }
+
+    }
+);
+
+// LEAGUE ID
+
+leagueIdInput.addEventListener(
+    "input",
+    () => {
+
+        if(
+            leagueIdInput.value
+        ){
+
+            leagueTypeSelect.disabled =
+            false;
+
+        }
+
+    }
+);
+
+// LEAGUE TYPE
+
+leagueTypeSelect.addEventListener(
+    "change",
+    () => {
+
+        if(
+            leagueTypeSelect.value
+        ){
+
+            fantasyNameInput.disabled =
+            false;
+
+        }
+
+    }
+);
+
+// FANTASY NAME
+
+fantasyNameInput.addEventListener(
+    "input",
+    () => {
+
+        if(
+            fantasyNameInput.value
+        ){
+
+            continueDashboardBtn.disabled =
+            false;
+
+        }
+
+    }
+);
+
+// CONTINUE TO DASHBOARD
+
+continueDashboardBtn.addEventListener(
+    "click",
+    async () => {
+
+        const user =
+            auth.currentUser;
+
+        try {
+
+            await db
+            .collection("users")
+            .doc(user.uid)
+            .update({
+
+                sport:
+                sportSelect.value,
+
+                platform:
+                platformSelectNew.value,
+
+                leagueName:
+                leagueNameInput.value,
+
+		leagueID:
+		leagueIDUnput.value,
+
+                leagueType:
+                leagueTypeSelect.value,
+
+                fantasyName:
+                fantasyNameInput.value,
+
+                leagueConnected:true
+
+            });
+
+            leagueScreen.classList.add(
+                "hidden"
+            );
+
+            appContainer.classList.remove(
+                "hidden"
+            );
+
+        } catch(error){
+
+            alert(error.message);
+
+        }
+
+    }
+);
+
+// AUTO IMPORT LEAGUE NAME
+
+autoImportCheckbox.addEventListener(
+    "change",
+    () => {
+
+        if(
+            autoImportCheckbox.checked
+        ){
+
+            leagueNameInput.disabled =
+            true;
+
+            leagueNameInput.value =
+            "Auto Import Enabled";
+
+            leagueNameInput.style.color =
+            "#8a8a8a";
+
+            leagueIdInput.disabled =
+            false;
+
+        } else {
+
+            leagueNameInput.disabled =
+            false;
+
+            leagueNameInput.value =
+            "";
+
+            leagueNameInput.style.color =
+            "white";
+
+        }
+
+    }
+);
+
+// NUMBERS ONLY FOR LEAGUE ID
+
+leagueIdInput.addEventListener(
+    "input",
+    () => {
+
+        leagueIdInput.value =
+        leagueIdInput.value.replace(
+            /[^0-9]/g,
+            ""
+        );
 
     }
 );

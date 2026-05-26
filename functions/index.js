@@ -1,17 +1,20 @@
+const { onRequest } = require("firebase-functions/v2/https");
 
-const functions = require("firebase-functions");
 const admin = require("firebase-admin");
+
 const Stripe = require("stripe");
 
 admin.initializeApp();
 
-const stripe = new Stripe(
-  process.env.STRIPE_SECRET_KEY
-);
-
-exports.stripeWebhook =
-functions.https.onRequest(
+exports.stripeWebhook = onRequest(
+{
+    secrets:["STRIPE_SECRET_KEY"]
+},
 async (req, res) => {
+
+    const stripe = new Stripe(
+        process.env.STRIPE_SECRET_KEY
+    );
 
     const event = req.body;
 
@@ -51,42 +54,7 @@ async (req, res) => {
         console.error(error);
 
         res.sendStatus(400);
+
     }
 
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+});

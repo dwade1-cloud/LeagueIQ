@@ -362,3 +362,74 @@ option{
     padding:12px;
 
 }
+
+/* CONTINUE BUTTON */
+
+.continue-btn-wrap{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-top:38px;
+
+}
+
+#continue-dashboard-btn{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:16px;
+
+    background:#d4af37;
+
+    color:#111;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    transition:.25s;
+
+}
+
+#continue-dashboard-btn:hover{
+
+    background:#e8c24a;
+
+    transform:translateY(-2px);
+
+}
+
+#continue-dashboard-btn:disabled{
+
+    background:#3a3a3a;
+
+    color:#888;
+
+    cursor:not-allowed;
+
+    transform:none;
+
+}
+
+/* REMOVE NUMBER INPUT ARROWS */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+
+    -webkit-appearance:none;
+
+    margin:0;
+
+}
+
+input[type=number]{
+
+    -moz-appearance:textfield;
+
+}
