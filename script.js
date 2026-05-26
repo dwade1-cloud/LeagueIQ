@@ -542,3 +542,44 @@ window.addEventListener(
 
     }
 );
+
+// LOGOUT BUTTON
+
+window.addEventListener(
+    "load",
+    () => {
+
+        const logoutBtn =
+        document.getElementById(
+            "logout-btn"
+        );
+
+        if(logoutBtn){
+
+            logoutBtn.onclick =
+            async () => {
+
+                try {
+
+                    await firebase
+                    .auth()
+                    .signOut();
+
+                    location.reload();
+
+                } catch(error){
+
+                    console.error(error);
+
+                    alert(
+                        "Logout failed."
+                    );
+
+                }
+
+            };
+
+        }
+
+    }
+);
