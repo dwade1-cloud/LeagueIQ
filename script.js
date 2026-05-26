@@ -495,36 +495,43 @@ tabButtons.forEach(
 
 });
 
-// LOGOUT
+// LOGOUT BUTTON
 
-const logoutBtn =
-document.getElementById(
-    "logout-btn"
-);
+window.addEventListener(
+    "load",
+    () => {
 
-if(logoutBtn){
+        const logoutBtn =
+        document.getElementById(
+            "logout-btn"
+        );
 
-    logoutBtn.addEventListener(
-        "click",
-        async () => {
+        if(logoutBtn){
 
-            try {
+            logoutBtn.onclick =
+            async () => {
 
-                await auth.signOut();
+                try {
 
-                location.reload();
+                    await firebase
+                    .auth()
+                    .signOut();
 
-            } catch(error){
+                    location.reload();
 
-                console.error(error);
+                } catch(error){
 
-                alert(
-                    "Logout failed."
-                );
+                    console.error(error);
 
-            }
+                    alert(
+                        "Logout failed."
+                    );
+
+                }
+
+            };
 
         }
-    );
 
-}
+    }
+);
