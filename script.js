@@ -231,6 +231,18 @@ document
 
         try {
 
+            document
+            .getElementById(
+                "login-error"
+            )
+            .classList.add(
+                "hidden"
+            );
+
+            console.log(
+                "LOGIN BUTTON CLICKED"
+            );
+
             await auth
             .signInWithEmailAndPassword(
                 email,
@@ -239,7 +251,51 @@ document
 
         } catch(error){
 
-            alert(error.message);
+            console.error(error);
+
+            const loginError =
+            document.getElementById(
+                "login-error"
+            );
+
+            loginError.classList.remove(
+                "hidden"
+            );
+
+            if(
+                error.code ===
+                "auth/user-not-found"
+            ){
+
+                loginError.innerText =
+                "Invalid Email";
+
+            } else if(
+
+                error.code ===
+                "auth/wrong-password"
+
+            ){
+
+                loginError.innerText =
+                "Invalid Password";
+
+            } else if(
+
+                error.code ===
+                "auth/invalid-credential"
+
+            ){
+
+                loginError.innerText =
+                "Invalid Email or Password";
+
+            } else {
+
+                loginError.innerText =
+                "Login Failed";
+
+            }
 
         }
 
@@ -253,87 +309,31 @@ async (user) => {
 
     if(user){
 
-        const doc =
-        await db
-        .collection("users")
-        .doc(user.uid)
-        .get();
-
-        const userData =
-            doc.data();
-
-        // PLAN BADGE
-
-        const planBadge =
-        document.getElementById(
-            "plan-badge"
+        console.log(
+            "USER LOGGED IN"
         );
 
-        if(
-            userData.plan === "pro"
-        ){
+        loginScreen.classList.add(
+            "hidden"
+        );
 
-            planBadge.innerText =
-            "PRO PLAN";
+        signupScreen.classList.add(
+            "hidden"
+        );
 
-            document
-            .getElementById(
-                "premium-card"
-            )
-            .style.display =
-            "none";
+        leagueScreen.classList.add(
+            "hidden"
+        );
 
-        } else {
-
-            planBadge.innerText =
-            "FREE PLAN";
-
-        }
-
-        // CHECK LEAGUE
-
-        if(
-            !userData.platform ||
-            !userData.leagueID
-        ){
-
-            loginScreen.classList.add(
-                "hidden"
-            );
-
-            signupScreen.classList.add(
-                "hidden"
-            );
-
-            appContainer.classList.add(
-                "hidden"
-            );
-
-            leagueScreen.classList.remove(
-                "hidden"
-            );
-
-        } else {
-
-            loginScreen.classList.add(
-                "hidden"
-            );
-
-            signupScreen.classList.add(
-                "hidden"
-            );
-
-            leagueScreen.classList.add(
-                "hidden"
-            );
-
-            appContainer.classList.remove(
-                "hidden"
-            );
-
-        }
+        appContainer.classList.remove(
+            "hidden"
+        );
 
     } else {
+
+        console.log(
+            "NO USER"
+        );
 
         loginScreen.classList.remove(
             "hidden"
@@ -629,7 +629,7 @@ continueDashboardBtn.addEventListener(
                 leagueNameInput.value,
 
 		leagueID:
-		leagueIDUnput.value,
+		leagueIDInput.value,
 
                 leagueType:
                 leagueTypeSelect.value,
@@ -783,3 +783,152 @@ backDashboardBtn.addEventListener(
 
     }
 );
+
+// DEMO LEAGUE DATA
+
+const demoLeagueData = {
+
+    cleveland: {
+
+        teamTitle:
+        "Cleveland Dynasty Dashboard",
+
+        teamDescription:
+        "82 Overall Team Grade • #2 Power Ranking • 91 Dynasty Score",
+
+        tradeTitle:
+        "Cleveland Dynasty Trades",
+
+        tradeDescription:
+        "3 active trade opportunities • Buy Low Alert: Julio Rodriguez",
+
+        leagueTitle:
+        "Cleveland Dynasty Rankings",
+
+        leagueDescription:
+        "Projected Finish: 2nd • Playoff Odds: 84%",
+
+        playersTitle:
+        "Cleveland Dynasty Players",
+
+        playersDescription:
+        "Top Prospect: Jackson Holliday • MVP: Ronald Acuna"
+
+    },
+
+    money: {
+
+        teamTitle:
+        "Money League Dashboard",
+
+        teamDescription:
+        "74 Overall Team Grade • #6 Power Ranking • 58 Redraft Score",
+
+        tradeTitle:
+        "Money League Trades",
+
+        tradeDescription:
+        "High Risk Trade Market • Sell High Alert: Pete Alonso",
+
+        leagueTitle:
+        "Money League Rankings",
+
+        leagueDescription:
+        "Projected Finish: 7th • Playoff Odds: 31%",
+
+        playersTitle:
+        "Money League Players",
+
+        playersDescription:
+        "Top Waiver Add: Wyatt Langford • MVP: Bobby Witt Jr."
+
+    }
+
+};
+
+// LEAGUE SWITCHING
+
+const leagueButtons =
+document.querySelectorAll(
+    ".league-item-btn"
+);
+
+leagueButtons.forEach(
+(button) => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            const leagueKey =
+            button.dataset.league;
+
+            const league =
+            demoLeagueData[
+                leagueKey
+            ];
+
+            document
+            .getElementById(
+                "team-title"
+            )
+            .innerText =
+            league.teamTitle;
+
+            document
+            .getElementById(
+                "team-description"
+            )
+            .innerText =
+            league.teamDescription;
+
+            document
+            .getElementById(
+                "trade-title"
+            )
+            .innerText =
+            league.tradeTitle;
+
+            document
+            .getElementById(
+                "trade-description"
+            )
+            .innerText =
+            league.tradeDescription;
+
+            document
+            .getElementById(
+                "league-title"
+            )
+            .innerText =
+            league.leagueTitle;
+
+            document
+            .getElementById(
+                "league-description"
+            )
+            .innerText =
+            league.leagueDescription;
+
+            document
+            .getElementById(
+                "players-title"
+            )
+            .innerText =
+            league.playersTitle;
+
+            document
+            .getElementById(
+                "players-description"
+            )
+            .innerText =
+            league.playersDescription;
+
+            leagueDropdownMenu.classList.add(
+                "hidden"
+            );
+
+        }
+    );
+
+});

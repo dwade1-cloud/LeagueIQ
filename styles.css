@@ -324,6 +324,8 @@ nav{
 .hero-card{
     background:#141414;
 
+}
+
 /* DROPDOWN MENU COLORS */
 
 select{
@@ -569,20 +571,30 @@ input[type=number]{
 
 }
 
-<div class="league-action-buttons">
+/* AUTH ERROR */
 
-    <button
-    id="back-dashboard-btn"
-    class="secondary-btn"
-    >
-        Back To Dashboard
-    </button>
+.auth-error{
 
-    <button
-    id="continue-dashboard-btn"
-    disabled
-    >
-        Continue To Dashboard
-    </button>
+    width:100%;
 
-</div>
+    background:
+    rgba(255,70,70,.12);
+
+    border:
+    1px solid rgba(255,70,70,.35);
+
+    color:#ff7b7b;
+
+    padding:14px;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}

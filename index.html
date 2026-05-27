@@ -50,9 +50,18 @@ class="screen">
 
         <p class="subtitle">
 
-            Fantasy Baseball Intelligence
+	    Fantasy Sports Intelligence
 
-        </p>
+	</p>
+
+	<div
+	id="login-error"
+	class="auth-error hidden"
+	>
+
+    	    Invalid Login
+
+	</div>
 
         <div class="input-group">
 
@@ -449,6 +458,8 @@ class="screen hidden"
 
 </div>
 
+</div>
+
 <!-- APP -->
 
 <div
@@ -488,12 +499,14 @@ id="app-container">
 
             	    <button
             	    class="league-item-btn"
+		    date-league="cleveland"
             	    >
                 	Cleveland Dynasty
             	    </button>
 
             	    <button
             	    class="league-item-btn"
+		    date=league="money"
             	    >
                 	Money League
             	    </button>
@@ -575,13 +588,13 @@ id="app-container">
 
         <div class="hero-card">
 
-            <h2>
+            <h2 id="team-title">
 
                 Team Dashboard
 
             </h2>
 
-            <p>
+            <p id="team analytics">
 
                 LeagueIQ team analytics,
                 grades, and roster breakdowns
@@ -633,13 +646,13 @@ id="app-container">
 
         <div class="hero-card">
 
-            <h2>
+            <h2 id="trade-title">
 
                 Trade Analyzer
 
             </h2>
 
-            <p>
+            <p id="trade-description">
 
                 Analyze trades and compare
                 player value.
@@ -658,13 +671,13 @@ id="app-container">
 
         <div class="hero-card">
 
-            <h2>
+            <h2 id="league-title">
 
                 League Rankings
 
             </h2>
 
-            <p>
+            <p id="league-description">
 
                 Team rankings, league odds,
                 and comparisons.
@@ -683,13 +696,13 @@ id="app-container">
 
         <div class="hero-card">
 
-            <h2>
+            <h2 id="players-title">
 
                 Player Search
 
             </h2>
 
-            <p>
+            <p id="league-description">
 
                 Search all MLB players and
                 view LeagueIQ grades.
