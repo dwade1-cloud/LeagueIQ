@@ -28,6 +28,122 @@ rel="stylesheet"
 
 <body>
 
+<!-- UNGATED HOMEPAGE -->
+
+<section
+id="public-homepage"
+>
+
+    <!-- STICKY HEADER -->
+
+    <header class="public-header">
+
+        <!-- LEFT SIDE -->
+
+        <div class="public-header-left">
+
+            <!-- LOGO -->
+
+            <div class="public-logo">
+
+                LeagueIQ
+
+            </div>
+
+            <!-- SPORT DROPDOWN -->
+
+            <select
+            id="sport-dropdown"
+            class="sport-dropdown"
+            >
+
+                <option
+		value="mlb"
+		slected
+		>
+                    MLB
+                </option>
+
+		<option value="nfl">
+        	    NFL
+    		</option>
+
+    		<option value="nba">
+        	    NBA
+    		</option>
+
+    		<option value="nhl">
+        	    NHL
+    		</option>
+
+            </select>
+
+        </div>
+
+        <!-- CENTER SEARCH -->
+
+        <div class="search-container">
+
+            <input
+            type="text"
+            id="player-search"
+            placeholder="Search any active player"
+            autocomplete="off"
+            >
+
+            <div class="search-icon">
+                🔍
+            </div>
+
+            <!-- SEARCH RESULTS -->
+
+            <div
+            id="search-results"
+            class="search-results hidden"
+            >
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="public-header-right">
+
+            <div class="mlb-live-status">
+
+                ● MLB LIVE
+
+            </div>
+
+            <button
+            id="public-login-btn"
+            class="public-auth-btn"
+            >
+                Log In / Sign Up
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- HERO SECTION -->
+
+    <section class="homepage-hero">
+
+        <h1>
+            Fantasy Sports Intelligence
+        </h1>
+
+        <p>
+            Rankings, trends, injuries, trade values,
+            and MLB fantasy analytics.
+        </p>
+
+    </section>
+
+</section>
+
 <!-- LOGIN -->
 
 <section
@@ -473,7 +589,7 @@ id="app-container">
 
     	    <div class="brand">
 
-        	LEAGUEIQ
+        	LeagueIQ
 
     	    </div>
 
@@ -718,4 +834,5 @@ id="app-container">
 <script src="script.js"></script>
 
 </body>
+
 </html>

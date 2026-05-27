@@ -932,3 +932,268 @@ leagueButtons.forEach(
     );
 
 });
+
+// =========================
+// PUBLIC PLAYER SEARCH
+// =========================
+
+const playerDatabase = [
+
+    {
+        name:"Shohei Ohtani",
+        meta:"LAD • DH/SP • Trending ↑"
+    },
+
+    {
+        name:"Aaron Judge",
+        meta:"NYY • OF • Power Leader"
+    },
+
+    {
+        name:"Bobby Witt Jr.",
+        meta:"KC • SS • Top Dynasty"
+    },
+
+    {
+        name:"Julio Rodriguez",
+        meta:"SEA • OF • Buy Low"
+    },
+
+    {
+        name:"Ronald Acuna Jr.",
+        meta:"ATL • OF • Injury Recovery"
+    },
+
+    {
+        name:"Jackson Holliday",
+        meta:"BAL • INF • Top Prospect"
+    },
+
+    {
+        name:"Wyatt Langford",
+        meta:"TEX • OF • Trending ↑"
+    },
+
+    {
+        name:"Paul Skenes",
+        meta:"PIT • SP • Ace Potential"
+    }
+
+];
+
+const playerSearch =
+document.getElementById(
+    "player-search"
+);
+
+const searchResults =
+document.getElementById(
+    "search-results"
+);
+
+playerSearch.addEventListener(
+    "input",
+    () => {
+
+        const query =
+        playerSearch.value
+        .toLowerCase()
+        .trim();
+
+        if(!query){
+
+            searchResults.innerHTML = "";
+
+            searchResults.classList.add(
+                "hidden"
+            );
+
+            return;
+
+        }
+
+        const matches =
+        playerDatabase.filter(
+            player =>
+            player.name
+            .toLowerCase()
+            .includes(query)
+        );
+
+        searchResults.innerHTML = "";
+
+        matches.forEach(
+            player => {
+
+                const result =
+                document.createElement(
+                    "button"
+                );
+
+                result.classList.add(
+                    "search-player-item"
+                );
+
+                result.innerHTML = `
+
+                    <div>
+                        ${player.name}
+                    </div>
+
+                    <div class="search-player-meta">
+                        ${player.meta}
+                    </div>
+
+                `;
+
+                searchResults.appendChild(
+                    result
+                );
+
+            }
+        );
+
+        searchResults.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+// CLOSE SEARCH RESULTS
+
+window.addEventListener(
+    "click",
+    (event) => {
+
+        if(
+            !event.target.closest(
+                ".search-container"
+            )
+        ){
+
+            searchResults.classList.add(
+                "hidden"
+            );
+
+        }
+
+    }
+);
+
+// LOGIN / SIGNUP BUTTON
+
+const publicLoginBtn =
+document.getElementById(
+    "public-login-btn"
+);
+
+publicLoginBtn.addEventListener(
+    "click",
+    () => {
+
+        publicHomepage.classList.add(
+            "hidden"
+        );
+
+        loginScreen.classList.remove(
+            "hidden"
+        );
+
+    }
+);
+
+// SPORT DROPDOWN
+
+const sportDropdown =
+document.getElementById(
+    "sport-dropdown"
+);
+
+sportDropdown.addEventListener(
+    "change",
+    () => {
+
+        currentSport =
+        sportDropdown.value;
+
+        console.log(
+            "Current Sport:",
+            currentSport
+        );
+
+        // FUTURE ROUTING PLACEHOLDER
+
+        /*
+        Example future logic:
+
+        if(currentSport === "nfl"){
+
+            window.location.href =
+            "/nfl";
+
+        }
+
+        */
+
+    }
+);
+
+// PUBLIC HOMEPAGE
+
+// CURRENT SPORT CONTEXT
+
+let currentSport = "mlb";
+
+const publicHomepage =
+document.getElementById(
+    "public-homepage"
+);
+
+// DEFAULT PUBLIC VIEW
+
+loginScreen.classList.add(
+    "hidden"
+);
+
+signupScreen.classList.add(
+    "hidden"
+);
+
+leagueScreen.classList.add(
+    "hidden"
+);
+
+appContainer.classList.add(
+    "hidden"
+);
+
+publicHomepage.classList.remove(
+    "hidden"
+);
+
+// HEADER SHRINK ON SCROLL
+
+const publicHeader =
+document.querySelector(
+    ".public-header"
+);
+
+window.addEventListener(
+    "scroll",
+    () => {
+
+        if(window.scrollY > 40){
+
+            publicHeader.style.height =
+            "60px";
+
+        } else {
+
+            publicHeader.style.height =
+            "68px";
+
+        }
+
+    }
+);
