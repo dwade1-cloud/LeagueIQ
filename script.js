@@ -1115,38 +1115,102 @@ publicLoginBtn.addEventListener(
     }
 );
 
-// SPORT DROPDOWN
+// =========================
+// PREMIUM SPORT DROPDOWN
+// =========================
 
-const sportDropdown =
+const customDropdown =
 document.getElementById(
-    "sport-dropdown"
+    "custom-dropdown"
 );
 
-sportDropdown.addEventListener(
-    "change",
-    () => {
+const dropdownSelected =
+document.getElementById(
+    "dropdown-selected"
+);
 
-        currentSport =
-        sportDropdown.value;
+const selectedSport =
+document.getElementById(
+    "selected-sport"
+);
 
-        console.log(
-            "Current Sport:",
-            currentSport
+const dropdownOptionButtons =
+document.querySelectorAll(
+    ".dropdown-option"
+);
+
+// OPEN / CLOSE
+
+dropdownSelected.addEventListener(
+    "click",
+    (event) => {
+
+        event.stopPropagation();
+
+        customDropdown.classList.toggle(
+            "dropdown-open"
         );
 
-        // FUTURE ROUTING PLACEHOLDER
+    }
+);
 
-        /*
-        Example future logic:
+// SELECT OPTION
 
-        if(currentSport === "nfl"){
+dropdownOptionButtons.forEach(
+    option => {
 
-            window.location.href =
-            "/nfl";
+        option.addEventListener(
+            "click",
+            () => {
 
-        }
+                currentSport =
+                option.dataset.sport;
 
-        */
+                selectedSport.innerText =
+                currentSport.toUpperCase();
+
+                // ACTIVE STATE
+
+                dropdownOptionButtons.forEach(
+                    btn => {
+
+                        btn.classList.remove(
+                            "active-option"
+                        );
+
+                    }
+                );
+
+                option.classList.add(
+                    "active-option"
+                );
+
+                // CLOSE
+
+                customDropdown.classList.remove(
+                    "dropdown-open"
+                );
+
+                console.log(
+                    "Current Sport:",
+                    currentSport
+                );
+
+            }
+        );
+
+    }
+);
+
+// CLOSE OUTSIDE CLICK
+
+document.addEventListener(
+    "click",
+    () => {
+
+        customDropdown.classList.remove(
+            "dropdown-open"
+        );
 
     }
 );
@@ -1240,7 +1304,7 @@ playerSearch.addEventListener(
 
         event.stopPropagation();
 
-        if(window.innerWidth < 900){
+        if(window.innerWidth < 2000){
 
             searchOverlay.classList.remove(
                 "hidden"

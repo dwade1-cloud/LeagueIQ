@@ -50,33 +50,72 @@ id="public-homepage"
 
             </div>
 
-            <!-- SPORT DROPDOWN -->
+            <!-- PREMIUM SPORT DROPDOWN -->
 
-            <select
-            id="sport-dropdown"
-            class="sport-dropdown"
-            >
+	    <div
+	    class="custom-dropdown"
+	    id="custom-dropdown"
+	    >
 
-                <option
-		value="mlb"
-		slected
-		>
-                    MLB
-                </option>
+    		<!-- SELECTED -->
 
-		<option value="nfl">
-        	    NFL
-    		</option>
+    		<button
+    		id="dropdown-selected"
+    		class="dropdown-selected"
+    		>
 
-    		<option value="nba">
-        	    NBA
-    		</option>
+        	    <span id="selected-sport">
+            		MLB
+        	    </span>
 
-    		<option value="nhl">
-        	    NHL
-    		</option>
+        	    <span class="dropdown-arrow">
+            		▼
+        	    </span>
 
-            </select>
+		</button>
+
+    		<!-- DIVIDER -->
+
+    		<div class="dropdown-divider"></div>
+
+    		<!-- OPTIONS -->
+
+    		<div
+    		id="dropdown-options"
+    		class="dropdown-options"
+    		>
+
+        	    <button
+        	    class="dropdown-option active-option"
+        	    data-sport="mlb"
+        	    >
+            		MLB
+        	    </button>
+
+        	    <button
+        	    class="dropdown-option"
+        	    data-sport="nfl"
+        	    >
+            		NFL
+        	    </button>
+
+        	    <button
+        	    class="dropdown-option"
+        	    data-sport="nba"
+        	    >
+            		NBA
+        	    </button>
+
+        	    <button
+        	    class="dropdown-option"
+        	    data-sport="nhl"
+        	    >
+            		NHL
+        	    </button>
+
+    	        </div>
+
+	    </div>
 
         </div>
 
