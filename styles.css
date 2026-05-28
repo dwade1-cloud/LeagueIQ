@@ -620,13 +620,13 @@ input[type=number]{
 
     display:flex;
 
-    justify-content:space-between;
+    justify-content:center;
 
-    align-items:center;
+    align-items:stretch;
 
-    gap:18px;
+    gap:8px;
 
-    padding:0 28px;
+    padding:0 11px;
 
     background:rgba(10,10,10,.92);
 
@@ -640,11 +640,15 @@ input[type=number]{
 
 .public-header-left{
 
+    height:100%;
+
     display:flex;
 
     align-items:center;
 
-    gap:18px;
+    gap:10px;
+
+    flex-shrink:0;
 
 }
 
@@ -664,9 +668,9 @@ input[type=number]{
 
 .sport-dropdown{
 
-    width:92px;
+    width:60px;
 
-    padding:10px 14px;
+    padding:10px 14px 9px 5px;
 
     font-size:13px;
 
@@ -681,6 +685,8 @@ input[type=number]{
     font-weight:700;
 
     cursor:pointer;
+
+    text-align:left;
 
 
 
@@ -700,13 +706,19 @@ input[type=number]{
 
     width:100%;
 
-    max-width:760px;
+    flex:1;
 
-    min-width:220p;
+    width:100%;
+
+    max-width:1200px;
+
+    min-width:60px;
 
     position:relative;
 
     display:flex;
+
+    align-items:center;
 
     justify-content:center;
 
@@ -716,7 +728,7 @@ input[type=number]{
 
     width:100%;
 
-    height:54px;
+    height:38px;
 
     border-radius:999px;
 
@@ -726,7 +738,7 @@ input[type=number]{
 
     color:white;
 
-    padding:0 58px 0 24px;
+    padding:0 35px 0 15px;
 
     font-size:16px;
 
@@ -755,7 +767,7 @@ input[type=number]{
 
     position:absolute;
 
-    right:20px;
+    right:8px;
 
     top:50%;
 
@@ -844,11 +856,15 @@ input[type=number]{
 
 .public-header-right{
 
+    height:100%;
+
     display:flex;
 
     align-items:center;
 
-    gap:14px;
+    gap:8px;
+
+    flex-shrink:0;
 
 }
 
@@ -866,6 +882,16 @@ input[type=number]{
 
 }
 
+@media(max-width:523px){
+
+    .mlb-live-status{
+
+        display:none;
+
+    }
+
+}
+
 .public-auth-btn{
 
     background:#d4af37;
@@ -874,7 +900,11 @@ input[type=number]{
 
     border:none;
 
-    padding:11px 15px;
+    hieght:38px;
+
+    width:120px;
+
+    padding:11px;
 
     font-size:13px;
 
@@ -887,10 +917,6 @@ input[type=number]{
     transition:.2s;
 
     white-space:nowrap;
-
-    min-width:130px;
-
-    flex-shrink:0;
 
 }
 
@@ -945,5 +971,103 @@ input[type=number]{
     max-width:700px;
 
     line-height:1.7;
+
+}
+
+/* =========================
+   SEARCH OVERLAY
+========================= */
+
+.search-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+    rgba(0,0,0,.72);
+
+    backdrop-filter:blur(10px);
+
+    z-index:100000;
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    align-items:flex-start;
+
+    padding-top:121px;
+
+    padding-left:24px;
+
+    padding-right:24px;
+
+}
+
+.search-overlay-box{
+
+    width:100%;
+
+    max-width:920px;
+
+    margin:0 auto;
+
+}
+
+#expanded-search{
+
+    width:100%;
+
+    height:45px;
+
+    border-radius:999px;
+
+    border:2px solid #d4af37;
+
+    background:#171717;
+
+    color:white;
+
+    padding:0 26px;
+
+    font-size:18px;
+
+    outline:none;
+
+    box-shadow:
+    0 0 30px rgba(212,175,55,.16);
+
+}
+
+#expanded-search::placeholder{
+
+    color:#8a8a8a;
+
+}
+
+.expanded-search-results{
+
+    width:100%;
+
+    max-height:400px;
+
+    overflow-y:auto;
+
+    margin-top:18px;
+
+    background:#141414;
+
+    border:1px solid #2c2c2c;
+
+    border-radius:26px;
+
+    padding:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
 
 }

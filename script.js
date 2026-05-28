@@ -1060,6 +1060,18 @@ playerSearch.addEventListener(
     }
 );
 
+// PREVENT SEARCH CLICK FROM
+// IMMEDIATELY CLOSING OVERLAY
+
+playerSearch.addEventListener(
+    "click",
+    (event) => {
+
+        event.stopPropagation();
+
+    }
+);
+
 // CLOSE SEARCH RESULTS
 
 window.addEventListener(
@@ -1194,6 +1206,161 @@ window.addEventListener(
             "68px";
 
         }
+
+    }
+);
+
+// =========================
+// EXPANDED SEARCH OVERLAY
+// =========================
+
+const searchOverlay =
+document.getElementById(
+    "search-overlay"
+);
+
+const expandedSearch =
+document.getElementById(
+    "expanded-search"
+);
+
+const expandedSearchResults =
+document.getElementById(
+    "expanded-search-results"
+);
+
+
+// RENDER RESULTS
+
+// OPEN SEARCH OVERLAY
+
+playerSearch.addEventListener(
+    "click",
+    (event) => {
+
+        event.stopPropagation();
+
+        if(window.innerWidth < 900){
+
+            searchOverlay.classList.remove(
+                "hidden"
+            );
+
+            expandedSearch.value =
+            playerSearch.value;
+
+            setTimeout(() => {
+
+                expandedSearch.focus();
+
+            }, 10);
+
+            renderExpandedResults(
+                expandedSearch.value
+            );
+
+        }
+
+    }
+);
+
+function renderExpandedResults(query){
+
+    expandedSearchResults.innerHTML =
+    "";
+
+    const matches =
+    playerDatabase.filter(
+        player =>
+        player.name
+        .toLowerCase()
+        .includes(
+            query.toLowerCase()
+        )
+    );
+
+    matches.forEach(
+        player => {
+
+            const result =
+            document.createElement(
+                "button"
+            );
+
+            result.classList.add(
+                "search-player-item"
+            );
+
+            result.innerHTML = `
+
+                <div>
+                    ${player.name}
+                </div>
+
+                <div class="search-player-meta">
+                    ${player.meta}
+                </div>
+
+            `;
+
+            expandedSearchResults.appendChild(
+                result
+            );
+
+        }
+    );
+
+}
+
+// LIVE SEARCH
+
+expandedSearch.addEventListener(
+    "input",
+    () => {
+
+        renderExpandedResults(
+            expandedSearch.value
+        );
+
+    }
+);
+
+// CLOSE OVERLAY WHEN CLICKING OUTSIDE
+
+document.addEventListener(
+    "click",
+    (event) => {
+
+        const searchBox =
+        document.querySelector(
+            ".search-overlay-box"
+        );
+
+        // OVERLAY CLOSED
+
+        if(
+            searchOverlay.classList.contains(
+                "hidden"
+            )
+        ){
+            return;
+        }
+
+        // CLICK INSIDE SEARCH BOX
+
+        if(
+            searchBox.contains(
+                event.target
+            )
+        ){
+            return;
+        }
+
+        // CLOSE OVERLAY
+
+        searchOverlay.classList.add(
+            "hidden"
+        );
 
     }
 );
