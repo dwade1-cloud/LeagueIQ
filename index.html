@@ -1,518 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
+<!-- =========================
+     META
+========================== -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<!-- =========================
+     TITLE
+========================== -->
 <title>LeagueIQ</title>
-
+<!-- =========================
+     GOOGLE FONTS
+========================== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+<!-- =========================
+     CSS
+========================== -->
 <link
 href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
 rel="stylesheet"
 >
-
 <link rel="stylesheet" href="styles.css">
-
-<!-- FIREBASE -->
-
+<!-- =========================
+     FIREBASE
+========================== -->
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-
 </head>
-
 <body>
-
-<!-- UNGATED HOMEPAGE -->
-
+<!-- =========================
+==============================
+     PUBLIC HOMEPAGE
+==============================
+========================== -->
 <section
 id="public-homepage"
 >
-
-    <!-- STICKY HEADER -->
-
+    <!-- =========================
+         PUBLIC HEADER
+    ========================== -->
     <header class="public-header">
-
-        <!-- LEFT SIDE -->
-
+        <!-- =========================
+     	     LEFT SIDE
+	========================== -->
         <div class="public-header-left">
-
-            <!-- LOGO -->
-
+	    <!-- =========================
+     		 LOGO
+	    ========================== -->
             <div class="public-logo">
-
                 LeagueIQ
-
             </div>
-
-            <!-- PREMIUM SPORT DROPDOWN -->
-
+            <!-- =========================
+     		 SPORT DROPDOWN
+	    ========================== -->
 	    <div
 	    class="custom-dropdown"
 	    id="custom-dropdown"
 	    >
-
-    		<!-- SELECTED -->
-
+		<!-- =========================
+     		     SELECTED
+		========================== -->
     		<button
     		id="dropdown-selected"
     		class="dropdown-selected"
     		>
-
         	    <span id="selected-sport">
             		MLB
         	    </span>
-
         	    <span class="dropdown-arrow">
             		▼
         	    </span>
-
 		</button>
-
-    		<!-- DIVIDER -->
-
+		<!-- =========================
+     		     DIVIDER
+		========================== -->
     		<div class="dropdown-divider"></div>
-
-    		<!-- OPTIONS -->
-
+    		<!-- =========================
+     		     OPTIONS
+		========================== -->
     		<div
     		id="dropdown-options"
     		class="dropdown-options"
     		>
-
         	    <button
         	    class="dropdown-option active-option"
         	    data-sport="mlb"
         	    >
             		MLB
         	    </button>
-
         	    <button
         	    class="dropdown-option"
         	    data-sport="nfl"
         	    >
             		NFL
         	    </button>
-
         	    <button
         	    class="dropdown-option"
         	    data-sport="nba"
         	    >
             		NBA
         	    </button>
-
         	    <button
         	    class="dropdown-option"
         	    data-sport="nhl"
         	    >
             		NHL
         	    </button>
-
     	        </div>
-
 	    </div>
-
         </div>
-
-        <!-- CENTER SEARCH -->
-
+        <!-- =========================
+     	     CENTER SEARCH
+	========================== -->
         <div class="search-container">
-
             <input
             type="text"
             id="player-search"
             placeholder="Search any active player"
             autocomplete="off"
             >
-
             <div class="search-icon">
                 🔍
             </div>
-
-            <!-- SEARCH RESULTS -->
-
+	    <!-- =========================
+     		 SEARCH RESULTS
+	    ========================== -->
             <div
             id="search-results"
             class="search-results hidden"
             >
-
             </div>
-
         </div>
-
-	<!-- SEARCH OVERLAY -->
-
+	<!-- =========================
+     	     SEARCH OVERLAY
+	========================== -->
 	<div
 	id="search-overlay"
 	class="search-overlay hidden"
 	>
-
     	    <div class="search-overlay-box">
-
         	<input
         	type="text"
         	id="expanded-search"
         	placeholder="Search any active player"
         	autocomplete="off"
         	>
-
         	<div
         	id="expanded-search-results"
         	class="expanded-search-results"
         	>
-
         	</div>
-
     	    </div>
-
 	</div>
-
-        <!-- RIGHT SIDE -->
-
+	<!-- =========================
+     	     RIGHT SIDE
+	========================== -->
         <div class="public-header-right">
-
             <div class="mlb-live-status">
-
                 ● MLB LIVE
-
             </div>
-
             <button
             id="public-login-btn"
             class="public-auth-btn"
             >
                 Log In / Sign Up
             </button>
-
         </div>
-
     </header>
-
-    <!-- HERO SECTION -->
-
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
     <section class="homepage-hero">
-
         <h1>
             Fantasy Sports Intelligence
         </h1>
-
         <p>
-            Rankings, trends, injuries, trade values,
-            and MLB fantasy analytics.
+            Built to help you win more fantasy leagues.
         </p>
-
+	<p>
+	    Create Free Account
+	</p>
     </section>
-
 </section>
-
-<!-- LOGIN -->
-
+<!-- =========================
+     LOGIN
+========================== -->
 <section
 id="login-screen"
 class="screen">
-
     <div class="card">
-
-        <div class="logo">
-
-            ⚾
-
-        </div>
-
         <h1>
-
             LEAGUEIQ
-
         </h1>
-
         <p class="subtitle">
-
 	    Fantasy Sports Intelligence
-
 	</p>
-
 	<div
 	id="login-error"
 	class="auth-error hidden"
 	>
-
     	    Invalid Login
-
 	</div>
-
         <div class="input-group">
-
             <label>Email</label>
-
             <input
             type="email"
             id="login-email"
             placeholder="Enter Email">
-
         </div>
-
         <div class="input-group">
-
             <label>Password</label>
-
             <input
             type="password"
             id="login-password"
             placeholder="Enter Password">
-
         </div>
-
         <button id="login-btn">
-
             Log In
-
         </button>
-
         <div class="divider">
-
             OR
-
         </div>
-
         <button
         id="show-signup-btn"
         class="secondary-btn">
-
             Create Account
-
         </button>
-
     </div>
-
 </section>
-
-<!-- SIGNUP -->
-
+<!-- =========================
+     SIGNUP
+========================== -->
 <section
 id="signup-screen"
 class="screen hidden">
-
     <div class="card">
-
-        <div class="logo">
-
-            ⚾
-
-        </div>
-
         <h1>
-
             Create Account
-
         </h1>
-
         <p class="subtitle">
-
             Start Building Your LeagueIQ Profile
-
         </p>
-
         <div class="input-group">
-
             <label>Full Name</label>
-
             <input
             type="text"
             id="signup-name"
             placeholder="Enter Full Name">
-
         </div>
-
         <div class="input-group">
-
             <label>Email</label>
-
             <input
             type="email"
             id="signup-email"
             placeholder="Enter Email">
-
         </div>
-
         <div class="input-group">
-
             <label>Password</label>
-
             <input
             type="password"
             id="signup-password"
             placeholder="Create Password">
-
         </div>
-
         <div class="input-group">
-
             <label>Confirm Password</label>
-
             <input
             type="password"
             id="signup-confirm"
             placeholder="Confirm Password">
-
         </div>
-
         <div class="input-group">
-
             <label>Favorite Fantasy Sport</label>
-
             <select id="signup-sport" required>
-
                  <option value="">
                     Select Favorite Sport
                 </option>
-
                 <option value="MLB">
                     MLB Fantasy Baseball
                 </option>
-
             </select>
-
         </div>
-
         <div class="input-group">
-
             <label>Fantasy Experience</label>
-
             <select id="signup-experience" required>
-
                 <option value="">
                     Select Experience
                 </option>
-
                 <option value="Beginner">
                     Beginner
                 </option>
-
                 <option value="Intermediate">
                     Intermediate
                 </option>
-
                 <option value="Advanced">
                     Advanced
                 </option>
-
             </select>
-
         </div>
-
         <button id="signup-btn">
-
             Create Account
-
         </button>
-
         <div class="divider">
-
             Already have an account?
-
         </div>
-
         <button
         id="back-login-btn"
         class="secondary-btn">
-
             Back To Login
-
         </button>
-
     </div>
-
 </section>
-
-<!-- LEAGUE CONNECT SCREEN -->
-
+<!-- =========================
+     LEAGUE CONNECT SCREEN
+========================== -->
 <div
 id="league-connect-screen"
 class="screen hidden"
 >
-
     <div class="card">
-
         <h1>
             Add League
         </h1>
-
         <p class="subtitle">
             Connect your fantasy league
             to LeagueIQ
         </p>
-
-        <!-- SPORT -->
-
+	<!-- =========================
+     	     SPORT
+	========================== -->
         <div class="input-group">
-
             <label>
                 Sport
             </label>
-
             <select
             id="sport-select"
             required
             >
-
                 <option value="">
                     Select Sport
                 </option>
-
                 <option value="mlb">
                     MLB
                 </option>
-
             </select>
-
         </div>
-
-        <!-- PLATFORM -->
-
+	<!-- =========================
+     	     PLATFORM
+	========================== -->
         <div class="input-group">
-
             <label>
                 Fantasy Platform
             </label>
-
             <select
             id="platform-select"
             disabled
             required
             >
-
                 <option value="">
                     Select Platform
                 </option>
-
                 <option value="sleeper">
                     Sleeper
                 </option>
-
             </select>
-
         </div>
-
-        <!-- LEAGUE NAME -->
-
+	<!-- =========================
+    	     LEAGUE NAME
+	========================== -->
         <div class="input-group">
-
             <label>
                 League Name
             </label>
-
             <input
             type="text"
             id="league-name"
             placeholder="Customize League Name"
             disabled
             >
-
             <div
             style="
             margin-top:12px;
@@ -521,7 +388,6 @@ class="screen hidden"
             gap:10px;
             "
             >
-
                 <input
                 type="checkbox"
                 id="auto-import-name"
@@ -531,7 +397,6 @@ class="screen hidden"
                 "
                 disabled
                 >
-
                 <span
                 style="
                 color:#9a9a9a;
@@ -540,19 +405,15 @@ class="screen hidden"
                 >
                     Auto Import League Name
                 </span>
-
             </div>
-
         </div>
-
-        <!-- League ID -->
-
+	<!-- =========================
+     	     LEAGUE ID
+	========================== -->
         <div class="input-group">
-
             <label>
                 League ID
             </label>
-
             <input
             type="text"
             id="league-id-input"
@@ -560,345 +421,240 @@ class="screen hidden"
 	    pattern="[0-9]*"
             disabled
             >
-
         </div>
-
-        <!-- LEAGUE TYPE -->
-
+	<!-- =========================
+    	     LEAGUE TYPE
+	========================== -->
         <div class="input-group">
-
             <label>
                 League Type
             </label>
-
             <select
             id="league-type"
             disabled
             required
             >
-
                 <option value="">
                     Select League Type
                 </option>
-
                 <option value="redraft">
                     Redraft
                 </option>
-
                 <option value="dynasty">
                     Dynasty
                 </option>
-
                 <option value="keeper">
                     Keeper
                 </option>
-
 		<option value="bestball">
 		    Best Ball
 		</option>
-
             </select>
-
         </div>
-
-        <!-- FANTASY NAME -->
-
+	<!-- =========================
+     	     FANTASY NAME
+	========================== -->
         <div class="input-group">
-
             <label>
                 Fantasy Name
             </label>
-
             <input
             type="text"
             id="fantasy-name"
             placeholder="Enter Fantasy Team Name"
             disabled
             >
-
         </div>
-
-        <!-- BUTTON -->
-
+	<!-- =========================
+     	     BUTTON
+	========================== -->
 	<div class="league-action-buttons">
-
     	    <button
     	    id="back-dashboard-btn"
     	    class="secondary-btn"
     	    >
         	Back To Dashboard
     	    </button>
-
     	    <button
     	    id="continue-dashboard-btn"
     	    disabled
     	    >
         	Continue To Dashboard
     	    </button>
-
 	</div>
-
 </div>
-
-</div>
-
-<!-- APP -->
-
+<!-- =========================
+     APP
+========================== -->
 <div
-id="app-container">
-
-    <!-- HEADER -->
-
+id="app-container"
+class="hidden"
+>
+    <!-- =========================
+         HEADER
+    ========================== -->
     <header>
-
         <div class="header-left">
-
     	    <div class="brand">
-
         	LeagueIQ
-
     	    </div>
-
-    	    <!-- FANTASY LEAGUES DROPDOWN -->
-
+	    <!-- =========================
+     		 FANTASY LEAGUES DROPDOWN
+	    ========================== -->
     	    <div class="league-dropdown">
-
         	<button
         	id="league-dropdown-btn"
         	class="league-dropdown-btn"
         	>
-
             	    Fantasy Leagues
-
         	</button>
-
         	<div
         	id="league-dropdown-menu"
         	class="league-dropdown-menu hidden"
         	>
-
-            	    <!-- CONNECTED LEAGUES -->
-
+		    <!-- =========================
+     			 CONNECTED LEAGUES
+		    ========================== -->
             	    <button
             	    class="league-item-btn"
-		    date-league="cleveland"
+		    data-league="cleveland"
             	    >
                 	Cleveland Dynasty
             	    </button>
-
             	    <button
             	    class="league-item-btn"
-		    date=league="money"
+		    data=league="money"
             	    >
                 	Money League
             	    </button>
-
-            	    <!-- ADD LEAGUE -->
-
+		    <!-- =========================
+     			 ADD LEAGUE
+		    ========================== -->
             	    <button
             	    id="add-league-btn"
             	    class="add-league-btn"
             	    >
                 	+ Add League
             	    </button>
-
         	</div>
-
     	    </div>
-
 	</div>
-
         <nav>
-
             <button
             class="tab-btn active-tab-btn"
             data-tab="team-tab">
-
                 Team
-
             </button>
-
             <button
             class="tab-btn"
             data-tab="trade-tab">
-
                 Trade
-
             </button>
-
             <button
             class="tab-btn"
             data-tab="league-tab">
-
                 League
-
             </button>
-
             <button
             class="tab-btn"
             data-tab="players-tab">
-
                 Players
-
             </button>
-
         </nav>
-
         <div class="header-right">
-
             <div id="plan-badge">
-
                 FREE PLAN
-
             </div>
-
             <button id="logout-btn">
-
                 Logout
-
             </button>
-
         </div>
-
     </header>
-
-    <!-- TEAM -->
-
+    <!-- =========================
+         TEAM
+    ========================== -->
     <section
     id="team-tab"
     class="tab-content active-content">
-
         <div class="hero-card">
-
             <h2 id="team-title">
-
                 Team Dashboard
-
             </h2>
-
-            <p id="team analytics">
-
+            <p id="team-analytics">
                 LeagueIQ team analytics,
                 grades, and roster breakdowns
                 will appear here.
-
             </p>
-
         </div>
-
         <div
         id="premium-card"
         class="premium-card">
-
             <div>
-
                 <h3>
-
                     Upgrade To LeagueIQ Premium
-
                 </h3>
-
                 <p>
-
                     Unlock all 9 player grades,
                     advanced analytics,
                     league odds,
                     unlimited trade analysis,
                     and premium features.
-
                 </p>
-
             </div>
-
             <button id="upgrade-btn">
-
                 Upgrade — $3.99/mo
-
             </button>
-
         </div>
-
     </section>
-
-    <!-- TRADE -->
-
+    <!-- =========================
+         TRADE
+    ========================== -->
     <section
     id="trade-tab"
     class="tab-content">
-
         <div class="hero-card">
-
             <h2 id="trade-title">
-
                 Trade Analyzer
-
             </h2>
-
             <p id="trade-description">
-
                 Analyze trades and compare
                 player value.
-
             </p>
-
         </div>
-
     </section>
-
-    <!-- LEAGUE -->
-
+    <!-- =========================
+         LEAGUE
+    ========================== -->
     <section
     id="league-tab"
     class="tab-content">
-
         <div class="hero-card">
-
             <h2 id="league-title">
-
                 League Rankings
-
             </h2>
-
             <p id="league-description">
-
                 Team rankings, league odds,
                 and comparisons.
-
             </p>
-
         </div>
-
     </section>
-
-    <!-- PLAYERS -->
-
+    <!-- =========================
+         PLAYERS
+    ========================== -->
     <section
     id="players-tab"
     class="tab-content">
-
         <div class="hero-card">
-
             <h2 id="players-title">
-
                 Player Search
-
             </h2>
-
-            <p id="league-description">
-
+            <p id="players-description">
                 Search all MLB players and
                 view LeagueIQ grades.
-
             </p>
-
         </div>
-
     </section>
-
 </div>
-
 <script src="script.js"></script>
-
 </body>
-
 </html>

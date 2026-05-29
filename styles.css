@@ -3,30 +3,25 @@
    GLOBAL
 ============================
 ========================= */
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
-
 body{
     background:#090909;
     color:white;
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
 }
-
 .hidden{
     display:none !important;
 }
-
 /* =========================
 ============================
    AUTH SCREENS
 ============================
 ========================= */
-
 .screen{
     min-height:100vh;
     display:flex;
@@ -40,11 +35,9 @@ body{
         #090909 70%
     );
 }
-
 /* =========================
    CARD
 ========================= */
-
 .card{
     width:100%;
     max-width:460px;
@@ -55,20 +48,16 @@ body{
     box-shadow:
     0 15px 45px rgba(0,0,0,.45);
 }
-
 /* =========================
    LOGO
 ========================= */
-
 .logo{
     font-size:48px;
     text-align:center;
 }
-
 /* =========================
    TITLES
 ========================= */
-
 h1{
     text-align:center;
     color:#d4af37;
@@ -76,7 +65,6 @@ h1{
     font-weight:800;
     margin-top:12px;
 }
-
 .subtitle{
     text-align:center;
     color:#9a9a9a;
@@ -84,11 +72,9 @@ h1{
     margin-bottom:32px;
     line-height:1.6;
 }
-
 /* =========================
    AUTH ERROR
 ========================= */
-
 .auth-error{
     width:100%;
     background:
@@ -103,13 +89,11 @@ h1{
     font-weight:600;
     margin-bottom:20px;
 }
-
 /* =========================
 ============================
    INPUTS & FORMS
 ============================
 ========================= */
-
 /* =========================
    INPUT GROUP
 ========================= */
@@ -653,8 +637,8 @@ nav{
     display:flex;
     flex-direction:column;
     transition:
-    max-height .26s ease,
-    opacity .2s ease;
+    max-height .65s ease,
+    opacity .35s ease;
     opacity:0;
 }
 
@@ -773,7 +757,6 @@ nav{
 /* =========================
    SEARCH RESULTS
 ========================= */
-
 .search-results{
     position:absolute;
     top:64px;
@@ -790,7 +773,6 @@ nav{
     box-shadow:
     0 18px 45px rgba(0,0,0,.55);
 }
-
 .search-player-item{
     width:100%;
     background:#1a1a1a;
@@ -802,22 +784,18 @@ nav{
     cursor:pointer;
     transition:.2s;
 }
-
 .search-player-item:hover{
     background:#242424;
     color:#d4af37;
 }
-
 .search-player-meta{
     color:#8a8a8a;
     font-size:13px;
     margin-top:4px;
 }
-
 /* =========================
    RIGHT
 ========================= */
-
 .public-header-right{
     height:100%;
     display:flex;
@@ -825,7 +803,6 @@ nav{
     gap:8px;
     flex-shrink:0;
 }
-
 .mlb-live-status{
     color:#4fd96b;
     font-size:11px;
@@ -833,7 +810,11 @@ nav{
     font-weight:700;
     white-space:nowrap;
 }
-
+@media(max-width:541px){
+    .mlb-live-status{
+        display:none;
+    }
+}
 .public-auth-btn{
     background:#d4af37;
     color:#111;
@@ -848,41 +829,35 @@ nav{
     transition:.2s;
     white-space:nowrap;
 }
-
 .public-auth-btn:hover{
     background:#e8c24a;
     transform:translateY(-1px);
 }
-
 /* =========================
    HERO
 ========================= */
-
 .homepage-hero{
     width:100%;
-    min-height:90vh;
+    min-height:auto;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:40px;
+    justify-content:flex-start;
+    align-items:flex-start;
+    text-align:left;
+    padding:8px 4px 0 10px;
 }
-
 .homepage-hero h1{
-    font-size:64px;
+    font-size:33px;
     max-width:900px;
     line-height:1.1;
 }
-
 .homepage-hero p{
-    margin-top:22px;
+    margin-top:5px;
     color:#9a9a9a;
     font-size:18px;
     max-width:700px;
     line-height:1.7;
 }
-
 /* =========================
    SEARCH OVERLAY
 ========================= */
