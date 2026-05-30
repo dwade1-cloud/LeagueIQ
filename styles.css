@@ -238,7 +238,7 @@ nav{
 .header-left{
     display:flex;
     align-items:center;
-    gap:18px;}
+    gap:14px;}
 /* CONTINUE BUTTON ---------------------------------- */
 .continue-btn-wrap{
     display:flex;
@@ -328,17 +328,19 @@ nav{
     height:78px;
     position:sticky;
     top:0;
-    z-index:9999;
+    z-index:9998;
     display:flex;
     align-items:center;
     padding:0 24px;
     background:rgba(10,10,10,.95);
     backdrop-filter:blur(16px);
+    gap:14px;
     border-bottom:1px solid #1f1f1f;}
 /* BRAND CONTAINER ---------------------------------- */
 .brand-container{
     display:flex;
     flex-direction:column;
+    margin-right:12px;
     justify-content:center;}
 .public-nav button{
     background:none;
@@ -387,7 +389,7 @@ nav{
 .public-header-left{
     display:flex;
     align-items:center;
-    gap:28px;
+    gap:8px;
     flex-shrink:0;}
 .public-logo{
     font-size:30px;
@@ -495,17 +497,14 @@ nav{
 /* ROTATE ARROW ------------------------------------- */
 .custom-dropdown.dropdown-open .dropdown-arrow{
     transform:rotate(180deg);}
-/* CENTER SEARCH ------------------------------------ */
+/* SEARCH CONTAINER --------------------------------- */
 .search-container{
     flex:1;
-    max-width:650px;
-    min-width:60px;
+    max-width:300px;
+    min-width:45px;
     margin-left:auto;
-    margin-right:20px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;}
+    margin-right:10px;
+    position:relative;}
 #player-search{
     width:100%;
     height:38px;
@@ -514,7 +513,7 @@ nav{
     background:#171717;
     color:white;
     padding:0 35px 0 15px;
-    font-size:16px;
+    font-size:14px;
     transition:.2s;}
 #player-search:focus{
     outline:none;
@@ -568,23 +567,14 @@ nav{
     height:100%;
     display:flex;
     align-items:center;
-    gap:8px;
+    gap:14px;
     flex-shrink:0;}
-.mlb-live-status{
-    color:#4fd96b;
-    font-size:11px;
-    opacity:.8;
-    font-weight:700;
-    white-space:nowrap;}
-@media(max-width:541px){
-    .mlb-live-status{
-        display:none;}}
 .public-auth-btn{
     background:#d4af37;
     color:#111;
     border:none;
     height:42px;
-    width:100px;
+    width:80px;
     padding:11px;
     font-size:13px;
     border-radius:14px;
@@ -600,7 +590,7 @@ nav{
     border:1px solid #2c2c2c;
     color:white;
     height:42px;
-    padding:0 18px;
+    padding:0 14px;
     border-radius:14px;
     font-weight:700;}
 /* HERO --------------------------------------------- */
@@ -632,13 +622,11 @@ nav{
     height:100vh;
     background:
     rgba(0,0,0,.82);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    z-index:9998;
+    z-index:9999;
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    padding-top:10px;
+    padding-top:15px;
     padding-left:24px;
     padding-right:24px;
     animation:fadeOverlay .18s ease;}
@@ -766,3 +754,29 @@ nav{
         translateY(-50%)
         translateX(0);
         opacity:.18;}}
+/* HIDE HEADER -------------------------------------- */
+@media (max-width:900px){
+    .nav-injuries{
+        display:none;
+    }
+}
+@media (max-width:829px){
+    .nav-trade{
+        display:none;
+    }
+}
+@media (max-width:739px){
+    .nav-trending{
+        display:none;
+    }
+}
+@media (max-width:661px){
+    .nav-rankings{
+        display:none;
+    }
+}
+@media (max-width:602px){
+    .login-btn{
+        display:none;
+    }
+}
