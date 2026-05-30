@@ -1,27 +1,16 @@
-/* =========================
-============================
-   GLOBAL
-============================
-========================= */
-*{
-    margin:0;
+/* GLOBAL ------------------------------------------- */
+*{  margin:0;
     padding:0;
-    box-sizing:border-box;
-}
+    box-sizing:border-box;}
 body{
     background:#090909;
     color:white;
     font-family:'Inter',sans-serif;
     overflow-x:hidden;
-}
+    position:relative;}
 .hidden{
-    display:none !important;
-}
-/* =========================
-============================
-   AUTH SCREENS
-============================
-========================= */
+    display:none !important;}
+/* AUTH SCREENS ------------------------------------- */
 .screen{
     min-height:100vh;
     display:flex;
@@ -32,12 +21,8 @@ body{
     radial-gradient(
         circle at top,
         #1b1b1b 0%,
-        #090909 70%
-    );
-}
-/* =========================
-   CARD
-========================= */
+        #090909 70%);}
+/* CARD --------------------------------------------- */
 .card{
     width:100%;
     max-width:460px;
@@ -46,35 +31,25 @@ body{
     border-radius:26px;
     padding:42px;
     box-shadow:
-    0 15px 45px rgba(0,0,0,.45);
-}
-/* =========================
-   LOGO
-========================= */
+    0 15px 45px rgba(0,0,0,.45);}
+/* LOGO --------------------------------------------- */
 .logo{
     font-size:48px;
-    text-align:center;
-}
-/* =========================
-   TITLES
-========================= */
+    text-align:center;}
+/* TITLES ------------------------------------------- */
 h1{
     text-align:center;
     color:#d4af37;
     font-size:40px;
     font-weight:800;
-    margin-top:12px;
-}
+    margin-top:12px;}
 .subtitle{
     text-align:center;
     color:#9a9a9a;
     margin-top:10px;
     margin-bottom:32px;
-    line-height:1.6;
-}
-/* =========================
-   AUTH ERROR
-========================= */
+    line-height:1.6;}
+/* AUTH ERROR --------------------------------------- */
 .auth-error{
     width:100%;
     background:
@@ -87,29 +62,17 @@ h1{
     text-align:center;
     font-size:14px;
     font-weight:600;
-    margin-bottom:20px;
-}
-/* =========================
-============================
-   INPUTS & FORMS
-============================
-========================= */
-/* =========================
-   INPUT GROUP
-========================= */
+    margin-bottom:20px;}
+/* INPUT GROUP -------------------------------------- */
 .input-group{
-    margin-bottom:20px;
-}
+    margin-bottom:20px;}
 .input-group label{
     display:block;
     margin-bottom:10px;
     color:#d4af37;
     font-size:14px;
-    font-weight:600;
-}
-/* =========================
-   INPUTS
-========================= */
+    font-weight:600;}
+/* INPUTS ------------------------------------------- */
 input,
 select{
     width:100%;
@@ -119,70 +82,46 @@ select{
     border-radius:14px;
     color:white;
     font-size:15px;
-    transition:.25s;
-}
+    transition:.25s;}
 input:focus,
 select:focus{
     outline:none;
     border-color:#d4af37;
     box-shadow:
-    0 0 10px rgba(212,175,55,.2);
-}
+    0 0 10px rgba(212,175,55,.2);}
 input:disabled{
-    opacity:.45;
-}
-/* =========================
-   SELECT
-========================= */
+    opacity:.45;}
+/* SELECT ------------------------------------------- */
 select{
     background:#1f1f1f !important;
     border:2px solid #3a3a3a !important;
     color:#ffffff !important;
-    font-weight:600;
-}
+    font-weight:600;}
 select:focus{
     background:#2a2a2a !important;
     border-color:#d4af37 !important;
     outline:none;
     box-shadow:
-    0 0 12px rgba(212,175,55,.25);
-}
-/* =========================
-   OPTIONS
-========================= */
+    0 0 12px rgba(212,175,55,.25);}
+/* OPTIONS ------------------------------------------ */
 option{
     background:#2b2b2b;
     color:white;
-    padding:12px;
-}
-/* =========================
-   NUMBER INPUT FIXES
-========================= */
+    padding:12px;}
+/* NUMBER INPUT FIXES ------------------------------- */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button{
     -webkit-appearance:none;
-    margin:0;
-}
+    margin:0;}
 input[type=number]{
-    -moz-appearance:textfield;
-}
-/* =========================
-============================
-   BUTTONS
-============================
-========================= */
-/* =========================
-   GLOBAL BUTTON
-========================= */
+    -moz-appearance:textfield;}
+/* BUTTONS ------------------------------------------ */
 button{
     border:none;
     cursor:pointer;
     transition:.25s;
-    font-family:'Inter',sans-serif;
-}
-/* =========================
-   PRIMARY BUTTON
-========================= */
+    font-family:'Inter',sans-serif;}
+/* PRIMARY BUTTONS ---------------------------------- */
 #login-btn,
 #signup-btn,
 #connect-league-btn{
@@ -193,20 +132,14 @@ button{
     border-radius:14px;
     font-weight:700;
     font-size:15px;
-    margin-top:8px;
-}
-/* =========================
-   PRIMARY BUTTON HOVER
-========================= */
+    margin-top:8px;}
+/* PRIMARY BUTTON HOVER ----------------------------- */
 #login-btn:hover,
 #signup-btn:hover,
 #connect-league-btn:hover{
     background:#e8c24a;
-    transform:translateY(-2px);
-}
-/* =========================
-   SECONDARY BUTTON
-========================= */
+    transform:translateY(-2px);}
+/* SECONDARY BUTTON --------------------------------- */
 .secondary-btn{
     width:100%;
     background:transparent;
@@ -214,42 +147,27 @@ button{
     color:#d4af37;
     padding:15px;
     border-radius:14px;
-    font-weight:600;
-}
+    font-weight:600;}
 .secondary-btn:hover{
-    background:#1a1a1a;
-}
-/* =========================
-   DISABLED BUTTON
-========================= */
+    background:#1a1a1a;}
+/* DISABLED BUTTON ---------------------------------- */
 #continue-dashboard-btn:disabled{
     background:#3a3a3a;
     color:#888;
     cursor:not-allowed;
-    transform:none;
-}
-/* =========================
-   DIVIDER
-========================= */
+    transform:none;}
+/* DIVIDER ------------------------------------------ */
 .divider{
     text-align:center;
     color:#8a8a8a;
-    margin:18px 0;
-}
+    margin:18px 0;}
 .helper-text{
     color:#8d8d8d;
     line-height:1.7;
     font-size:13px;
-    margin-bottom:22px;
-}
-/* =========================
-============================
-   DASHBOARD
-============================
-========================= */
-/* =========================
-   HEADER
-========================= */
+    margin-bottom:22px;}
+/* DASHBOARD ---------------------------------------- */
+/* HEADER ------------------------------------------- */
 #app-container header{
     width:100%;
     background:#111;
@@ -260,50 +178,35 @@ button{
     padding:18px 32px;
     position:sticky;
     top:0;
-    z-index:100;
-}
-/* =========================
-   BRAND
-========================= */
+    z-index:100;}
+/* BRAND -------------------------------------------- */
 .brand{
     color:#d4af37;
     font-size:28px;
     font-weight:800;
-    letter-spacing:1px;
-}
-/* =========================
-   NAVIGATION
-========================= */
+    letter-spacing:1px;}
+/* NAVIGATION --------------------------------------- */
 nav{
     display:flex;
-    gap:10px;
-}
+    gap:10px;}
 .tab-btn{
     background:transparent;
     color:#b3b3b3;
     padding:11px 18px;
     border-radius:12px;
-    font-weight:600;
-}
+    font-weight:600;}
 .tab-btn:hover{
     background:#1b1b1b;
-    color:#d4af37;
-}
+    color:#d4af37;}
 .active-tab-btn{
     background:#d4af37;
-    color:#111;
-}
-/* =========================
-   HEADER RIGHT
-========================= */
+    color:#111;}
+/* HEADER RIGHT ------------------------------------- */
 .header-right{
     display:flex;
     align-items:center;
-    gap:14px;
-}
-/* =========================
-   PLAN BADGE
-========================= */
+    gap:14px;}
+/* PLAN BADGE --------------------------------------- */
 #plan-badge{
     background:#1b1b1b;
     border:1px solid #303030;
@@ -311,58 +214,36 @@ nav{
     padding:10px 14px;
     border-radius:12px;
     font-size:13px;
-    font-weight:700;
-}
-/* =========================
-   LOGOUT BUTTON
-========================= */
+    font-weight:700;}
+/* LOGOUT BUTTON ------------------------------------ */
 #logout-btn{
     background:#1a1a1a;
     border:1px solid #303030;
     color:white;
     padding:11px 16px;
-    border-radius:12px;
-}
+    border-radius:12px;}
 #logout-btn:hover{
-    background:#252525;
-}
-/* =========================
-   TAB CONTENT
-========================= */
+    background:#252525;}
+/* TAB CONTENT -------------------------------------- */
 .tab-content{
     display:none;
-    padding:34px;
-}
+    padding:34px;}
 .active-content{
-    display:block;
-}
-/* =========================
-   HERO CARD
-========================= */
+    display:block;}
+/* HERO CARD ---------------------------------------- */
 .hero-card{
-    background:#141414;
-}
-/* =========================
-============================
-   LEAGUE DROPDOWN
-============================
-========================= */
-/* =========================
-   HEADER LEFT
-========================= */
+    background:#141414;}
+/* LEAGUE DROPDOWN ---------------------------------- */
+/* HEADER LEFT -------------------------------------- */
 .header-left{
     display:flex;
     align-items:center;
-    gap:18px;
-}
-/* =========================
-   CONTINUE BUTTON
-========================= */
+    gap:18px;}
+/* CONTINUE BUTTON ---------------------------------- */
 .continue-btn-wrap{
     display:flex;
     justify-content:center;
-    margin-top:38px;
-}
+    margin-top:38px;}
 #continue-dashboard-btn{
     width:100%;
     padding:18px;
@@ -372,24 +253,17 @@ nav{
     color:#111;
     font-size:17px;
     font-weight:800;
-    transition:.25s;
-}
+    transition:.25s;}
 #continue-dashboard-btn:hover{
     background:#e8c24a;
-    transform:translateY(-2px);
-}
-/* =========================
-   DROPDOWN WRAPPER
-========================= */
+    transform:translateY(-2px);}
+/* DROPDOWN WRAPPER --------------------------------- */
 .league-dropdown{
-    position:relative;
-}
+    position:relative;}
 .league-dropdown-menu{
-    transform-origin:top;
-}
-/* =========================
-   DROPDOWN BUTTON
-========================= */
+    transform-origin:top;}
+
+/* DROPDOWN BUTTON ---------------------------------- */
 .league-dropdown-btn{
     background:#111;
     border:1px solid #343434;
@@ -403,17 +277,12 @@ nav{
     display:flex;
     align-items:center;
     justify-content:center;
-    transition:.2s;
-}
-
+    transition:.2s;}
 .league-dropdown-btn:hover{
     background:#202020;
     border-color:#d4af37;
-    color:#d4af37;
-}
-/* =========================
-   DROPDOWN MENU
-========================= */
+    color:#d4af37;}
+/* DROPDOWN MENU ------------------------------------ */
 .league-dropdown-menu{
     position:absolute;
     top:48px;
@@ -428,11 +297,8 @@ nav{
     gap:6px;
     z-index:999;
     box-shadow:
-    0 12px 30px rgba(0,0,0,.45);
-}
-/* =========================
-   LEAGUE ITEM BUTTON
-========================= */
+    0 12px 30px rgba(0,0,0,.45);}
+/* LEAGUE ITEM BUTTON ------------------------------- */
 .league-item-btn{
     background:#1d1d1d;
     color:white;
@@ -441,15 +307,11 @@ nav{
     border-radius:4px;
     text-align:left;
     font-weight:600;
-    transition:.25s;
-}
+    transition:.25s;}
 .league-item-btn:hover{
     background:#2a2a2a;
-    color:#d4af37;
-}
-/* =========================
-   ADD LEAGUE BUTTON
-========================= */
+    color:#d4af37;}
+/* ADD LEAGUE BUTTON -------------------------------- */
 .add-league-btn{
     background:#d4af37;
     color:#111;
@@ -457,15 +319,10 @@ nav{
     padding:14px;
     border-radius:4px;
     font-weight:800;
-    transition:.25s;
-}
-
+    transition:.25s;}
 .add-league-btn:hover{
-    background:#e8c24a;
-}
-/* =========================
-   PUBLIC HOMEPAGE HEADER
-========================= */
+    background:#e8c24a;}
+/* PUBLIC HOMEPAGE HEADER --------------------------- */
 .public-header{
     width:100%;
     height:78px;
@@ -477,38 +334,26 @@ nav{
     padding:0 24px;
     background:rgba(10,10,10,.95);
     backdrop-filter:blur(16px);
-    border-bottom:1px solid #1f1f1f;
-}
-/* =========================
-   BRAND CONTAINER
-========================= */
+    border-bottom:1px solid #1f1f1f;}
+/* BRAND CONTAINER ---------------------------------- */
 .brand-container{
     display:flex;
     flex-direction:column;
-    justify-content:center;
-}
+    justify-content:center;}
 .public-nav button{
     background:none;
     border:none;
-
     color:#cfcfcf;
-
     font-size:13px;
-    font-weight:600;
-}
-/* =========================
-   PUBLIC NAV
-========================= */
+    font-weight:600;}
+.public-nav button:hover{
+    color:#d4af37;}
+/* PUBLIC NAV --------------------------------------- */
 .public-nav{
     display:flex;
     align-items:center;
-    gap:22px;
-}
-/* =========================
-============================
-   SPORT BACKGROUND
-============================
-========================= */
+    gap:22px;}
+/* SPORT BACKGROUND --------------------------------- */
 #sport-background{
     position:fixed;
     top:0;
@@ -517,9 +362,7 @@ nav{
     height:100vh;
     overflow:hidden;
     pointer-events:none;
-    z-index:-1;
-}
-
+    z-index:-1;}
 #sport-image{
     position:absolute;
     top:50%;
@@ -527,83 +370,57 @@ nav{
     height:75vh;
     width:auto;
     opacity:.18;
-    user-select:none;
-}
+    user-select:none;}
 .sport-mlb{
     right:-22px;
-    filter:brightness(1.5);
-}
+    filter:brightness(1.5);}
 .sport-nfl{
     right:-340px;
-    filter:brightness(2.1);
-}
+    filter:brightness(2.1);}
 .sport-nba{
     right:-320px;
-    filter:brightness(1.5);
-}
+    filter:brightness(1.5);}
 .sport-nhl{
     right:-330px;
-    filter:brightness(3.5);
-}
-body{
-    position:relative;
-}
-/* =========================
-   LEFT
-========================= */
+    filter:brightness(3.5);}
+/* LEFT --------------------------------------------- */
 .public-header-left{
     display:flex;
     align-items:center;
     gap:28px;
-    flex-shrink:0;
-}
+    flex-shrink:0;}
 .public-logo{
     font-size:30px;
     font-weight:800;
     letter-spacing:1px;
-    line-height:1;
-}
+    line-height:1;}
 .logo-league{
-    color:white;
-}
+    color:white;}
 .logo-iq{
-    color:#d4af37;
-}
+    color:#d4af37;}
 .logo-subtitle{
     color:#8a8a8a;
     font-size:10px;
     text-transform:uppercase;
     letter-spacing:1px;
-    margin-top:2px;
-}
-/* =========================
-============================
-   PREMIUM SPORT DROPDOWN
-============================
-========================= */
+    margin-top:2px;}
+/* SPORT DROPDOWN ----------------------------------- */
 .custom-dropdown{
     position:relative;
-    width:78px;
-    border-radius:4px;
+    width:75px;
+    border-radius:8px;
     border:1px solid #090909;
     background:#090909;
     overflow:visible;
     transition:
     border-color .22s ease,
     box-shadow .22s ease,
-    border-radius .22s ease;
-}
-/* =========================
-   ACTIVE GOLD STATE
-========================= */
+    border-radius .22s ease;}
+/* ACTIVE GOLD STATE -------------------------------- */
 .custom-dropdown.dropdown-open{
-    border-color:#d4af37;
-    box-shadow:
-    0 0 16px rgba(212,175,55,.18);
-}
-/* =========================
-   TOP SELECTED SECTION
-========================= */
+    border:1px solid #ffffff;
+    border-radius:8px 8px 0 0;}
+/* TOP SELECTED SECTION ----------------------------- */
 .dropdown-selected{
     width:100%;
     height:40px;
@@ -616,92 +433,69 @@ body{
     padding:0 12px;
     cursor:pointer;
     font-size:12px;
-    font-weight:700;
-}
-/* =========================
-   STRONG DIVIDER
-========================= */
+    font-weight:700;}
+/* STRONGER DIVIDER --------------------------------- */
 .dropdown-divider{
     width:100%;
-    height:2px;
-    background:
-    rgba(212,175,55,.22);
-    opacity:0;
-    transition:.18s ease;
-}
-/* =========================
-   OPTIONS WRAPPER
-========================= */
+    height:1px;
+    background:#ffffff;
+    opacity:1;
+    transition:.18s ease;}
+/* OPTIONS WRAPPER ---------------------------------- */
 .dropdown-options{
     position:absolute;
+    top:35px;
+    left:0px;
     width:100%;
+    box-sizing:border-box;
+    background:#090909;
+    border:none;
+    border-top:none;
     max-height:0;
     overflow:hidden;
-    background:#090909;
-    border:1px solid #d4af37;
     display:flex;
     flex-direction:column;
-    transition:
-    max-height .65s ease,
-    opacity .35s ease;
     opacity:0;
-}
-/* =========================
-   OPEN STATE
-========================= */
+    transition:
+    max-height .35s ease,
+    opacity .2s ease;
+    border-radius:0 0 8px 8px;
+    z-index:9999;}
+.dropdown-option:last-child{
+    border-radius:0 0 8px 8px;}
+/* OPEN STATE --------------------------------------- */
 .custom-dropdown.dropdown-open .dropdown-options{
     max-height:220px;
-    opacity:1;
-}
-/* =========================
-   OPTIONS
-========================= */
+    opacity:1;}
+/* OPTIONS ------------------------------------------ */
 .dropdown-option{
     width:100%;
     height:40px;
     background:transparent;
-    border:none;
-    border-top:1px solid #2a2a2a;
+    border:1px solid #ffffff;
     color:white;
     text-align:left;
     padding:0 12px;
     font-size:12px;
     font-weight:700;
     cursor:pointer;
-    transition:.18s ease;
-}
-/* =========================
-   HOVER
-========================= */
+    transition:.18s ease;}
+/* HOVER -------------------------------------------- */
 .dropdown-option:hover{
     background:#232323;
-    color:#d4af37;
-}
-/* =========================
-   ACTIVE
-========================= */
+    color:#d4af37;}
+/* ACTIVE ------------------------------------------- */
 .active-option{
-    color:#d4af37;
-}
-/* =========================
-   ARROW
-========================= */
+    color:#d4af37;}
+/* ARROW -------------------------------------------- */
 .dropdown-arrow{
     font-size:12px;
     opacity:.7;
-    transition:transform .22s ease;
-}
-/* =========================
-   ROTATE ARROW
-========================= */
+    transition:transform .22s ease;}
+/* ROTATE ARROW ------------------------------------- */
 .custom-dropdown.dropdown-open .dropdown-arrow{
-    transform:rotate(180deg);
-}
-/* =========================
-============================
-   CENTER SEARCH
-============================
-========================= */
+    transform:rotate(180deg);}
+/* CENTER SEARCH ------------------------------------ */
 .search-container{
     flex:1;
     max-width:650px;
@@ -711,8 +505,7 @@ body{
     position:relative;
     display:flex;
     align-items:center;
-    justify-content:center;
-}
+    justify-content:center;}
 #player-search{
     width:100%;
     height:38px;
@@ -722,28 +515,22 @@ body{
     color:white;
     padding:0 35px 0 15px;
     font-size:16px;
-    transition:.2s;
-}
+    transition:.2s;}
 #player-search:focus{
     outline:none;
     border-color:#d4af37;
     box-shadow:
-    0 0 14px rgba(212,175,55,.18);
-}
+    0 0 14px rgba(212,175,55,.18);}
 #player-search::placeholder{
-    color:#8a8a8a;
-}
+    color:#8a8a8a;}
 .search-icon{
     position:absolute;
     right:8px;
     top:50%;
     transform:translateY(-50%);
     color:#8a8a8a;
-    pointer-events:none;
-}
-/* =========================
-   SEARCH RESULTS
-========================= */
+    pointer-events:none;}
+/* SEARCH RESULTS ----------------------------------- */
 .search-results{
     position:absolute;
     top:64px;
@@ -758,8 +545,7 @@ body{
     flex-direction:column;
     gap:8px;
     box-shadow:
-    0 18px 45px rgba(0,0,0,.55);
-}
+    0 18px 45px rgba(0,0,0,.55);}
 .search-player-item{
     width:100%;
     background:#1a1a1a;
@@ -769,39 +555,30 @@ body{
     color:white;
     text-align:left;
     cursor:pointer;
-    transition:.2s;
-}
+    transition:.2s;}
 .search-player-item:hover{
     background:#242424;
-    color:#d4af37;
-}
+    color:#d4af37;}
 .search-player-meta{
     color:#8a8a8a;
     font-size:13px;
-    margin-top:4px;
-}
-/* =========================
-   RIGHT
-========================= */
+    margin-top:4px;}
+/* RIGHT -------------------------------------------- */
 .public-header-right{
     height:100%;
     display:flex;
     align-items:center;
     gap:8px;
-    flex-shrink:0;
-}
+    flex-shrink:0;}
 .mlb-live-status{
     color:#4fd96b;
     font-size:11px;
     opacity:.8;
     font-weight:700;
-    white-space:nowrap;
-}
+    white-space:nowrap;}
 @media(max-width:541px){
     .mlb-live-status{
-        display:none;
-    }
-}
+        display:none;}}
 .public-auth-btn{
     background:#d4af37;
     color:#111;
@@ -814,12 +591,10 @@ body{
     font-weight:800;
     cursor:pointer;
     transition:.2s;
-    white-space:nowrap;
-}
+    white-space:nowrap;}
 .public-auth-btn:hover{
     background:#e8c24a;
-    transform:translateY(-1px);
-}
+    transform:translateY(-1px);}
 .signup-btn{
     background:transparent;
     border:1px solid #2c2c2c;
@@ -827,11 +602,8 @@ body{
     height:42px;
     padding:0 18px;
     border-radius:14px;
-    font-weight:700;
-}
-/* =========================
-   HERO
-========================= */
+    font-weight:700;}
+/* HERO --------------------------------------------- */
 .homepage-hero{
     width:100%;
     min-height:auto;
@@ -840,23 +612,18 @@ body{
     justify-content:flex-start;
     align-items:flex-start;
     text-align:left;
-    padding:8px 4px 0 10px;
-}
+    padding:8px 4px 0 10px;}
 .homepage-hero h1{
     font-size:33px;
     max-width:900px;
-    line-height:1.1;
-}
+    line-height:1.1;}
 .homepage-hero p{
     margin-top:5px;
     color:#9a9a9a;
     font-size:18px;
     max-width:700px;
-    line-height:1.7;
-}
-/* =========================
-   SEARCH OVERLAY
-========================= */
+    line-height:1.7;}
+/* SEARCH OVERLAY ----------------------------------- */
 .search-overlay{
     position:fixed;
     top:0;
@@ -874,13 +641,16 @@ body{
     padding-top:10px;
     padding-left:24px;
     padding-right:24px;
-    animation:fadeOverlay .18s ease;
-}
+    animation:fadeOverlay .18s ease;}
+@keyframes fadeOverlay{
+    from{
+        opacity:0;}
+    to{
+        opacity:1;}}
 .search-overlay-box{
     width:100%;
     max-width:600px;
-    margin:0 20px;
-}
+    margin:0 20px;}
 #expanded-search{
     width:100%;
     height:45px;
@@ -893,11 +663,9 @@ body{
     outline:none;
     box-shadow:
     0 0 30px rgba(212,175,55,.16);
-    transform:scale(1.015);
-}
+    transform:scale(1.015);}
 #expanded-search::placeholder{
-    color:#8a8a8a;
-}
+    color:#8a8a8a;}
 .expanded-search-results{
     width:100%;
     max-height:400px;
@@ -909,35 +677,28 @@ body{
     padding:12px;
     display:flex;
     flex-direction:column;
-    gap:10px;
-}
-/* =========================
-   PLAYER RANKINGS
-========================= */
+    gap:10px;}
+/* PLAYER RANKINGS ---------------------------------- */
 .homepage-section{
     max-width:1200px;
     margin:90px 0;
-    padding:0 10px;
-}
+    padding:0 10px;}
 .section-title{
     color:#d4af37;
     font-size:36px;
     font-weight:800;
-    margin-bottom:12px;
-}
+    margin-bottom:12px;}
 .section-description{
     color:#fff;
     max-width:800px;
     line-height:1.7;
-    margin-bottom:30px;
-}
+    margin-bottom:30px;}
 .ranking-preview{
     width:470px;
     background:#141414;
     border:4px solid #262626;
     border-radius:16px;
-    overflow:hidden;
-}
+    overflow:hidden;}
 .ranking-row{
     display:grid;
     grid-template-columns:
@@ -949,8 +710,7 @@ body{
     align-items:center;
     padding:1px 12px;
     font-size:13px;
-    border-bottom:1px solid #242424;
-}
+    border-bottom:1px solid #242424;}
 .ranking-header{
     display:grid;
     grid-template-columns:
@@ -965,11 +725,9 @@ body{
     color:#d4af37;
     font-weight:700;
     font-size:14px;
-    border-bottom:2px solid #3a3a3a;
-}
+    border-bottom:2px solid #3a3a3a;}
 .ranking-row:last-child{
-    border-bottom:none;
-}
+    border-bottom:none;}
 .section-btn{
     display:inline-block;
     margin-top:24px;
@@ -978,44 +736,33 @@ body{
     text-decoration:none;
     padding:7px 15px;
     border-radius:14px;
-    font-weight:700;
-}
-/* =========================
-   SPORT TRANSITIONS
-========================= */
+    font-weight:700;}
+/* SPORT TRANSITIONS -------------------------------- */
 .sport-slide-out{
     animation:
-    sportSlideOut .8s ease forwards;
-}
+    sportSlideOut .8s ease forwards;}
 .sport-slide-in{
     animation:
-    sportSlideIn .9s ease forwards;
-}
+    sportSlideIn .9s ease forwards;}
 @keyframes sportSlideOut{
     from{
         transform:
         translateY(-50%)
         translateX(0);
-        opacity:.18;
-    }
+        opacity:.18;}
     to{
         transform:
         translateY(-50%)
         translateX(500px);
-        opacity:0;
-    }
-}
+        opacity:0;}}
 @keyframes sportSlideIn{
     from{
         transform:
         translateY(-50%)
         translateX(-100vw);
-        opacity:0;
-    }
+        opacity:0;}
     to{
         transform:
         translateY(-50%)
         translateX(0);
-        opacity:.18;
-    }
-}
+        opacity:.18;}}

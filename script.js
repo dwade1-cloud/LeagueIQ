@@ -1091,28 +1091,86 @@ window.addEventListener(
     }
 );
 
-// LOGIN / SIGNUP BUTTON
-
+// =========================
+// LOGIN / SIGN UP BUTTONS
+// =========================
 const publicLoginBtn =
 document.getElementById(
     "public-login-btn"
 );
-
 publicLoginBtn.addEventListener(
     "click",
     () => {
-
         publicHomepage.classList.add(
             "hidden"
         );
-
         loginScreen.classList.remove(
             "hidden"
         );
-
     }
 );
-
+const publicSignupBtn =
+document.getElementById(
+    "public-signup-btn"
+);
+publicSignupBtn.addEventListener(
+    "click",
+    () => {
+        document
+        .getElementById(
+            "public-homepage"
+        )
+        .classList.add(
+            "hidden"
+        );
+        document
+        .getElementById(
+            "signup-screen"
+        )
+        .classList.remove(
+            "hidden"
+        );
+    }
+);
+// =========================
+// BACK TO HOME SCREEN
+// =========================
+document
+.getElementById("back-home-btn")
+.addEventListener(
+    "click",
+    () => {
+        document
+        .getElementById("signup-screen")
+        .classList.add("hidden");
+        document
+        .getElementById("public-homepage")
+        .classList.remove("hidden");
+    }
+);
+const backHomeLoginBtn =
+document.getElementById(
+    "back-home-login-btn"
+);
+backHomeLoginBtn.addEventListener(
+    "click",
+    () => {
+        document
+        .getElementById(
+            "login-screen"
+        )
+        .classList.add(
+            "hidden"
+        );
+        document
+        .getElementById(
+            "public-homepage"
+        )
+        .classList.remove(
+            "hidden"
+        );
+    }
+);
 // =========================
 // PREMIUM SPORT DROPDOWN
 // =========================
@@ -1290,163 +1348,100 @@ document.getElementById(
 
 const expandedSearchResults =
 document.getElementById(
-    "expanded-search-results"
-);
-
-
-// RENDER RESULTS
-
+    "expanded-search-results");
+// =========================
 // OPEN SEARCH OVERLAY
-
+// =========================
 playerSearch.addEventListener(
     "click",
     (event) => {
-
         event.stopPropagation();
-
         if(window.innerWidth < 2000){
-
             searchOverlay.classList.remove(
-                "hidden"
-            );
-
+                "hidden");
             expandedSearch.value =
             playerSearch.value;
-
             setTimeout(() => {
-
-                expandedSearch.focus();
-
-            }, 10);
-
+                expandedSearch.focus();}, 10);
             renderExpandedResults(
-                expandedSearch.value
-            );
-
-        }
-
-    }
-);
-
+                expandedSearch.value);}});
+// =========================
+// RENDER RESULTS
+// =========================
 function renderExpandedResults(query){
-
-    expandedSearchResults.innerHTML =
-    "";
-
+    expandedSearchResults.innerHTML ="";
     const matches =
     playerDatabase.filter(
         player =>
         player.name
         .toLowerCase()
         .includes(
-            query.toLowerCase()
-        )
-    );
-
+            query.toLowerCase()));
     matches.forEach(
         player => {
-
             const result =
             document.createElement(
-                "button"
-            );
-
+                "button");
             result.classList.add(
-                "search-player-item"
-            );
-
+                "search-player-item");
             result.innerHTML = `
-
                 <div>
                     ${player.name}
                 </div>
-
                 <div class="search-player-meta">
                     ${player.meta}
-                </div>
-
-            `;
-
+                </div>`;
             expandedSearchResults.appendChild(
-                result
-            );
-
-        }
-    );
-
-}
-
+                result);});}
+// =========================
 // LIVE SEARCH
-
+// =========================
 expandedSearch.addEventListener(
     "input",
     () => {
         renderExpandedResults(
-            expandedSearch.value
-        );
-    }
-);
-// CLOSE OVERLAY WHEN CLICKING OUTSIDE
+            expandedSearch.value);});
+// =========================
+// CLOSE SEARCH OVERLAY
+// =========================
 document.addEventListener(
     "click",
     (event) => {
         const searchBox =
         document.querySelector(
-            ".search-overlay-box"
-        );
-        // OVERLAY CLOSED
+            ".search-overlay-box");
         if(
             searchOverlay.classList.contains(
-                "hidden"
-            )
-        ){
-            return;
-        }
-        // CLICK INSIDE SEARCH BOX
+                "hidden")){
+            return;}
         if(
             searchBox.contains(
-                event.target
-            )
-        ){
-            return;
-        }
-        // CLOSE OVERLAY
+                event.target)){
+            return;}
         searchOverlay.classList.add(
-            "hidden"
-        );
-    }
-);
-// BACKGROUND SPORT TRANSITION
-function changeSportBackground(
-    sport
-){
+            "hidden");});
+// =========================
+// BACKGROUND ANIMATION
+// =========================
+function changeSportBackground(sport){
     const image =
     document.getElementById(
-        "sport-image"
-    );
+        "sport-image");
     image.classList.remove(
-        "sport-slide-in"
-    );
+        "sport-slide-in");
     image.classList.add(
-        "sport-slide-out"
-    );
+        "sport-slide-out");
     setTimeout(() => {
 	image.classList.remove(
     	    "sport-mlb",
     	    "sport-nfl",
     	    "sport-nba",
-    	    "sport-nhl"
-	);
+    	    "sport-nhl");
 	image.classList.add(
-    	    `sport-${sport}`
-	);
+    	    `sport-${sport}`);
         image.src =
         sportImages[sport];
         image.classList.remove(
-            "sport-slide-out"
-        );
+            "sport-slide-out");
         image.classList.add(
-            "sport-slide-in"
-        );
-    },500);
-}
+            "sport-slide-in");},500);}

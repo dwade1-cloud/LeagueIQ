@@ -37,9 +37,8 @@ rel="stylesheet"
 <div id="sport-background">
     <img
     id="sport-image"
-    src="images/baseball.png"
-    alt="Sport Background"
-    >
+    class="sport-mlb"
+    src="images/baseball.png">
 </div>
 <!-- =========================
 ==============================
@@ -136,13 +135,14 @@ id="public-homepage"
             </div>
         </div>
         <div class="public-header-right">
-            <button class="signup-btn">
+            <button 
+	    id="public-signup-btn"
+	    class="signup-btn">
                 Sign Up
             </button>
             <button
             id="public-login-btn"
-            class="public-auth-btn"
-            >
+            class="public-auth-btn">
                 Log In
             </button>
         </div>
@@ -168,259 +168,179 @@ id="public-homepage"
         	</div>
     	    </div>
 	</div>
-    <!-- =========================
-         HERO SECTION
-    ========================== -->
+    <!-- HERO SECTION --------------------------------------------------->
     <section class="homepage-hero">
-        <h1>
-            Fantasy Sports Intelligence
-        </h1>
-        <p>
-            Built to help you win more fantasy leagues.
-        </p>
-	<p>
-	    Create Free Account
-	</p>
-    </section>
-    <!-- =========================
-         PLAYER RANKINGS
-    ========================= -->
-    <section class="homepage-section">
-    	<h2 class="section-title">
-            Player Rankings
-    	</h2>
-    	<p class="section-description">
-            LeagueIQ rankings combine performance,
-            consistency, trends, opportunity,
-            value, and advanced stats into one
-            fantasy ranking system.
-   	</p>
-	<div class="ranking-preview">
-	    <div class="ranking-header">
-    		<span>Rank</span>
-   	 	<span>Player</span>
-    		<span>Team</span>
-    		<span>Pos</span>
-    		<span>Trend</span>
-	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">1</span>
-        	<span class="player-name">Aaron Judge</span>
-        	<span class="team">NYY</span>
-        	<span class="position">OF</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">2</span>
-        	<span class="player-name">Bobby Witt Jr.</span>
-        	<span class="team">KC</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">3</span>
-        	<span class="player-name">Shohei Ohtani</span>
-        	<span class="team">LAD</span>
-        	<span class="position">DH</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">4</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">5</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">6</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">7</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">8</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">9</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-    	    <div class="ranking-row">
-        	<span class="rank">10</span>
-        	<span class="player-name">Elly De La Cruz</span>
-        	<span class="team">CIN</span>
-        	<span class="position">SS</span>
-        	<span class="trend">Trending ↑</span>
-    	    </div>
-	</div> 
-   	<a
-    	href="player-rankings.html"
-    	class="section-btn"
-    	>
-            View Full Rankings
-    	</a>
-    </section>
-</section>
-<!-- =========================
-     LOGIN
-========================== -->
+        <h1>Fantasy Sports Intelligence</h1>
+        <p>Built to help you win more fantasy leagues.</p>
+	<p>Create Free Account</p></section>
+<!-- PLAYER RANKINGS --------------------------------------------------->
+<section class="homepage-section">
+    <h2 class="section-title">
+	Player Rankings</h2>
+    <p class="section-description">
+	LeagueIQ rankings combine performance,
+	consistency, trends, opportunity,
+	value, and advanced stats into one
+	fantasy ranking system.</p>
+    <div class="ranking-preview">
+    <div class="ranking-header">
+	<span>Rank</span>
+	<span>Player</span>
+	<span>Team</span>
+	<span>Pos</span>
+	<span>Trend</span></div>
+    <div class="ranking-row">
+	<span class="rank">1</span>
+	<span class="player-name">Aaron Judge</span>
+	<span class="team">NYY</span>
+	<span class="position">OF</span>
+	<span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+	<span class="rank">2</span>
+	<span class="player-name">Bobby Witt Jr.</span>
+	<span class="team">KC</span>
+  	<span class="position">SS</span>
+	<span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+	<span class="rank">3</span>
+	<span class="player-name">Shohei Ohtani</span>
+	<span class="team">LAD</span>
+        <span class="position">DH</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">4</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">5</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">6</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">7</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">8</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">9</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div>
+    <div class="ranking-row">
+        <span class="rank">10</span>
+        <span class="player-name">Elly De La Cruz</span>
+        <span class="team">CIN</span>
+        <span class="position">SS</span>
+        <span class="trend">Trending ↑</span></div></div> <a
+    href="player-rankings.html"
+    class="section-btn">
+        View Full Rankings</a></section></section>
+<!-- LOGIN --------------------------------------------------->
 <section
 id="login-screen"
 class="screen">
     <div class="card">
-        <h1>
-            LEAGUEIQ
-        </h1>
-        <p class="subtitle">
-	    Fantasy Sports Intelligence
-	</p>
-	<div
+        <h1>LEAGUEIQ</h1>
+        <p class="subtitle">Fantasy Sports Intelligence</p><div
 	id="login-error"
-	class="auth-error hidden"
-	>
-    	    Invalid Login
-	</div>
+	class="auth-error hidden">
+    	    Invalid Login</div>
         <div class="input-group">
-            <label>Email</label>
-            <input
+            <label>Email</label><input
             type="email"
             id="login-email"
-            placeholder="Enter Email">
-        </div>
+            placeholder="Enter Email"></div>
         <div class="input-group">
-            <label>Password</label>
-            <input
+            <label>Password</label><input
             type="password"
             id="login-password"
-            placeholder="Enter Password">
-        </div>
-        <button id="login-btn">
-            Log In
-        </button>
-        <div class="divider">
-            OR
-        </div>
-        <button
+            placeholder="Enter Password"></div>
+        <button id="login-btn">Log In</button>
+        <div class="divider">OR</div><button
         id="show-signup-btn"
-        class="secondary-btn">
-            Create Account
-        </button>
-    </div>
-</section>
-<!-- =========================
-     SIGNUP
-========================== -->
+        class="secondary-btn">Create Account</button><button
+	id="back-home-login-btn"
+	class="secondary-btn"
+	style="margin-top:12px;">Back To Homepage</button></div></section>
+<!-- SIGNUP --------------------------------------------------->
 <section
 id="signup-screen"
 class="screen hidden">
     <div class="card">
-        <h1>
-            Create Account
-        </h1>
+        <h1>Create Account</h1>
         <p class="subtitle">
-            Start Building Your LeagueIQ Profile
-        </p>
+            Start Building Your LeagueIQ Profile</p>
         <div class="input-group">
-            <label>Full Name</label>
-            <input
+            <label>Full Name</label><input
             type="text"
             id="signup-name"
-            placeholder="Enter Full Name">
-        </div>
+            placeholder="Enter Full Name"></div>
         <div class="input-group">
-            <label>Email</label>
-            <input
+            <label>Email</label><input
             type="email"
             id="signup-email"
-            placeholder="Enter Email">
-        </div>
+            placeholder="Enter Email"></div>
         <div class="input-group">
-            <label>Password</label>
-            <input
+            <label>Password</label><input
             type="password"
             id="signup-password"
-            placeholder="Create Password">
-        </div>
+            placeholder="Create Password"></div>
         <div class="input-group">
-            <label>Confirm Password</label>
-            <input
+            <label>Confirm Password</label><input
             type="password"
             id="signup-confirm"
-            placeholder="Confirm Password">
-        </div>
+            placeholder="Confirm Password"></div>
         <div class="input-group">
             <label>Favorite Fantasy Sport</label>
             <select id="signup-sport" required>
                  <option value="">
-                    Select Favorite Sport
-                </option>
+                    Select Favorite Sport</option>
                 <option value="MLB">
-                    MLB Fantasy Baseball
-                </option>
-            </select>
-        </div>
+                    MLB Fantasy Baseball</option></select></div>
         <div class="input-group">
             <label>Fantasy Experience</label>
             <select id="signup-experience" required>
                 <option value="">
-                    Select Experience
-                </option>
+                    Select Experience</option>
                 <option value="Beginner">
-                    Beginner
-                </option>
+                    Beginner</option>
                 <option value="Intermediate">
-                    Intermediate
-                </option>
+                    Intermediate</option>
                 <option value="Advanced">
-                    Advanced
-                </option>
-            </select>
-        </div>
+                    Advanced</option></select></div>
         <button id="signup-btn">
-            Create Account
-        </button>
+            Create Account</button>
         <div class="divider">
-            Already have an account?
-        </div>
-        <button
+            Already have an account?</div><button
         id="back-login-btn"
         class="secondary-btn">
-            Back To Login
-        </button>
-    </div>
-</section>
-<!-- =========================
-     LEAGUE CONNECT SCREEN
-========================== -->
+            Login Instead</button><button
+	id="back-home-btn"
+	class="secondary-btn">
+    	    Back To Homepage</button></div></section>
+<!-- LEAGUE CONNECT SCREEN --------------------------------------------------->
 <div
 id="league-connect-screen"
-class="screen hidden"
->
+class="screen hidden">
     <div class="card">
-        <h1>
-            Add League
-        </h1>
+        <h1>Add League</h1>
         <p class="subtitle">
             Connect your fantasy league
             to LeagueIQ
@@ -685,73 +605,53 @@ class="hidden"
         </div>
         <div
         id="premium-card"
-        class="premium-card">
-            <div>
-                <h3>
-                    Upgrade To LeagueIQ Premium
-                </h3>
-                <p>
-                    Unlock all 9 player grades,
-                    advanced analytics,
-                    league odds,
-                    unlimited trade analysis,
-                    and premium features.
-                </p>
-            </div>
-            <button id="upgrade-btn">
-                Upgrade — $3.99/mo
-            </button>
-        </div>
-    </section>
-    <!-- =========================
-         TRADE
-    ========================== -->
-    <section
-    id="trade-tab"
-    class="tab-content">
-        <div class="hero-card">
-            <h2 id="trade-title">
-                Trade Analyzer
-            </h2>
-            <p id="trade-description">
-                Analyze trades and compare
-                player value.
-            </p>
-        </div>
-    </section>
-    <!-- =========================
-         LEAGUE
-    ========================== -->
-    <section
-    id="league-tab"
-    class="tab-content">
-        <div class="hero-card">
-            <h2 id="league-title">
-                League Rankings
-            </h2>
-            <p id="league-description">
-                Team rankings, league odds,
-                and comparisons.
-            </p>
-        </div>
-    </section>
-    <!-- =========================
-         PLAYERS
-    ========================== -->
-    <section
-    id="players-tab"
-    class="tab-content">
-        <div class="hero-card">
-            <h2 id="players-title">
-                Player Search
-            </h2>
-            <p id="players-description">
-                Search all MLB players and
-                view LeagueIQ grades.
-            </p>
-        </div>
-    </section>
-</div>
-<script src="script.js"></script>
-</body>
-</html>
+        class="premium-card"
+	><div><h3>
+                Upgrade To LeagueIQ Premium
+                </h3><p>
+                Unlock all 9 player grades,
+                advanced analytics,
+                league odds,
+                unlimited trade analysis,
+                and premium features.
+		</p></div>
+        <button id="upgrade-btn">
+            Upgrade — $3.99/mo
+</button></div></section>
+<!-- TRADE --------------------------------------------------->
+<section
+id="trade-tab"
+class="tab-content">
+    <div class="hero-card">
+        <h2 id="trade-title">
+            Trade Analyzer</h2>
+        <p id="trade-description">
+            Analyze trades and compare
+            player value.
+</p></div></section>
+<!-- LEAGUE --------------------------------------------------->
+<section
+id="league-tab"
+class="tab-content">
+    <div class="hero-card">
+        <h2 id="league-title">
+            League Rankings</h2>
+        <p id="league-description">
+            Team rankings, league odds,
+            and comparisons.
+</p></div></section>
+<!-- PLAYERS --------------------------------------------------->
+<section
+id="players-tab"
+class="tab-content"
+    ><div 
+    class="hero-card"
+        ><h2 
+	id="players-title">
+            Player Search
+	</h2><p 
+	id="players-description">
+            Search all MLB players and
+            view LeagueIQ grades.
+</p></div></section>
+</div><script src="script.js"></script></body></html>
