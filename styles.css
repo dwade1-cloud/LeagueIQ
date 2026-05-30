@@ -470,6 +470,28 @@ nav{
     border-bottom:1px solid #1f1f1f;
 }
 /* =========================
+============================
+   SPORT BACKGROUND
+============================
+========================= */
+#sport-background{
+    position:fixed;
+    top:50%;
+    right:1px;
+    transform:translateY(-50%);
+    z-index:-1;
+    pointer-events:none;
+}
+#sport-image{
+    height:75vh;
+    width:auto;
+    opacity:.18;
+    user-select:none;
+}
+body{
+    position:relative;
+}
+/* =========================
    LEFT
 ========================= */
 .public-header-left{
@@ -814,7 +836,7 @@ nav{
 ========================= */
 .homepage-section{
     max-width:1200px;
-    margin:90px auto;
+    margin:90px 0;
     padding:0 10px;
 }
 .section-title{
@@ -877,4 +899,43 @@ nav{
     padding:7px 15px;
     border-radius:14px;
     font-weight:700;
+}
+/* =========================
+   SPORT TRANSITIONS
+========================= */
+.sport-slide-out{
+    animation:
+    sportSlideOut .5s ease forwards;
+}
+.sport-slide-in{
+    animation:
+    sportSlideIn .6s ease forwards;
+}
+@keyframes sportSlideOut{
+    from{
+        transform:
+        translateY(-50%)
+        translateX(0);
+        opacity:.18;
+    }
+    to{
+        transform:
+        translateY(-50%)
+        translateX(500px);
+        opacity:0;
+    }
+}
+@keyframes sportSlideIn{
+    from{
+        transform:
+        translateY(-50%)
+        translateX(-100vw);
+        opacity:0;
+    }
+    to{
+        transform:
+        translateY(-50%)
+        translateX(0);
+        opacity:.18;
+    }
 }

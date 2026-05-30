@@ -1,34 +1,32 @@
 // FIREBASE CONFIG
-
 const firebaseConfig = {
-
     apiKey: "AIzaSyCcJchr26rP-GeW_6FYa5sXxpHQPT5k0eY",
-
     authDomain:
     "leagueiq-d3e04.firebaseapp.com",
-
     projectId:
     "leagueiq-d3e04",
-
     storageBucket:
     "leagueiq-d3e04.firebasestorage.app",
-
     messagingSenderId:
     "938215290237",
-
     appId:
     "1:938215290237:web:b9c4dd35e0d53772a88814"
-
 };
-
 // INITIALIZE FIREBASE
-
 firebase.initializeApp(firebaseConfig);
-
 const auth = firebase.auth();
-
 const db = firebase.firestore();
-
+// SPORT IMAGES
+const sportImages = {
+    mlb:
+    "images/baseball.png",
+    nfl:
+    "images/football.png",
+    nba:
+    "images/basketball.png",
+    nhl:
+    "images/hockey-puck.png"
+};
 // SCREENS
 
 const loginScreen =
@@ -1162,10 +1160,12 @@ dropdownOptionButtons.forEach(
         option.addEventListener(
             "click",
             () => {
-
                 currentSport =
                 option.dataset.sport;
 
+		changeSportBackground(
+    		    cuurrentSport
+		);
                 selectedSport.innerText =
                 currentSport.toUpperCase();
 
@@ -1428,3 +1428,39 @@ document.addEventListener(
 
     }
 );
+
+// BACKGROUND SPORT TRANSITION
+
+function changeSportBackground(
+    sport
+){
+
+    const image =
+    document.getElementById(
+        "sport-image"
+    );
+
+    image.classList.remove(
+        "sport-slide-in"
+    );
+
+    image.classList.add(
+        "sport-slide-out"
+    );
+
+    setTimeout(() => {
+
+        image.src =
+        sportImages[sport];
+
+        image.classList.remove(
+            "sport-slide-out"
+        );
+
+        image.classList.add(
+            "sport-slide-in"
+        );
+
+    },500);
+
+}
