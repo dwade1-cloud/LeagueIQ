@@ -1163,12 +1163,12 @@ dropdownOptionButtons.forEach(
                 currentSport =
                 option.dataset.sport;
 
-		changeSportBackground(
-    		    cuurrentSport
-		);
-                selectedSport.innerText =
+		selectedSport.innerText =
                 currentSport.toUpperCase();
 
+		changeSportBackground(
+    		    currentSport
+		);
                 // ACTIVE STATE
 
                 dropdownOptionButtons.forEach(
@@ -1381,27 +1381,20 @@ function renderExpandedResults(query){
 expandedSearch.addEventListener(
     "input",
     () => {
-
         renderExpandedResults(
             expandedSearch.value
         );
-
     }
 );
-
 // CLOSE OVERLAY WHEN CLICKING OUTSIDE
-
 document.addEventListener(
     "click",
     (event) => {
-
         const searchBox =
         document.querySelector(
             ".search-overlay-box"
         );
-
         // OVERLAY CLOSED
-
         if(
             searchOverlay.classList.contains(
                 "hidden"
@@ -1409,9 +1402,7 @@ document.addEventListener(
         ){
             return;
         }
-
         // CLICK INSIDE SEARCH BOX
-
         if(
             searchBox.contains(
                 event.target
@@ -1419,48 +1410,43 @@ document.addEventListener(
         ){
             return;
         }
-
         // CLOSE OVERLAY
-
         searchOverlay.classList.add(
             "hidden"
         );
-
     }
 );
-
 // BACKGROUND SPORT TRANSITION
-
 function changeSportBackground(
     sport
 ){
-
     const image =
     document.getElementById(
         "sport-image"
     );
-
     image.classList.remove(
         "sport-slide-in"
     );
-
     image.classList.add(
         "sport-slide-out"
     );
-
     setTimeout(() => {
-
+	image.classList.remove(
+    	    "sport-mlb",
+    	    "sport-nfl",
+    	    "sport-nba",
+    	    "sport-nhl"
+	);
+	image.classList.add(
+    	    `sport-${sport}`
+	);
         image.src =
         sportImages[sport];
-
         image.classList.remove(
             "sport-slide-out"
         );
-
         image.classList.add(
             "sport-slide-in"
         );
-
     },500);
-
 }

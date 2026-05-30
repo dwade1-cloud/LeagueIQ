@@ -53,78 +53,72 @@ id="public-homepage"
          PUBLIC HEADER
     ========================== -->
     <header class="public-header">
-        <!-- =========================
-     	     LEFT SIDE
-	========================== -->
         <div class="public-header-left">
-	    <!-- =========================
-     		 LOGO
-	    ========================== -->
-            <div class="public-logo">
-                LeagueIQ
+            <div class="brand-container">
+            	<div class="public-logo">
+    		    <span class="logo-league">
+        		LEAGUE
+    		    </span>
+    		    <span class="logo-iq">
+        		IQ
+    	  	    </span>
+		</div>
+                <div class="logo-subtitle">
+                    Fantasy Sports Intelligence
+                </div>
             </div>
-            <!-- =========================
-     		 SPORT DROPDOWN
-	    ========================== -->
-	    <div
-	    class="custom-dropdown"
-	    id="custom-dropdown"
-	    >
-		<!-- =========================
-     		     SELECTED
-		========================== -->
-    		<button
-    		id="dropdown-selected"
-    		class="dropdown-selected"
-    		>
-        	    <span id="selected-sport">
-            		MLB
-        	    </span>
-        	    <span class="dropdown-arrow">
-            		▼
-        	    </span>
-		</button>
-		<!-- =========================
-     		     DIVIDER
-		========================== -->
-    		<div class="dropdown-divider"></div>
-    		<!-- =========================
-     		     OPTIONS
-		========================== -->
-    		<div
-    		id="dropdown-options"
-    		class="dropdown-options"
-    		>
-        	    <button
-        	    class="dropdown-option active-option"
-        	    data-sport="mlb"
-        	    >
-            		MLB
-        	    </button>
-        	    <button
-        	    class="dropdown-option"
-        	    data-sport="nfl"
-        	    >
-            		NFL
-        	    </button>
-        	    <button
-        	    class="dropdown-option"
-        	    data-sport="nba"
-        	    >
-            		NBA
-        	    </button>
-        	    <button
-        	    class="dropdown-option"
-        	    data-sport="nhl"
-        	    >
-            		NHL
-        	    </button>
-    	        </div>
-	    </div>
+            <div
+            class="custom-dropdown"
+            id="custom-dropdown"
+            >
+                <button
+                id="dropdown-selected"
+                class="dropdown-selected"
+                >
+                    <span id="selected-sport">
+                        MLB
+                    </span>
+                    <span class="dropdown-arrow">
+                        ▼
+                    </span>
+                </button>
+                <div
+                id="dropdown-options"
+                class="dropdown-options"
+                >
+                    <button
+                    class="dropdown-option active-option"
+                    data-sport="mlb"
+                    >
+                        MLB
+                    </button>
+                    <button
+                    class="dropdown-option"
+                    data-sport="nfl"
+                    >
+                        NFL
+                    </button>
+                    <button
+                    class="dropdown-option"
+                    data-sport="nba"
+                    >
+                        NBA
+                    </button>
+                    <button
+                    class="dropdown-option"
+                    data-sport="nhl"
+                    >
+                        NHL
+                    </button>
+                </div>
+            </div>
+            <nav class="public-nav">
+                <button>Rankings</button>
+                <button>Trending</button>
+                <button>Trade Calculator</button>
+                <button>Injuries</button>
+            </nav>
         </div>
-        <!-- =========================
-     	     CENTER SEARCH
-	========================== -->
         <div class="search-container">
             <input
             type="text"
@@ -135,15 +129,24 @@ id="public-homepage"
             <div class="search-icon">
                 🔍
             </div>
-	    <!-- =========================
-     		 SEARCH RESULTS
-	    ========================== -->
             <div
             id="search-results"
             class="search-results hidden"
             >
             </div>
         </div>
+        <div class="public-header-right">
+            <button class="signup-btn">
+                Sign Up
+            </button>
+            <button
+            id="public-login-btn"
+            class="public-auth-btn"
+            >
+                Log In
+            </button>
+        </div>
+    </header>
 	<!-- =========================
      	     SEARCH OVERLAY
 	========================== -->
@@ -165,21 +168,6 @@ id="public-homepage"
         	</div>
     	    </div>
 	</div>
-	<!-- =========================
-     	     RIGHT SIDE
-	========================== -->
-        <div class="public-header-right">
-            <div class="mlb-live-status">
-                ● MLB LIVE
-            </div>
-            <button
-            id="public-login-btn"
-            class="public-auth-btn"
-            >
-                Log In / Sign Up
-            </button>
-        </div>
-    </header>
     <!-- =========================
          HERO SECTION
     ========================== -->
