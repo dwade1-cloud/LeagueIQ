@@ -831,37 +831,24 @@ nav{
 /* HIDE HEADER -------------------------------------- */
 @media (max-width:900px){
     .nav-injuries{
-        display:none;
-    }
-}
+        display:none;}}
 @media (max-width:829px){
     .nav-trade{
-        display:none;
-    }
-}
+        display:none;}}
 @media (max-width:739px){
     .nav-trending{
-        display:none;
-    }
-}
+        display:none;}}
 @media (max-width:661px){
     .nav-rankings{
-        display:none;
-    }
-}
+        display:none;}}
 @media (max-width:602px){
     .login-btn{
-        display:none;
-    }
-}
+        display:none;}}
 /* PLAYER PAGE -------------------------------------- */
-
 .player-profile{
     max-width:1200px;
     margin:40px auto;
-    padding:0 20px;
-}
-
+    padding:0 20px;}
 .player-top{
     display:flex;
     align-items:center;
@@ -869,9 +856,7 @@ nav{
     background:#141414;
     border:1px solid #242424;
     border-radius:20px;
-    padding:30px;
-}
-
+    padding:30px;}
 .player-headshot{
     width:110px;
     height:110px;
@@ -882,62 +867,42 @@ nav{
     justify-content:center;
     font-size:32px;
     font-weight:800;
-    color:#d4af37;
-}
-
+    color:#d4af37;}
 .player-info h1{
     text-align:left;
-    margin:0;
-}
-
+    margin:0;}
 #player-meta{
     color:#9a9a9a;
-    margin-top:8px;
-}
-
+    margin-top:8px;}
 .player-grade{
     margin-left:auto;
-    text-align:center;
-}
-
+    text-align:center;}
 .grade-label{
     color:#9a9a9a;
-    margin-bottom:8px;
-}
-
+    margin-bottom:8px;}
 #player-grade{
     font-size:56px;
     color:#d4af37;
-    font-weight:800;
-}
-
+    font-weight:800;}
 .player-card{
     max-width:1200px;
     margin:25px auto;
     padding:30px;
     background:#141414;
     border:1px solid #242424;
-    border-radius:20px;
-}
-
+    border-radius:20px;}
 .stats-grid{
     display:grid;
     grid-template-columns:
         repeat(4,1fr);
-
     gap:16px;
-    margin-top:20px;
-}
-
+    margin-top:20px;}
 .stat-box{
     background:#1a1a1a;
     border-radius:16px;
     padding:20px;
-    text-align:center;
-}
-
+    text-align:center;}
 .stat-label{
     display:block;
     color:#8a8a8a;
-    margin-bottom:8px;
-}
+    margin-bottom:8px;}
