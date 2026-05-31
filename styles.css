@@ -156,6 +156,22 @@ button{
     color:#888;
     cursor:not-allowed;
     transform:none;}
+/* CREATE FREE ACCOUNT BUTTON ----------------------- */
+.hero-signup-btn{
+    margin-top:20px;
+    background:#090909;
+    color:#d4af37;
+    border:1px solid #d4af37;
+    padding:14px 24px;
+    border-radius:14px;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+    transition:.2s;}
+.hero-signup-btn:hover{
+    background:#e8c24a;
+    color:#090909;
+    transform:translateY(-3px);}
 /* DIVIDER ------------------------------------------ */
 .divider{
     text-align:center;
@@ -262,7 +278,6 @@ nav{
     position:relative;}
 .league-dropdown-menu{
     transform-origin:top;}
-
 /* DROPDOWN BUTTON ---------------------------------- */
 .league-dropdown-btn{
     background:#111;
@@ -374,17 +389,17 @@ nav{
     opacity:.18;
     user-select:none;}
 .sport-mlb{
-    right:-22px;
-    filter:brightness(1.5);}
+    right:-350px;
+    filter:brightness(2.1);}
 .sport-nfl{
     right:-340px;
     filter:brightness(2.1);}
 .sport-nba{
     right:-320px;
-    filter:brightness(1.5);}
+    filter:brightness(1.9);}
 .sport-nhl{
     right:-330px;
-    filter:brightness(3.5);}
+    filter:brightness(3.7);}
 /* LEFT --------------------------------------------- */
 .public-header-left{
     display:flex;
@@ -427,15 +442,21 @@ nav{
     width:100%;
     height:40px;
     background:transparent;
+    border-radius:8px 8px 8px 8px;
     border:none;
     color:white;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 12px;
+    padding:0 11px;
     cursor:pointer;
     font-size:12px;
     font-weight:700;}
+.dropdown-selected:hover{
+    background:#090909;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    border-radius:8px 8px 8px 8px;}
 /* STRONGER DIVIDER --------------------------------- */
 .dropdown-divider{
     width:100%;
@@ -447,8 +468,8 @@ nav{
 .dropdown-options{
     position:absolute;
     top:35px;
-    left:0px;
-    width:100%;
+    left:-1px;
+    width:calc(100% + 2px);
     box-sizing:border-box;
     background:#090909;
     border:none;
@@ -583,16 +604,22 @@ nav{
     transition:.2s;
     white-space:nowrap;}
 .public-auth-btn:hover{
-    background:#e8c24a;
-    transform:translateY(-1px);}
+    background:#090909;
+    color:#ffffff;
+    border:1px solid #ffffff;
+    transform:translateY(-3px);}
 .signup-btn{
     background:transparent;
-    border:1px solid #2c2c2c;
-    color:white;
+    border:1px solid #d4af37;
+    color:#d4af37;
     height:42px;
     padding:0 14px;
     border-radius:14px;
     font-weight:700;}
+.signup-btn:hover{
+    background:#e8c24a;
+    color:#090909;
+    transform:translateY(-3px);}
 /* HERO --------------------------------------------- */
 .homepage-hero{
     width:100%;
@@ -613,6 +640,10 @@ nav{
     font-size:18px;
     max-width:700px;
     line-height:1.7;}
+.homepage-hero-fantasy{
+    color:white;}
+.homepage-hero-sport{
+    color:#d4af37;}
 /* SEARCH OVERLAY ----------------------------------- */
 .search-overlay{
     position:fixed;
@@ -669,7 +700,7 @@ nav{
 /* PLAYER RANKINGS ---------------------------------- */
 .homepage-section{
     max-width:1200px;
-    margin:90px 0;
+    margin:30px 0;
     padding:0 10px;}
 .section-title{
     color:#d4af37;
@@ -725,13 +756,56 @@ nav{
     padding:7px 15px;
     border-radius:14px;
     font-weight:700;}
+/* COMING SOON -------------------------------------- */
+.coming-soon-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-top:10px;}
+@media(max-width:1100px){
+    .coming-soon-grid{
+        grid-template-columns:repeat(3,1fr);}}
+@media(max-width:715px){
+    .coming-soon-grid{
+        grid-template-columns:repeat(2,1fr);}}
+.coming-soon-card{
+    background:#141414;
+    border:1px solid #2c2c2c;
+    border-radius:14px;
+    padding:18px;
+    color:#d4af37;
+    font-weight:700;
+    transition:.2s;}
+.coming-soon-card:hover{
+    transform:translateY(-2px);}
+.coming-soon-white{
+    color:white;}
+.coming-soon-gold{
+    color:#d4af37;}
+/* EARLY ACCESS ---------------------------- */
+.early-access-section{
+    margin-top:40px;
+    padding:30px;
+    background:#141414;
+    border:1px solid #2c2c2c;
+    border-radius:18px;
+    max-width:800px;}
+.early-access-title{
+    color:#d4af37;
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:12px;}
+.early-access-text{
+    color:#b0b0b0;
+    line-height:1.8;
+    margin-bottom:20px;}
 /* SPORT TRANSITIONS -------------------------------- */
 .sport-slide-out{
     animation:
-    sportSlideOut .8s ease forwards;}
+    sportSlideOut 1s ease forwards;}
 .sport-slide-in{
     animation:
-    sportSlideIn .9s ease forwards;}
+    sportSlideIn 1.5s ease forwards;}
 @keyframes sportSlideOut{
     from{
         transform:
