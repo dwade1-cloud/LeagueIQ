@@ -1469,6 +1469,13 @@ function renderExpandedResults(query){
                 </div>`;
             expandedSearchResults.appendChild(
                 result);});}
+result.addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "player.html?id=aaron-judge";
+    }
+);
 // =========================
 // LIVE SEARCH
 // =========================
