@@ -94,40 +94,153 @@ id="public-homepage">
                     </button>
                 </div>
             </div>
+	    <button
+	    id="homepage-btn"
+	    class="hidden">
+    		← Homepage
+	    </button>
             <nav class="public-nav">
-    		<button class="nav-rankings">Rankings</button>
-    		<button class="nav-trending">Trending</button>
-    		<button class="nav-trade">Trade Calc</button>
-    		<button class="nav-injuries">Injuries</button>
+    		<button class="nav-btn"
+			id="nav-rankings">
+			    Rankings
+		</button>
+    		<button 
+			class="nav-btn"
+			id="nav-trending">
+			    Trending
+		</button>
+		<button 
+			class="nav-btn"
+			id="nav-trade">
+			    Trade Calculator
+		</button>
+		<div
+            	class="more-dropdown"
+            	id="more-dropdown">
+                    <button
+                    class="nav-btn"
+                    id="more-btn">
+                    	More
+			<span class="more-arrow">
+			    ▼
+			</span>
+                    </button>
+                    <div
+                    class="more-dropdown-menu"
+                    id="more-dropdown-menu">
+                    	<button
+			id="nav-injuries"
+			class="more-option">
+    			    Injuries
+			</button>
+                    	<button 
+			id="nav-waiver"
+			class="more-option">
+                            Waiver Wire Insight
+                    	</button>
+                    	<button 
+			id="nav-buylow"
+			class="more-option">
+                            Buy Low / Sell High
+                    	</button>
+                    	<button
+			id="nav-boombust" 
+			class="more-option">
+                            Boom / Bust
+                    	</button>
+                    	<button
+			id="nav-teamstats" 
+			class="more-option">
+                            Team Stats
+                    	</button>
+        	    </div>
+	    	</div>
 	    </nav>
-        </div>
-        <div class="search-container">
-            <input
-            type="text"
-            id="player-search"
-            placeholder="Search any active player"
-            autocomplete="off">
-            <div class="search-icon">
-                🔍
+	</div>
+    	<div class="public-header-right">
+            <div class="search-container">
+            	<input
+            	type="text"
+            	id="player-search"
+            	placeholder="Search any active player"
+            	autocomplete="off">
+            	<div class="search-icon">
+                    🔍
+            	</div>
+            	<div
+            	id="search-results"
+            	class="search-results hidden">
+            	</div>
             </div>
-            <div
-            id="search-results"
-            class="search-results hidden">
-            </div>
-        </div>
-        <div class="public-header-right">
-            <button 
-	    id="public-signup-btn"
-	    class="signup-btn">
-                Sign Up
+            <button
+            id="public-signup-btn"
+            class="signup-btn">
+            	Sign Up
             </button>
             <button
             id="public-login-btn"
             class="public-auth-btn login-btn">
-                Log In
+            	Log In
             </button>
-        </div>
+    	</div>
     </header>
+</section>
+<section
+    id="rankings-page"
+    class="tool-page hidden">
+        <h1>
+            Player Rankings
+        </h1>
+    </section>
+    <section
+    id="trending-page"
+    class="tool-page hidden">
+        <h1>
+            Trending Players
+        </h1>
+    </section>
+    <section
+    id="trade-page"
+    class="tool-page hidden">
+        <h1>
+            Trade Calculator
+        </h1>
+    </section>
+    <section
+    id="injuries-page"
+    class="tool-page hidden">
+        <h1>
+            Injury Report
+        </h1>
+    </section>
+    <section
+    id="waiver-page"
+    class="tool-page hidden">
+        <h1>
+            Waiver Wire Insight
+        </h1>
+    </section>
+    <section
+    id="buylow-page"
+    class="tool-page hidden">
+        <h1>
+            Buy Low / Sell High
+        </h1>
+    </section>
+    <section
+    id="boombust-page"
+    class="tool-page hidden">
+        <h1>
+            Boom / Bust Analysis
+        </h1>
+    </section>
+    <section
+    id="teamstats-page"
+    class="tool-page hidden">
+        <h1>
+            Team Stats
+    	</h1>
+</section>
     <!-- SEARCH OVERLAY ============================ -->
     <div
     id="search-overlay"
@@ -325,7 +438,7 @@ id="public-homepage">
 ========================== -->
 <section
 id="login-screen"
-class="screen">
+class="screen hidden">
     <div class="card">
         <h1>
 	    LEAGUEIQ
@@ -626,8 +739,7 @@ class="screen hidden">
 ========================== -->
 <div
 id="app-container"
-class="hidden"
->
+class="hidden">
     <!-- HEADER ==================================== -->
     <header>
         <div class="header-left">

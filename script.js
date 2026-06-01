@@ -107,7 +107,7 @@ document
     () => {
         signupScreen.classList.add(
             "hidden");
-        loginScreen.classList.remove(
+        loginScreen.classList.add(
             "hidden");
     }
 );
@@ -282,7 +282,7 @@ async (user) => {
     } else {
         console.log(
             "NO USER");
-        loginScreen.classList.remove(
+        loginScreen.classList.add(
             "hidden");
         signupScreen.classList.add(
             "hidden");
@@ -1117,3 +1117,162 @@ function updateHomepageContent(
             "hidden");
     }
 }
+// =========================
+// HOMEPAGE HEADER CONTENT
+// =========================
+const publicPages = [
+    "public-homepage",
+    "rankings-page",
+    "trending-page",
+    "trade-page",
+    "injuries-page",
+    "waiver-page",
+    "buylow-page",
+    "boombust-page",
+    "teamstats-page"
+];
+// HOMEPAGE BUTTON ====================================
+const homepageBtn =
+document.getElementById(
+    "homepage-btn");
+function showPage(pageId){
+    publicPages.forEach(
+        page => {
+            document
+            .getElementById(page)
+            .classList.add(
+                "hidden");
+        }
+    );
+    document
+    .getElementById(pageId)
+    .classList.remove(
+        "hidden");
+    if(
+    	pageId ===
+    	"public-homepage"
+    ){
+    	homepageBtn.classList.add(
+            "hidden");
+    	customDropdown.classList.remove(
+            "hidden");
+    }else{
+    	homepageBtn.classList.remove(
+            "hidden");
+    	customDropdown.classList.add(
+            "hidden");
+    }
+}
+homepageBtn.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "public-homepage");
+    }
+);
+// CONNECT NAV BUTTONS ================================
+document
+.getElementById(
+    "nav-rankings")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "rankings-page");
+    }
+);
+document
+.getElementById(
+    "nav-trending")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "trending-page");
+    }
+);
+document
+.getElementById(
+    "nav-trade")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "trade-page");
+    }
+);
+// MORE DROPDOWN MENU =================================
+const moreDropdown =
+document.getElementById(
+    "more-dropdown");
+const moreBtn =
+document.getElementById(
+    "more-btn");
+const moreMenu =
+document.getElementById(
+    "more-dropdown-menu");
+moreBtn.addEventListener(
+    "click",
+    (event) => {
+        event.stopPropagation();
+        moreDropdown.classList.toggle(
+            "dropdown-open");
+    }
+);
+document.addEventListener(
+    "click",
+    () => {
+        moreDropdown.classList.remove(
+            "dropdown-open");
+    }
+);
+document
+.getElementById(
+    "nav-injuries")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "injuries-page");
+    }
+);
+document
+.getElementById(
+    "nav-waiver")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "waiver-page");
+    }
+);
+document
+.getElementById(
+    "nav-buylow")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "buylow-page");
+    }
+);
+document
+.getElementById(
+    "nav-boombust")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "boombust-page");
+    }
+);
+document
+.getElementById(
+    "nav-teamstats")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "teamstats-page");
+    }
+);
