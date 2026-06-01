@@ -1,29 +1,30 @@
-const players = {
-
-    "aaron-judge":{
-
+const players = [
+    {
+        playerId:12345,
         name:"Aaron Judge",
-
         team:"NYY",
-
-        position:"OF",
-
+        positions:["OF"],
+        age:34,
+        height:"6'7\"",
+        weight:282,
+        jersey:99,
+        bats:"R",
+        throws:"R",
         grade:96,
-
+        fantasyRank:1,
+        fantasyPoints:487,
+        ppg:18.7,
+        tradeValue:98,
         avg:".342",
-
-        hr:"21",
-
-        rbi:"53",
-
+        hr:21,
+        rbi:53,
+        runs:58,
+        sb:4,
         ops:"1.145",
-
         outlook:
-        "Elite fantasy asset with MVP upside. One of the safest power bats in fantasy baseball."
-
+        "Elite fantasy asset with MVP upside."
     }
-
-};
+];
 
 const params =
 new URLSearchParams(
@@ -34,7 +35,11 @@ const playerId =
 params.get("id");
 
 const player =
-players[playerId];
+players.find(
+    p =>
+    String(p.playerId) ===
+    String(playerId)
+);
 
 if(player){
 
@@ -46,7 +51,7 @@ if(player){
     document.getElementById(
         "player-meta"
     ).textContent =
-    `${player.team} • ${player.position}`;
+    `${player.team} • ${player.positions.join(", ")}`;
 
     document.getElementById(
         "player-grade"

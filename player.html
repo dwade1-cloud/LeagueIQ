@@ -1,143 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LeagueIQ Player Profile</title>
-
 <link rel="stylesheet" href="styles.css">
-
 </head>
 <body>
-
-<header class="player-header">
-
-    <button
-    id="back-home-btn"
-    class="secondary-btn">
-        ← Back
-    </button>
-
-</header>
-
-<section class="player-profile">
-
-    <div class="player-top">
-
-        <div class="player-headshot">
-
-            AJ
-
-        </div>
-
-        <div class="player-info">
-
-            <h1 id="player-name">
-                Aaron Judge
-            </h1>
-
-            <div id="player-meta">
-
-                NYY • OF
-
+<div class="player-page-shell">
+<!-- PLAYER RANKINGS -->
+    <section class="player-profile">
+	<div class="player-top">
+            <div class="player-info">
+            	<h1 id="player-name">
+                    Aaron Judge
+            	</h1>
+            	<div id="player-meta">
+                    NYY • OF
+            	</div>
             </div>
-
-        </div>
-
-        <div class="player-grade">
-
-            <div class="grade-label">
-                LeagueIQ Grade
+	    <div
+	    id="player-bio"
+	    class="player-bio">
+    	        6'7" • 282 lbs • Age 34 • #99
+	    </div>
+            <div class="player-grade">
+                <div class="grade-label">
+                    LeagueIQ Grade
+                </div>
+                <div id="player-grade">
+                    96
+                </div>
             </div>
-
-            <div id="player-grade">
-                96
+        </div>
+    </section>
+    <!-- FANTASY SNAPSHOT -->
+    <section class="player-card">
+        <h2>
+            Fantasy Snapshot
+        </h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-label">
+                    Rank
+                </span>
+                <span id="player-rank">
+                    #1
+                </span>
             </div>
-
+            <div class="stat-box">
+                <span class="stat-label">
+                    Fantasy Points
+                </span>
+                <span id="player-fpts">
+                    487
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    PPG
+                </span>
+                <span id="player-ppg">
+                    18.7
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    Trade Value
+                </span>
+                <span id="player-trade-value">
+                    98
+                </span>
+            </div>
         </div>
-
-    </div>
-
-</section>
-
-<section class="player-card">
-
-    <h2>
-        2025 Season Stats
-    </h2>
-
-    <div class="stats-grid">
-
-        <div class="stat-box">
-
-            <span class="stat-label">
-                AVG
-            </span>
-
-            <span id="player-avg">
-                .342
-            </span>
-
+    </section>
+    <!-- SEASON STATS -->
+    <section class="player-card">
+        <h2>
+            2025 Season Stats
+        </h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-label">
+                    AVG
+                </span>
+                <span id="player-avg">
+                    .342
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    HR
+                </span>
+                <span id="player-hr">
+                    21
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    RBI
+                </span>
+                <span id="player-rbi">
+                    53
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    OPS
+                </span>
+                <span id="player-ops">
+                    1.145
+                </span>
+            </div>
         </div>
-
-        <div class="stat-box">
-
-            <span class="stat-label">
-                HR
-            </span>
-
-            <span id="player-hr">
-                21
-            </span>
-
-        </div>
-
-        <div class="stat-box">
-
-            <span class="stat-label">
-                RBI
-            </span>
-
-            <span id="player-rbi">
-                53
-            </span>
-
-        </div>
-
-        <div class="stat-box">
-
-            <span class="stat-label">
-                OPS
-            </span>
-
-            <span id="player-ops">
-                1.145
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-<section class="player-card">
-
-    <h2>
-        LeagueIQ Outlook
-    </h2>
-
-    <p id="player-outlook">
-
-        Elite fantasy asset with MVP upside.
-        One of the safest power bats in fantasy baseball.
-
-    </p>
-
-</section>
-
+    </section>
+    <!-- LEAGUE OUTLOOK -->
+    <section class="player-card">
+        <h2>
+            LeagueIQ Outlook
+        </h2>
+        <p id="player-outlook">
+            Elite fantasy asset with MVP upside.
+            One of the safest power bats in fantasy baseball.
+        </p>
+    </section>
+</div>
 <script src="player.js"></script>
-
 </body>
 </html>
