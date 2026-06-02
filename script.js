@@ -345,17 +345,19 @@ const continueDashboardBtn =
 document.getElementById(
     "continue-dashboard-btn");
 // SPORT SELECT =======================================
-sportSelect.addEventListener(
-    "change",
-    () => {
-        if(
-            sportSelect.value
-        ){
-            platformSelectNew.disabled =
-            false;
-        }
-    }
-);
+if (sportSelect) {
+    sportSelect.addEventListener(
+        "change",
+        () => {
+            if(
+                sportSelect.value
+            ){
+                platformSelectNew.disabled =
+                false;
+            }
+	}
+    );
+}
 // PLATFORM SELECT ====================================
 platformSelectNew.addEventListener(
     "change",
@@ -436,7 +438,7 @@ continueDashboardBtn.addEventListener(
                 leagueName:
                 leagueNameInput.value,
 		leagueID:
-		leagueIDInput.value,
+		leagueIdInput.value,
                 leagueType:
                 leagueTypeSelect.value,
                 fantasyName:
@@ -942,7 +944,7 @@ playerSearch.addEventListener(
     "click",
     (event) => {
         event.stopPropagation();
-        if(window.innerWidth < 2000){
+        if(window.innerWidth < 1617){
             searchOverlay.classList.remove(
                 "hidden");
             expandedSearch.value =
@@ -1216,14 +1218,14 @@ moreBtn.addEventListener(
     (event) => {
         event.stopPropagation();
         moreDropdown.classList.toggle(
-            "dropdown-open");
+            "more-open");
     }
 );
 document.addEventListener(
     "click",
     () => {
         moreDropdown.classList.remove(
-            "dropdown-open");
+            "more-open");
     }
 );
 document

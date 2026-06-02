@@ -348,6 +348,7 @@ nav{
     align-items:center;
     padding:0 24px;
     background:rgba(10,10,10,.95);
+    -webkit-backdrop-filter:blur(16px);
     backdrop-filter:blur(16px);
     gap:14px;
     border-bottom:1px solid #1f1f1f;}
@@ -531,7 +532,7 @@ nav{
     box-shadow .22s ease,
     border-radius .22s ease;}
 /* OPEN STATE */
-.more-dropdown.dropdown-open{
+.more-dropdown.more-open{
     border:1px solid #ffffff;
     border-radius:8px 8px 0 0;}
 /* BUTTON */
@@ -575,8 +576,7 @@ nav{
     border-radius:0 8px 8px 8px;
     z-index:9999;}
 /* OPEN MENU */
-.more-dropdown.dropdown-open
-.more-dropdown-menu{
+.more-dropdown.more-open .more-dropdown-menu{
     max-height:300px;
     opacity:1;}
 /* OPTIONS */
@@ -607,7 +607,7 @@ nav{
     opacity:.7;
     transition:transform .22s ease;}
 /* ROTATE ARROW ------------------------------------- */
-.more-dropdown.dropdown-open .more-arrow{
+.more-dropdown.more-open .more-arrow{
     transform:rotate(180deg);}
 /* SEARCH CONTAINER --------------------------------- */
 .search-container{
@@ -921,19 +921,19 @@ nav{
         opacity:.18;}}
 /* HIDE HEADER -------------------------------------- */
 @media (max-width:900px){
-    .nav-injuries{
+    #nav-injuries{
         display:none;}}
 @media (max-width:829px){
-    .nav-trade{
+    #nav-trade{
         display:none;}}
 @media (max-width:739px){
-    .nav-trending{
+    #nav-trending{
         display:none;}}
 @media (max-width:661px){
-    .nav-rankings{
+    #nav-rankings{
         display:none;}}
 @media (max-width:602px){
-    .login-btn{
+    #login-btn{
         display:none;}}
 /* PLAYER PAGE -------------------------------------- */
 .player-profile{
