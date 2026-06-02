@@ -758,6 +758,25 @@ playerSearch.addEventListener(
         event.stopPropagation();
     }
 );
+// SEARCH ICON BUTTON =================================
+const mobileSearchBtn =
+document.getElementById(
+    "mobile-search-btn");
+mobileSearchBtn.addEventListener(
+    "click",
+    (event) => {
+        event.stopPropagation();
+        searchOverlay.classList.remove(
+            "hidden");
+        expandedSearch.value = "";
+        setTimeout(
+            () => {
+                expandedSearch.focus();
+            },
+            10);
+        renderExpandedResults("");
+    }
+);
 // =========================
 // HOMEPAGE NAVIGATION
 // =========================

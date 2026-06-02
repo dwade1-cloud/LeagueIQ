@@ -25,62 +25,47 @@ const players = [
         "Elite fantasy asset with MVP upside."
     }
 ];
-
 const params =
 new URLSearchParams(
-    window.location.search
-);
-
+    window.location.search);
 const playerId =
 params.get("id");
-
 const player =
 players.find(
     p =>
     String(p.playerId) ===
-    String(playerId)
-);
-
+    String(playerId));
 if(player){
-
     document.getElementById(
         "player-name"
     ).textContent =
     player.name;
-
     document.getElementById(
         "player-meta"
     ).textContent =
     `${player.team} • ${player.positions.join(", ")}`;
-
     document.getElementById(
         "player-grade"
     ).textContent =
     player.grade;
-
     document.getElementById(
         "player-avg"
     ).textContent =
     player.avg;
-
     document.getElementById(
         "player-hr"
     ).textContent =
     player.hr;
-
     document.getElementById(
         "player-rbi"
     ).textContent =
     player.rbi;
-
     document.getElementById(
         "player-ops"
     ).textContent =
     player.ops;
-
     document.getElementById(
         "player-outlook"
     ).textContent =
     player.outlook;
-
 }

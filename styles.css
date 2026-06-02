@@ -345,6 +345,7 @@ nav{
     top:0;
     z-index:9998;
     display:flex;
+    justify-content:space-between;
     align-items:center;
     padding:0 24px;
     background:rgba(10,10,10,.95);
@@ -421,7 +422,8 @@ nav{
     font-size:10px;
     text-transform:uppercase;
     letter-spacing:1px;
-    margin-top:2px;}
+    margin-top:2px;
+    margin-right:auto;}
 /* SPORT DROPDOWN ----------------------------------- */
 .custom-dropdown{
     position:relative;
@@ -519,6 +521,19 @@ nav{
 /* ROTATE ARROW ------------------------------------- */
 .custom-dropdown.dropdown-open .dropdown-arrow{
     transform:rotate(180deg);}
+/* HOMEPAGE BUTTON ---------------------------------- */
+#homepage-btn{
+    background:transparent;
+    border:none;
+    color:#cfcfcf;
+    font-size:13px;
+    font-weight:600;
+    cursor:pointer;
+    padding:0;
+    transition:.2s;
+    white-space:nowrap;}
+#homepage-btn:hover{
+    color:#d4af37;}
 /* MORE DROPDOWN ------------------------------------ */
 .more-dropdown{
     position:relative;
@@ -577,7 +592,7 @@ nav{
     z-index:9999;}
 /* OPEN MENU */
 .more-dropdown.more-open .more-dropdown-menu{
-    max-height:300px;
+    max-height:1000px;
     opacity:1;}
 /* OPTIONS */
 .more-dropdown-menu .more-option{
@@ -613,8 +628,7 @@ nav{
 .search-container{
     flex:1;
     max-width:300px;
-    min-width:45px;
-    margin-left:auto;
+    min-width:60px;
     margin-right:10px;
     position:relative;}
 #player-search{
@@ -641,6 +655,21 @@ nav{
     transform:translateY(-50%);
     color:#8a8a8a;
     pointer-events:none;}
+/* MOBILE SEARCH BUTTON ----------------------- */
+.mobile-search-btn{
+    display:none;
+    width:40px;
+    height:40px;
+    background:transparent;
+    border:none;
+    color:#cfcfcf;
+    font-size:18px;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+    transition:.2s;}
+.mobile-search-btn:hover{
+    color:#d4af37;}
 /* SEARCH RESULTS ----------------------------------- */
 .search-results{
     position:absolute;
@@ -920,21 +949,36 @@ nav{
         translateX(0);
         opacity:.18;}}
 /* HIDE HEADER -------------------------------------- */
-@media (max-width:900px){
-    #nav-injuries{
-        display:none;}}
-@media (max-width:829px){
+#more-rankings,
+#more-trending,
+#more-trade{
+    display:none;}
+@media (max-width:939px){
     #nav-trade{
-        display:none;}}
-@media (max-width:739px){
+        display:none;}
+    #more-trade{
+	display:block;}}
+@media (max-width:815px){
     #nav-trending{
-        display:none;}}
-@media (max-width:661px){
+        display:none;}    
+    #more-trending{
+	display:block;}}
+@media (max-width:737px){
     #nav-rankings{
+        display:none;}
+    #more-rankings{
+	display:block;}}
+@media (max-width:653px){
+    #public-login-btn{
         display:none;}}
-@media (max-width:602px){
-    #login-btn{
+@media (max-width:563px){
+    #public-signup-btn{
         display:none;}}
+@media (max-width:1172px){
+    .search-container{
+        display:none;}
+    .mobile-search-btn{
+        display:flex;}}
 /* PLAYER PAGE -------------------------------------- */
 .player-profile{
     margin:0;
