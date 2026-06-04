@@ -224,16 +224,22 @@ updateSearchPlaceholder();
 document.addEventListener(
     "click",
     (event) => {
+        if(!searchOverlay){
+            return;}
         const searchBox =
         document.querySelector(
             ".search-overlay-box");
+        if(!searchBox){
+            return;}
         if(
             searchOverlay.classList.contains(
-                "hidden")){
+                "hidden")
+        ){
             return;}
         if(
             searchBox.contains(
-                event.target)){
+                event.target)
+        ){
             return;}
         searchOverlay.classList.add(
             "hidden");
@@ -258,42 +264,56 @@ window.addEventListener(
         }
     }
 );
-homepageBtn.addEventListener(
-    "click",
-    () => {
-        showPage(
-            "public-homepage");
-    }
-);
+const publicHomepageBtn =
+document.getElementById(
+    "homepage-btn");
+if(publicHomepageBtn){
+    publicHomepageBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}
 // CONNECT NAV BUTTONS ================================
-document
-.getElementById(
-    "nav-rankings")
-.addEventListener(
+document.getElementById(
+    "homepage-btn"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "rankings-page");
+        window.location.href =
+        "index.html";
     }
 );
-document
-.getElementById(
-    "nav-trending")
-.addEventListener(
+
+document.getElementById(
+    "nav-rankings"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "trending-page");
+        window.location.href =
+        "rankings.html";
     }
 );
-document
-.getElementById(
-    "nav-trade")
-.addEventListener(
+
+document.getElementById(
+    "nav-trending"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "trade-page");
+        window.location.href =
+        "trending.html";
+    }
+);
+
+document.getElementById(
+    "nav-trade"
+)?.addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "trade.html";
     }
 );
 // MORE DROPDOWN MENU =================================
@@ -321,53 +341,83 @@ document.addEventListener(
             "more-open");
     }
 );
-document
-.getElementById(
-    "nav-injuries")
-.addEventListener(
+document.getElementById(
+    "nav-injuries"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "injuries-page");
+        window.location.href =
+        "injuries.html";
     }
 );
-document
-.getElementById(
-    "nav-waiver")
-.addEventListener(
+
+document.getElementById(
+    "nav-waiver"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "waiver-page");
+        window.location.href =
+        "waiver.html";
     }
 );
-document
-.getElementById(
-    "nav-buylow")
-.addEventListener(
+
+document.getElementById(
+    "nav-buylow"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "buylow-page");
+        window.location.href =
+        "buylow.html";
     }
 );
-document
-.getElementById(
-    "nav-boombust")
-.addEventListener(
+
+document.getElementById(
+    "nav-boombust"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "boombust-page");
+        window.location.href =
+        "boombust.html";
     }
 );
-document
-.getElementById(
-    "nav-teamstats")
-.addEventListener(
+
+document.getElementById(
+    "nav-teamstats"
+)?.addEventListener(
     "click",
     () => {
-        showPage(
-            "teamstats-page");
+        window.location.href =
+        "teamstats.html";
+    }
+);
+// MORE MENU DUPLICATE BUTTONS ======================
+
+document.getElementById(
+    "more-rankings"
+)?.addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "rankings.html";
+    }
+);
+
+document.getElementById(
+    "more-trending"
+)?.addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "trending.html";
+    }
+);
+
+document.getElementById(
+    "more-trade"
+)?.addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "trade.html";
     }
 );

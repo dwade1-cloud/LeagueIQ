@@ -3,20 +3,19 @@
 // =========================
 const loginScreen =
 document.getElementById(
-    "login-screen"
-);
+    "login-screen");
 const signupScreen =
 document.getElementById(
-    "signup-screen"
-);
+    "signup-screen");
 const leagueScreen =
 document.getElementById(
-    "league-connect-screen"
-);
+    "league-connect-screen");
 const appContainer =
 document.getElementById(
-    "app-container"
-);
+    "app-container");
+const homepageHeader =
+document.getElementById(
+    "public-header");
 // =========================
 // AUTHENTICATION
 // =========================
@@ -606,32 +605,44 @@ document.getElementById(
 ).addEventListener(
     "click",
     () => {
+
+        homepageHeader.classList.add(
+            "hidden"
+        );
+
         document.getElementById(
             "public-homepage"
-        ).classList.add("hidden");
+        ).classList.add(
+            "hidden"
+        );
 
         loginScreen.classList.remove(
             "hidden"
         );
     }
 );
-
 // PUBLIC SIGNUP BUTTON
 document.getElementById(
     "public-signup-btn"
 ).addEventListener(
     "click",
     () => {
+
+        homepageHeader.classList.add(
+            "hidden"
+        );
+
         document.getElementById(
             "public-homepage"
-        ).classList.add("hidden");
+        ).classList.add(
+            "hidden"
+        );
 
         signupScreen.classList.remove(
             "hidden"
         );
     }
 );
-
 // HERO SIGNUP BUTTON
 document.getElementById(
     "hero-signup-btn"
@@ -647,14 +658,18 @@ document.getElementById(
         );
     }
 );
-
 // BACK HOME FROM SIGNUP
 document.getElementById(
     "back-home-btn"
 ).addEventListener(
     "click",
     () => {
+
         signupScreen.classList.add(
+            "hidden"
+        );
+
+        homepageHeader.classList.remove(
             "hidden"
         );
 
@@ -665,7 +680,6 @@ document.getElementById(
         );
     }
 );
-
 // BACK HOME FROM LOGIN
 document.getElementById(
     "back-home-login-btn"
@@ -673,9 +687,9 @@ document.getElementById(
     "click",
     () => {
         loginScreen.classList.add(
-            "hidden"
-        );
-
+            "hidden");
+	homepageHeader.classList.remove(
+    	    "hidden");
         document.getElementById(
             "public-homepage"
         ).classList.remove(
