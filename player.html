@@ -25,13 +25,8 @@
                 Fantasy Sports Intelligence
             </div>
         </div>
-<button
-id="homepage-btn">
-    ← Homepage
-</button>
 	<button
-	id="homepage-btn"
-	class="hidden">
+	id="homepage-btn">
     	    ← Homepage
 	</button>
         <nav class="public-nav">
@@ -258,6 +253,30 @@ id="homepage-btn">
         </p>
     </section>
 </div>
+<!-- ===========================
+     SEARCH OVERLAY
+============================ -->
+<div
+id="search-overlay"
+class="search-overlay hidden">
+
+    <div class="search-overlay-box">
+
+        <input
+        type="text"
+        id="expanded-search"
+        placeholder="Search any active player"
+        autocomplete="off">
+
+        <div
+        id="expanded-search-results"
+        class="expanded-search-results">
+        </div>
+
+    </div>
+
+</div>
+<script src="header-public.js"></script>
 <script src="player.js"></script>
 </body>
 </html>
