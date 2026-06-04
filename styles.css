@@ -1016,7 +1016,7 @@ nav{
     margin-top:24px;
     padding:28px;
     background:#1a1a1a;
-    border:1px solid #2a2a2a;
+    border:1px solid #0e0e0e;
     border-radius:20px;}
 .stats-grid{
     display:grid;
@@ -1034,13 +1034,12 @@ nav{
     color:#8a8a8a;
     margin-bottom:8px;}
 .player-page-shell{
-    width:min(1300px,92vw);
-    height:710px;
-    margin:20px auto;
+    width:min(1025px,98vw);
+    height:663px;
+    margin:auto;
     padding:30px;
     background:#0c0c0c;
-    border:1px solid #242424;
-    border-radius:30px;
+    border:1px solid #0c0c0c;
     box-shadow:
     0 20px 60px rgba(0,0,0,.35);
     overflow:hidden;

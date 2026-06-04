@@ -69,3 +69,120 @@ if(player){
     ).textContent =
     player.outlook;
 }
+const homepageBtn =
+document.getElementById(
+    "homepage-btn"
+);
+
+if(homepageBtn){
+    homepageBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}
+const rankingsBtn =
+document.getElementById(
+    "nav-rankings"
+);
+
+if(rankingsBtn){
+    rankingsBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}
+const trendingBtn =
+document.getElementById(
+    "nav-trending"
+);
+
+if(trendingBtn){
+    trendingBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}
+const tradeBtn =
+document.getElementById(
+    "nav-trade"
+);
+
+if(tradeBtn){
+    tradeBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}
+const moreDropdown =
+document.getElementById(
+    "more-dropdown"
+);
+
+const moreBtn =
+document.getElementById(
+    "more-btn"
+);
+
+if(moreBtn){
+    moreBtn.addEventListener(
+        "click",
+        (event) => {
+            event.stopPropagation();
+            moreDropdown.classList.toggle(
+                "more-open"
+            );
+        }
+    );
+}
+
+document.addEventListener(
+    "click",
+    () => {
+        moreDropdown.classList.remove(
+            "more-open"
+        );
+    }
+);
+// LOGIN BUTTON
+const loginBtn =
+document.getElementById(
+    "public-login-btn"
+);
+
+if(loginBtn){
+    loginBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}
+
+// SIGNUP BUTTON
+const signupBtn =
+document.getElementById(
+    "public-signup-btn"
+);
+
+if(signupBtn){
+    signupBtn.addEventListener(
+        "click",
+        () => {
+            window.location.href =
+            "index.html";
+        }
+    );
+}

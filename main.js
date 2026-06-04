@@ -41,7 +41,7 @@ document
     () => {
         signupScreen.classList.add(
             "hidden");
-        loginScreen.classList.add(
+        loginScreen.classList.remove(
             "hidden");
     }
 );
@@ -600,3 +600,86 @@ leagueButtons.forEach(
         }
     );
 });
+// PUBLIC LOGIN BUTTON
+document.getElementById(
+    "public-login-btn"
+).addEventListener(
+    "click",
+    () => {
+        document.getElementById(
+            "public-homepage"
+        ).classList.add("hidden");
+
+        loginScreen.classList.remove(
+            "hidden"
+        );
+    }
+);
+
+// PUBLIC SIGNUP BUTTON
+document.getElementById(
+    "public-signup-btn"
+).addEventListener(
+    "click",
+    () => {
+        document.getElementById(
+            "public-homepage"
+        ).classList.add("hidden");
+
+        signupScreen.classList.remove(
+            "hidden"
+        );
+    }
+);
+
+// HERO SIGNUP BUTTON
+document.getElementById(
+    "hero-signup-btn"
+).addEventListener(
+    "click",
+    () => {
+        document.getElementById(
+            "public-homepage"
+        ).classList.add("hidden");
+
+        signupScreen.classList.remove(
+            "hidden"
+        );
+    }
+);
+
+// BACK HOME FROM SIGNUP
+document.getElementById(
+    "back-home-btn"
+).addEventListener(
+    "click",
+    () => {
+        signupScreen.classList.add(
+            "hidden"
+        );
+
+        document.getElementById(
+            "public-homepage"
+        ).classList.remove(
+            "hidden"
+        );
+    }
+);
+
+// BACK HOME FROM LOGIN
+document.getElementById(
+    "back-home-login-btn"
+).addEventListener(
+    "click",
+    () => {
+        loginScreen.classList.add(
+            "hidden"
+        );
+
+        document.getElementById(
+            "public-homepage"
+        ).classList.remove(
+            "hidden"
+        );
+    }
+);

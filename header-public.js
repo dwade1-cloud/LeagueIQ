@@ -1,0 +1,373 @@
+// =========================
+// PLAYER SEARCH
+// =========================
+// SEARCH DATA ========================================
+const playerDatabase = [
+    {playerId:10001,
+     name:"Shohei Ohtani",
+     meta:"LAD • DH/SP • Trending ↑"},
+    {playerId:"aaron-judge",
+     name:"Aaron Judge",
+     meta:"NYY • OF • Power Leader"},
+    {playerId:10003,
+     name:"Bobby Witt Jr.",
+     meta:"KC • SS • Top Dynasty"},
+    {playerId:10004,
+     name:"Julio Rodriguez",
+     meta:"SEA • OF • Buy Low"},
+    {playerId:10005,
+     name:"Ronald Acuna Jr.",
+     meta:"ATL • OF • Injury Recovery"},
+    {playerId:10006,
+     name:"Jackson Holliday",
+     meta:"BAL • INF • Top Prospect"},
+    {playerId:10007,
+     name:"Wyatt Langford",
+     meta:"TEX • OF • Trending ↑"},
+    {playerId:10008,
+     name:"Paul Skenes",
+     meta:"PIT • SP • Ace Potential"}
+];
+// SEARCH INPUT =======================================
+const playerSearch =
+document.getElementById(
+    "player-search");
+// SEARCH RESULTS =====================================
+const searchResults =
+document.getElementById(
+    "search-results");
+playerSearch.addEventListener(
+    "input",
+    () => {
+	console.log("SEARCHING:", playerSearch.value);
+        const query =
+        playerSearch.value
+        .toLowerCase()
+        .trim();
+        if(!query){
+            searchResults.innerHTML = "";
+            searchResults.classList.add(
+                "hidden");
+            return;
+        }
+        const matches =
+        playerDatabase.filter(
+            player =>
+            player.name
+            .toLowerCase()
+            .includes(query));
+        searchResults.innerHTML = "";
+        matches.forEach(
+            player => {
+                const result =
+                document.createElement(
+                    "button");
+                result.classList.add(
+                    "search-player-item");
+                result.innerHTML = `
+                    <div>
+                        ${player.name}
+                    </div>
+                    <div class="search-player-meta">
+                        ${player.meta}
+                    </div>
+                `;
+                searchResults.appendChild(
+                    result);
+		result.addEventListener(
+    		    "click",
+    		    () => {
+       			window.location.href =
+        		`player.html?id=${player.playerId}`;
+    		    }
+		);
+            }
+        );
+        searchResults.classList.remove(
+            "hidden");
+    }
+);
+// CLOSE SEARCH RESULTS ===============================
+window.addEventListener(
+    "click",
+    (event) => {
+        if(
+            !event.target.closest(
+                ".search-container")
+        ){
+            searchResults.classList.add(
+                "hidden");
+        }
+    }
+);
+playerSearch.addEventListener(
+    "click",
+    (event) => {
+        event.stopPropagation();
+    }
+);
+// SEARCH ICON BUTTON =================================
+const mobileSearchBtn =
+document.getElementById(
+    "mobile-search-btn");
+if(mobileSearchBtn){
+    mobileSearchBtn.addEventListener(
+        "click",
+        (event) => {
+            event.stopPropagation();
+            searchOverlay.classList.remove(
+                "hidden");
+            expandedSearch.value = "";
+            setTimeout(
+                () => {
+                    expandedSearch.focus();
+                },
+                10);
+            renderExpandedResults("");
+        }
+    );
+}
+// =========================
+// SEARCH OVERLAY
+// =========================
+const searchOverlay =
+document.getElementById(
+    "search-overlay");
+const expandedSearch =
+document.getElementById(
+    "expanded-search");
+const expandedSearchResults =
+document.getElementById(
+    "expanded-search-results");
+// OPEN SEARCH OVERLAY ================================
+playerSearch.addEventListener(
+    "click",
+    (event) => {
+        event.stopPropagation();
+        if(window.innerWidth < 1617){
+            searchOverlay.classList.remove(
+                "hidden");
+            expandedSearch.value =
+            playerSearch.value;
+            setTimeout(() => {
+                expandedSearch.focus();}, 10);
+            renderExpandedResults(
+                expandedSearch.value);
+	}
+    }
+);
+// RENDER RESULTS =====================================
+function renderExpandedResults(query){
+    expandedSearchResults.innerHTML ="";
+    const matches =
+    playerDatabase.filter(
+        player =>
+        player.name
+        .toLowerCase()
+        .includes(
+            query.toLowerCase()));
+matches.forEach(
+    player => {
+        const result =
+        document.createElement(
+            "button");
+
+        result.classList.add(
+            "search-player-item");
+
+        result.innerHTML = `
+            <div>
+                ${player.name}
+            </div>
+            <div class="search-player-meta">
+                ${player.meta}
+            </div>`;
+
+        expandedSearchResults.appendChild(
+            result);
+
+        result.addEventListener(
+            "click",
+            () => {
+                window.location.href =
+                `player.html?id=${player.playerId}`;
+            }
+        );
+    }
+);
+}
+// LIVE SEARCH ========================================
+expandedSearch.addEventListener(
+    "input",
+    () => {
+        renderExpandedResults(
+            expandedSearch.value);
+    }
+);
+// RESPONSIVE SEARCH BAR TEXT =========================
+function updateSearchPlaceholder(){
+    const search =
+    document.getElementById(
+        "player-search");
+    if(window.innerWidth < 910){
+        search.placeholder = "Search";
+    }else{
+        search.placeholder =
+        "Search any active player";
+    }
+}
+window.addEventListener(
+    "resize",
+    updateSearchPlaceholder);
+updateSearchPlaceholder();
+// CLOSE SEARCH OVERLAY ===============================
+document.addEventListener(
+    "click",
+    (event) => {
+        const searchBox =
+        document.querySelector(
+            ".search-overlay-box");
+        if(
+            searchOverlay.classList.contains(
+                "hidden")){
+            return;}
+        if(
+            searchBox.contains(
+                event.target)){
+            return;}
+        searchOverlay.classList.add(
+            "hidden");
+    }
+);
+// =========================
+// UI EFFECTS
+// =========================
+// HEADER SHRINK
+const publicHeader =
+document.querySelector(
+    ".public-header");
+window.addEventListener(
+    "scroll",
+    () => {
+        if(window.scrollY > 40){
+            publicHeader.style.height =
+            "60px";
+        } else {
+            publicHeader.style.height =
+            "68px";
+        }
+    }
+);
+homepageBtn.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "public-homepage");
+    }
+);
+// CONNECT NAV BUTTONS ================================
+document
+.getElementById(
+    "nav-rankings")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "rankings-page");
+    }
+);
+document
+.getElementById(
+    "nav-trending")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "trending-page");
+    }
+);
+document
+.getElementById(
+    "nav-trade")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "trade-page");
+    }
+);
+// MORE DROPDOWN MENU =================================
+const moreDropdown =
+document.getElementById(
+    "more-dropdown");
+const moreBtn =
+document.getElementById(
+    "more-btn");
+const moreMenu =
+document.getElementById(
+    "more-dropdown-menu");
+moreBtn.addEventListener(
+    "click",
+    (event) => {
+        event.stopPropagation();
+        moreDropdown.classList.toggle(
+            "more-open");
+    }
+);
+document.addEventListener(
+    "click",
+    () => {
+        moreDropdown.classList.remove(
+            "more-open");
+    }
+);
+document
+.getElementById(
+    "nav-injuries")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "injuries-page");
+    }
+);
+document
+.getElementById(
+    "nav-waiver")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "waiver-page");
+    }
+);
+document
+.getElementById(
+    "nav-buylow")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "buylow-page");
+    }
+);
+document
+.getElementById(
+    "nav-boombust")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "boombust-page");
+    }
+);
+document
+.getElementById(
+    "nav-teamstats")
+.addEventListener(
+    "click",
+    () => {
+        showPage(
+            "teamstats-page");
+    }
+);
