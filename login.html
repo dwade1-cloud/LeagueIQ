@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>LeagueIQ Login</title>
+<link rel="stylesheet"
+href="styles.css">
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<div id="auth-background">
+    <img
+    src="images/Galaxy.png"
+    class="auth-background-image">
+</div>
+<section
+id="login-screen"
+class="screen">
+    <div class="auth-brand">
+        <div class="auth-logo">
+    	    <span class="logo-league">
+        	LEAGUE
+    	    </span>
+    	    <span class="logo-iq">
+        	IQ
+    	    </span>
+	</div>
+	<div class="auth-tagline">
+    	    Fantasy Sports Intelligence
+	</div>
+    </div>
+    <div class="card">
+	<h1 class="auth-title">
+            Welcome Back
+        </h1>
+        <p class="auth-subtitle">
+            Log in to access your dashboard
+        </p>
+        <div class="input-group">
+    	    <label>Email</label>
+    	    <div class="input-wrapper">
+        	<span class="input-icon">
+            	    <i class="fa-regular fa-envelope"></i>
+        	</span>
+        	<input
+        	type="email"
+        	id="login-email"
+        	placeholder="Enter your email">
+    	    </div>
+	</div>
+        <div class="input-group">
+    	    <label>Password</label>
+    	    <div class="input-wrapper">
+        	<span class="input-icon">
+            	    <i class="fa-solid fa-lock"></i>
+        	</span>
+        	<input
+        	type="password"
+        	id="login-password"
+        	placeholder="Enter your password">
+        	<span
+        	class="toggle-password"
+        	id="toggle-password">
+                    <i class="fa-regular fa-eye"></i>
+        	</span>
+    	    </div>
+	</div>
+	<div class="login-options">
+    	    <label class="remember-me">
+        	<input
+        	type="checkbox"
+        	id="remember-me">
+        	<span>
+            	    Remember Me
+        	</span>
+    	    </label>
+    	    <button
+    	    type="button"
+    	    id="forgot-password-btn"
+    	    class="forgot-password-btn">
+        	Forgot Password?
+    	    </button>
+	</div>
+        <button id="login-btn">
+            Log In
+        </button>
+        <div class="divider">
+    	    <span class="divider-line"></span>
+    	    <span class="divider-text">
+        	OR
+    	    </span>
+    	    <span class="divider-line"></span>
+	</div>
+	<button
+	type="button"
+	id="google-login-btn"
+	class="google-btn">
+    	    <i class="fa-brands fa-google"></i>
+    	    Continue with Google
+	</button>
+    </div>
+    <div class="auth-footer">
+    	<button
+    	id="back-home-btn"
+    	class="auth-link-btn">
+            ← Back To Homepage
+    	</button>
+    	<div class="footer-divider">
+            <span class="footer-line"></span>
+            <span class="footer-divider-text">
+            	OR
+            </span>
+            <span class="footer-line"></span>
+    	</div>
+    	<button
+    	id="signup-instead-btn"
+    	class="auth-link-btn">
+            Sign Up Instead →
+    	</button>
+    </div>
+</section>
+<script>
+document.getElementById(
+    "signup-instead-btn"
+).addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "signup.html";
+    }
+);
+document.getElementById(
+    "back-home-btn"
+).addEventListener(
+    "click",
+    () => {
+        window.location.href =
+        "index.html"});
+// PASSWORD VISIBILITY TOGGLE
+const passwordInput =
+document.getElementById(
+    "login-password");
+const togglePassword =
+document.getElementById(
+    "toggle-password");
+togglePassword.addEventListener(
+    "click",
+    () => {
+        if(
+            passwordInput.type ===
+            "password"
+        ){
+            passwordInput.type =
+            "text";
+        }else{
+            passwordInput.type =
+            "password";
+        }
+    }
+);
+</script>
+</body>
+</html>

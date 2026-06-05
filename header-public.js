@@ -374,7 +374,7 @@ document.getElementById(
         window.location.href =
         "teamstats.html";}
 );
-// MORE MENU DUPLICATE BUTTONS ========================
+// MORE MENU DUPLICATE BUTTONS =======================
 document.getElementById(
     "more-rankings"
 )?.addEventListener(
@@ -406,10 +406,8 @@ document.getElementById(
     "click",
     () => {
         window.location.href =
-        "index.html#login";
-    }
+        "login.html";}
 );
-
 // SIGNUP BUTTON =====================================
 document.getElementById(
     "public-signup-btn"
@@ -417,6 +415,5 @@ document.getElementById(
     "click",
     () => {
         window.location.href =
-	"index.html#signup";
-    }
+	"signup.html";}
 );
