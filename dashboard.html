@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+<title>LeagueIQ Dashboard</title>
+<link
+rel="stylesheet"
+href="styles.css">
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="firebase.js"></script>
+</head>
+<body>
+<div id="app-container">
+<header>
+    <div class="header-left">
+        <div class="brand">
+            LeagueIQ
+        </div>
+        <div class="league-dropdown">
+            <button
+            id="league-dropdown-btn"
+            class="league-dropdown-btn">
+                Fantasy Leagues
+            </button>
+            <div
+            id="league-dropdown-menu"
+            class="league-dropdown-menu hidden">
+                <button
+                class="league-item-btn"
+                data-league="cleveland">
+                    Cleveland Dynasty
+                </button>
+                <button
+                class="league-item-btn"
+                data-league="money">
+                    Money League
+                </button>
+                <button
+                id="add-league-btn"
+                class="add-league-btn">
+                    + Add League
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="header-right">
+        <div id="plan-badge">
+            FREE PLAN
+        </div>
+        <button id="logout-btn">
+            Logout
+        </button>
+    </div>
+</header>
+<main>
+    <section
+    id="dashboard-tab"
+    class="tab-content active-content">
+        <div class="card">
+            <h2 id="team-title">
+                Welcome To LeagueIQ
+            </h2>
+            <p id="team-analytics">
+                Connect your first fantasy league
+                to unlock analytics.
+            </p>
+        </div>
+    </section>
+</main>
+</div>
+<script src="firebase.js"></script>
+<script>
+auth.onAuthStateChanged(
+    user => {
+        if(!user){
+            window.location.href =
+            "login.html";}}
+);
+document.getElementById(
+    "logout-btn"
+).addEventListener(
+    "click",
+    async () => {
+        await auth.signOut();
+        window.location.href =
+        "index.html";}
+);
+</script>
+</body>
+</html>

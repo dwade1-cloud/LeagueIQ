@@ -51,13 +51,14 @@ class="screen">
                 type="text"
                 id="signup-username"
 		maxlength="15"
-                placeholder="Choose a username">
+                placeholder="Choose a username"
+		autocomplete="off">
             </div>
         </div>
 	<div
 	id="username-error"
 	class="auth-error hidden">
-    	    Username must be between 3 and 15 characters.
+    	    Username taken or not between 3 and 15 characters
 	</div>
         <!-- EMAIL -->
         <div class="input-group">
@@ -69,7 +70,11 @@ class="screen">
                 <input
                 type="email"
                 id="signup-email"
-                placeholder="Enter your email">
+		spellcheck="false"
+                placeholder="Enter your email"
+		autocomplete="email"
+		autocapitalize="off"
+		autocorrect="off">
             </div>
         </div>
 	<div
@@ -87,8 +92,9 @@ class="screen">
                 <input
                 type="text"
                 id="signup-password"
-		maxlength="15"
-                placeholder="Create your password">
+		maxlength="40"
+                placeholder="Create your password"
+		autocomplete="new-password">
             </div>
         </div>
         <!-- CONFIRM PASSWORD -->
@@ -101,8 +107,9 @@ class="screen">
                 <input
                 type="password"
                 id="signup-confirm-password"
-		maxlength="15"
-                placeholder="Confirm your password">
+		maxlength="40"
+                placeholder="Confirm your password"
+		autocomplete="new-password">
                 <span
                 class="toggle-password"
                 id="toggle-confirm-password">
@@ -394,13 +401,15 @@ signupBtn.addEventListener(
     "click",
     event => {
         const username =
-        signupUsername.value.trim();
+        signupUsername.value.trim().toLowerCase();
         if(
             username.length < 3 ||
             username.length > 15){
             event.preventDefault();
             usernameError.classList.remove(
                 "hidden");
+	    usernameError.textContent =
+		"Username must be between 3 and 15 characters.";
             return;}
         usernameError.classList.add(
             "hidden");
@@ -460,40 +469,67 @@ signupBtn.addEventListener(
             return;}
         experienceError.classList.add(
             "hidden");
-        auth.createUserWithEmailAndPassword(
-    	    email,
-    	    password)
+	// NO DUPLICATE USERNAME
+        db.collection(
+	    "users")
+	.where(
+	    "username",
+	    "==",
+	    username)
+	.get()
 	.then(
-    	    userCredential => {
-        	const user =
-        	userCredential.user;
-        	return db.collection(
-            	    "users"
-        	).doc(
-            	    user.uid
-        	).set({
-            	    username:
-            	    username,
-            	    email:
-            	    email,
-            	    favoriteSport:
-            	    selectedSport.textContent.trim(),
-            	    experience:
-            	    selectedExperience.textContent.trim(),
-            	    plan:
-            	    "Free",
-            	    createdAt:
-            	    firebase.firestore.FieldValue.serverTimestamp()});})
+	    snapshot => {
+	        if(
+	            !snapshot.empty){
+	            usernameError.textContent =
+	            "Username already exists.";
+	            usernameError.classList.remove(
+	                "hidden");
+	            return Promise.reject(
+	                "duplicate-username");
+	        }
+	        return auth
+	        .createUserWithEmailAndPassword(
+	            email,
+	            password);}
+	)
 	.then(
-    	    () => {
-        	window.location.href =
-        	"login.html";})
+	    userCredential => {
+	        const user =
+	        userCredential.user;
+	        return db.collection(
+	            "users"
+	        ).doc(
+	            user.uid
+	        ).set({
+	            username:
+	            username,
+	            email:
+	            email,
+	            favoriteSport:
+	            selectedSport.textContent.trim(),
+	            experience:
+	            selectedExperience.textContent.trim(),
+	            plan:
+	            "Free",
+	            createdAt:
+	            firebase.firestore.FieldValue.serverTimestamp()});}
+	)
+	.then(
+	    () => {
+	        window.location.href =
+	        "login.html";}
+	)
 	.catch(
-    	    error => {
-        	alert(
-            	    error.message);
-        	console.error(
-            	    error);});}
+	    error => {
+	        if(
+	            error ===
+	            "duplicate-username"){
+	            return;}
+	        console.error(
+	            error);}
+	);
+    }
 );
 // CONFIRM PASSWORD VISIBILITY
 const toggleConfirmPassword =
