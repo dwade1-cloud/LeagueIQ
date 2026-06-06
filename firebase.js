@@ -1,6 +1,3 @@
-// =========================
-// FIREBASE
-// =========================
 // FIREBASE CONFIGURATION =============================
 const firebaseConfig = {
     apiKey: "AIzaSyCcJchr26rP-GeW_6FYa5sXxpHQPT5k0eY",

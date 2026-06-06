@@ -9,7 +9,7 @@ body{
     overflow-x:hidden;
     position:relative;}
 .hidden{
-    display:none;}
+    display:none !important;}
 /* -------------------------
    AUTH PAGES (SHARED)
 ------------------------- */

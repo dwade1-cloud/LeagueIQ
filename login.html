@@ -95,6 +95,11 @@ class="screen">
     	    </span>
     	    <span class="divider-line"></span>
 	</div>
+	<div
+	id="login-error"
+	class="auth-error hidden">
+	    Invalid email or password.
+	</div>
 	<button
 	type="button"
 	id="google-login-btn"
@@ -123,6 +128,16 @@ class="screen">
     	</button>
     </div>
 </section>
+<script src=
+"https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js">
+</script>
+<script src=
+"https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js">
+</script>
+<script src=
+"https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js">
+</script>
+<script src="firebase.js"></script>
 <script>
 document.getElementById(
     "signup-instead-btn"
@@ -130,8 +145,7 @@ document.getElementById(
     "click",
     () => {
         window.location.href =
-        "signup.html";
-    }
+        "signup.html";}
 );
 document.getElementById(
     "back-home-btn"
@@ -139,7 +153,8 @@ document.getElementById(
     "click",
     () => {
         window.location.href =
-        "index.html"});
+        "index.html"}
+);
 // PASSWORD VISIBILITY TOGGLE
 const passwordInput =
 document.getElementById(
@@ -152,15 +167,66 @@ togglePassword.addEventListener(
     () => {
         if(
             passwordInput.type ===
-            "password"
-        ){
+            "password"){
             passwordInput.type =
             "text";
         }else{
             passwordInput.type =
-            "password";
-        }
-    }
+            "password";}}
+);
+// LOGIN ====================================
+const loginBtn =
+document.getElementById(
+    "login-btn");
+const loginEmail =
+document.getElementById(
+    "login-email");
+const loginPassword =
+document.getElementById(
+    "login-password");
+const loginError =
+document.getElementById(
+    "login-error");
+loginBtn.addEventListener(
+    "click",
+    () => {
+	auth.onAuthStateChanged(
+	    user => {
+	        if(
+	            user){
+	            window.location.href =
+	            "dashboard.html";}}
+	);
+        const email =
+        loginEmail.value.trim();
+        const password =
+        loginPassword.value;
+        auth.signInWithEmailAndPassword(
+            email,
+            password)
+        .then(
+            () => {
+                loginError.classList.add(
+                    "hidden");
+                window.location.href =
+                "dashboard.html";})
+        .catch(
+            error => {
+                console.error(
+                    error);
+                loginError.classList.remove(
+                    "hidden");});}
+);
+document.getElementById(
+    "logout-btn"
+).addEventListener(
+    "click",
+    () => {
+        auth.signOut()
+        .then(
+            () => {
+                window.location.href =
+                "login.html";});}
 );
 </script>
 </body>
