@@ -155,33 +155,21 @@ document.addEventListener(
 // UI EFFECTS
 // =========================
 // HEADER SHRINK
-const publicHeader =
+const dashboardHeader =
 document.querySelector(
     ".public-header");
 window.addEventListener(
     "scroll",
     () => {
         if(window.scrollY > 40){
-            publicHeader.style.height =
+            dashboardHeader.style.height =
             "60px";
         } else {
-            publicHeader.style.height =
+            dashboardHeader.style.height =
             "68px";
         }
     }
 );
-const publicHomepageBtn =
-document.getElementById(
-    "homepage-btn");
-if(publicHomepageBtn){
-    publicHomepageBtn.addEventListener(
-        "click",
-        () => {
-            window.location.href =
-            "index.html";
-        }
-    );
-}
 // CONNECT NAV BUTTONS ================================
 const leagueDropdown =
 document.getElementById(
@@ -203,14 +191,6 @@ document.addEventListener(
     () => {
         leagueDropdown?.classList.remove(
             "dropdown-open");}
-);
-document.getElementById(
-    "homepage-btn"
-)?.addEventListener(
-    "click",
-    () => {
-        window.location.href =
-        "index.html";}
 );
 document.getElementById(
     "nav-rankings"
@@ -246,14 +226,22 @@ document.getElementById(
 const moreMenu =
 document.getElementById(
     "more-dropdown-menu");
-moreBtn.addEventListener(
-    "click",
-    (event) => {
-        event.stopPropagation();
-        moreDropdown.classList.toggle(
-            "more-open");
-    }
-);
+if(
+    moreBtn
+){
+    moreBtn.addEventListener(
+        "click",
+        event => {
+
+            event.stopPropagation();
+
+            moreDropdown.classList.toggle(
+                "more-open"
+            );
+
+        }
+    );
+}
 document.addEventListener(
     "click",
     () => {
