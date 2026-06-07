@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeagueIQ Player Profile</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- =========================
+     DASHBOARD
+========================== -->
+<header
+id="dashboard-header"
+class="public-header">
+
+    <div class="public-header-left">
+
+        <div class="brand-container">
+
+            <div class="public-logo">
+
+                <span class="logo-league">
+                    LEAGUE
+                </span>
+
+                <span class="logo-iq">
+                    IQ
+                </span>
+
+            </div>
+
+            <div class="logo-subtitle">
+                Fantasy Sports Intelligence
+            </div>
+
+        </div>
+
+        <div
+        class="custom-dropdown"
+        id="league-dropdown">
+
+            <button
+            id="league-selected"
+            class="dropdown-selected">
+
+                <span id="selected-league">
+                    Fantasy League
+                </span>
+
+                <span class="dropdown-arrow">
+                    ▼
+                </span>
+
+            </button>
+
+            <div
+            id="league-options"
+            class="dropdown-options">
+
+                <button
+                class="dropdown-option">
+                    League 1
+                </button>
+
+                <button
+                class="dropdown-option">
+                    League 2
+                </button>
+
+            </div>
+
+        </div>
+
+        <nav class="public-nav">
+
+            <button
+            class="nav-btn"
+            id="nav-rankings">
+                Rankings
+            </button>
+
+            <button
+            class="nav-btn"
+            id="nav-trending">
+                Trending
+            </button>
+
+            <button
+            class="nav-btn"
+            id="nav-trade">
+                Trade Calculator
+            </button>
+
+            <div
+            class="more-dropdown"
+            id="more-dropdown">
+
+                <button
+                class="nav-btn"
+                id="more-btn">
+
+                    More
+
+                    <span class="more-arrow">
+                        ▼
+                    </span>
+                </button>
+                <div
+                class="more-dropdown-menu"
+                id="more-dropdown-menu">
+                    <button
+                    id="nav-injuries"
+                    class="more-option">
+                        Injuries
+                    </button>
+                    <button
+                    id="nav-waiver"
+                    class="more-option">
+                        Waiver Wire Insight
+                    </button>
+                    <button
+                    id="nav-buylow"
+                    class="more-option">
+                        Buy Low / Sell High
+                    </button>
+                    <button
+                    id="nav-boombust"
+                    class="more-option">
+                        Boom / Bust
+                    </button>
+                    <button
+                    id="nav-teamstats"
+                    class="more-option">
+                        Team Stats
+                    </button>
+		    <button
+		    id="more-rankings"
+		    class="more-option">
+		        Rankings
+		    </button>
+		    <button
+		    id="more-trending"
+		    class="more-option">
+		        Trending
+		    </button>
+		    <button
+		    id="more-trade"
+		    class="more-option">
+		        Trade Calculator
+		    </button>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+    <div class="public-header-right">
+
+        <button
+        id="mobile-search-btn"
+        class="mobile-search-btn">
+
+            🔍
+
+        </button>
+
+        <div id="plan-badge">
+            FREE PLAN
+        </div>
+
+        <button
+        id="profile-btn"
+        class="public-auth-btn">
+
+            Profile
+
+        </button>
+
+        <button
+        id="logout-btn">
+
+            Logout
+
+        </button>
+
+    </div>
+
+</header>
+<div class="player-page-shell">
+<!-- PLAYER RANKINGS -->
+    <section class="player-profile">
+	<div class="player-top">
+            <div class="player-info">
+            	<h1 id="player-name">
+                    Aaron Judge
+            	</h1>
+            	<div id="player-meta">
+                    NYY • OF
+            	</div>
+            </div>
+	    <div
+	    id="player-bio"
+	    class="player-bio">
+    	        6'7" • 282 lbs • Age 34 • #99
+	    </div>
+            <div class="player-grade">
+                <div class="grade-label">
+                    LeagueIQ Grade
+                </div>
+                <div id="player-grade">
+                    96
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FANTASY SNAPSHOT -->
+    <section class="player-card">
+        <h2>
+            Fantasy Snapshot
+        </h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-label">
+                    Rank
+                </span>
+                <span id="player-rank">
+                    #1
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    Fantasy Points
+                </span>
+                <span id="player-fpts">
+                    487
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    PPG
+                </span>
+                <span id="player-ppg">
+                    18.7
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    Trade Value
+                </span>
+                <span id="player-trade-value">
+                    98
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- SEASON STATS -->
+    <section class="player-card">
+        <h2>
+            2025 Season Stats
+        </h2>
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-label">
+                    AVG
+                </span>
+                <span id="player-avg">
+                    .342
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    HR
+                </span>
+                <span id="player-hr">
+                    21
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    RBI
+                </span>
+                <span id="player-rbi">
+                    53
+                </span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">
+                    OPS
+                </span>
+                <span id="player-ops">
+                    1.145
+                </span>
+            </div>
+        </div>
+    </section>
+    <!-- LEAGUE OUTLOOK -->
+    <section class="player-card">
+        <h2>
+            LeagueIQ Outlook
+        </h2>
+        <p id="player-outlook">
+            Elite fantasy asset with MVP upside.
+            One of the safest power bats in fantasy baseball.
+        </p>
+    </section>
+</div>
+<!-- ===========================
+     SEARCH OVERLAY
+============================ -->
+<div
+id="search-overlay"
+class="search-overlay hidden">
+
+    <div class="search-overlay-box">
+
+        <input
+        type="text"
+        id="expanded-search"
+        placeholder="Search any active player"
+        autocomplete="off">
+
+        <div
+        id="expanded-search-results"
+        class="expanded-search-results">
+        </div>
+
+    </div>
+
+</div>
+<script src="header-dashboard.js"></script>
+<script src="player.js"></script>
+</body>
+</html>

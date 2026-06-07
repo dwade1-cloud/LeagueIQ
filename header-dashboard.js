@@ -26,58 +26,32 @@ const playerDatabase = [
      meta:"TEX • OF • Trending ↑"},
     {playerId:10008,
      name:"Paul Skenes",
-     meta:"PIT • SP • Ace Potential"}
-];
+     meta:"PIT • SP • Ace Potential"}];
 // SEARCH ICON BUTTON =================================
 const mobileSearchBtn =
 document.getElementById(
-    "mobile-search-btn"
-);
-
+    "mobile-search-btn");
 const searchOverlay =
 document.getElementById(
-    "search-overlay"
-);
-
+    "search-overlay");
 const expandedSearch =
 document.getElementById(
-    "expanded-search"
-);
-
+    "expanded-search");
 const expandedSearchResults =
 document.getElementById(
-    "expanded-search-results"
-);
-
-if(
-    mobileSearchBtn
-){
+    "expanded-search-results");
+if( mobileSearchBtn){
     mobileSearchBtn.addEventListener(
         "click",
         event => {
-
             event.stopPropagation();
-
             searchOverlay.classList.remove(
-                "hidden"
-            );
-
+                "hidden");
             expandedSearch.value = "";
-
-            setTimeout(
-                () => {
-                    expandedSearch.focus();
-                },
-                10
-            );
-
+            setTimeout(() => {
+                    expandedSearch.focus();},10);
             renderExpandedResults(
-                ""
-            );
-
-        }
-    );
-}
+                "");});}
 // RENDER RESULTS =====================================
 function renderExpandedResults(query){
     expandedSearchResults.innerHTML ="";
@@ -93,10 +67,8 @@ matches.forEach(
         const result =
         document.createElement(
             "button");
-
         result.classList.add(
             "search-player-item");
-
         result.innerHTML = `
             <div>
                 ${player.name}
@@ -104,53 +76,36 @@ matches.forEach(
             <div class="search-player-meta">
                 ${player.meta}
             </div>`;
-
         expandedSearchResults.appendChild(
             result);
-
         result.addEventListener(
-            "click",
-            () => {
+            "click",() => {
                 window.location.href =
-                `player.html?id=${player.playerId}`;
-            }
-        );
-    }
-);
-}
+                `player-dashboard.html?id=${player.playerId}`;});});}
 // LIVE SEARCH ========================================
 expandedSearch.addEventListener(
-    "input",
-    () => {
+    "input",() => {
         renderExpandedResults(
-            expandedSearch.value);
-    }
-);
+            expandedSearch.value);});
 // CLOSE SEARCH OVERLAY ===============================
 document.addEventListener(
     "click",
     (event) => {
-        if(!searchOverlay){
+        if( !searchOverlay){
             return;}
         const searchBox =
         document.querySelector(
             ".search-overlay-box");
-        if(!searchBox){
+        if( !searchBox){
             return;}
-        if(
-            searchOverlay.classList.contains(
-                "hidden")
-        ){
+        if( searchOverlay.classList.contains(
+                "hidden")){
             return;}
-        if(
-            searchBox.contains(
-                event.target)
-        ){
+        if( searchBox.contains(
+                event.target)){
             return;}
         searchOverlay.classList.add(
-            "hidden");
-    }
-);
+            "hidden");});
 // =========================
 // UI EFFECTS
 // =========================
@@ -159,17 +114,13 @@ const dashboardHeader =
 document.querySelector(
     ".public-header");
 window.addEventListener(
-    "scroll",
-    () => {
-        if(window.scrollY > 40){
+    "scroll",() => {
+        if( window.scrollY > 40){
             dashboardHeader.style.height =
             "60px";
         } else {
             dashboardHeader.style.height =
-            "68px";
-        }
-    }
-);
+            "68px";}});
 // CONNECT NAV BUTTONS ================================
 const leagueDropdown =
 document.getElementById(
@@ -177,45 +128,35 @@ document.getElementById(
 const leagueSelected =
 document.getElementById(
     "league-selected");
-if(
-    leagueSelected){
+if( leagueSelected){
     leagueSelected.addEventListener(
         "click",
         event => {
             event.stopPropagation();
             leagueDropdown.classList.toggle(
-                "dropdown-open");});
-}
+                "dropdown-open");});}
 document.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         leagueDropdown?.classList.remove(
-            "dropdown-open");}
-);
+            "dropdown-open");});
 document.getElementById(
     "nav-rankings"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "rankings.html";}
-);
+        "rankings.html";});
 document.getElementById(
     "nav-trending"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "trending.html";}
-);
+        "trending.html";});
 document.getElementById(
     "nav-trade"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "trade.html";}
-);
+        "trade.html";});
 // MORE DROPDOWN MENU =================================
 const moreDropdown =
 document.getElementById(
@@ -226,104 +167,70 @@ document.getElementById(
 const moreMenu =
 document.getElementById(
     "more-dropdown-menu");
-if(
-    moreBtn
-){
+if( moreBtn){
     moreBtn.addEventListener(
         "click",
         event => {
-
             event.stopPropagation();
-
             moreDropdown.classList.toggle(
-                "more-open"
-            );
-
-        }
-    );
-}
+                "more-open");});}
 document.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         moreDropdown.classList.remove(
-            "more-open");
-    }
-);
+            "more-open");});
 document.getElementById(
     "nav-injuries"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "injuries.html";}
-);
+        "injuries.html";});
 document.getElementById(
     "nav-waiver"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "waiver.html";}
-);
+        "waiver.html";});
 document.getElementById(
     "nav-buylow"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "buylow.html";}
-);
+        "buylow.html";});
 document.getElementById(
     "nav-boombust"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "boombust.html";}
-);
+        "boombust.html";});
 document.getElementById(
     "nav-teamstats"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "teamstats.html";}
-);
+        "teamstats.html";});
 // MORE MENU DUPLICATE BUTTONS =======================
 document.getElementById(
     "more-rankings"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "rankings.html";}
-);
+        "rankings.html";});
 document.getElementById(
     "more-trending"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "trending.html";}
-);
+        "trending.html";});
 document.getElementById(
     "more-trade"
 )?.addEventListener(
-    "click",
-    () => {
+    "click",() => {
         window.location.href =
-        "trade.html";}
-);
+        "trade.html";});
 // PROFILE BUTTON =====================================
 document.getElementById(
     "profile-btn"
 )?.addEventListener(
-    "click",
-    () => {
-
+    "click",() => {
         console.log(
-            "Profile menu coming soon"
-        );
-
-    }
-);
+            "Profile menu coming soon");});
