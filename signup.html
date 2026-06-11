@@ -1,552 +1,344 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-<title>LeagueIQ Sign Up</title>
-<link rel="stylesheet"
-href="styles.css">
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-</head>
-<body>
-<div id="auth-background">
-    <img
-    src="images/Galaxy.png"
-    class="auth-background-image">
-</div>
-<section
-id="signup-screen"
-class="screen">
-    <div class="auth-brand">
-        <div class="auth-logo">
-            <span class="logo-league">
-                LEAGUE
-            </span>
-            <span class="logo-iq">
-                IQ
-            </span>
-        </div>
-        <div class="auth-tagline">
-            Fantasy Sports Intelligence
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeagueIQ Sign Up</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="auth-background">
+      <img src="images/Galaxy.png" class="auth-background-image" />
     </div>
-    <div class="card">
-        <h1 class="auth-title">
-            Create Your Account
-        </h1>
-        <p class="auth-subtitle">
-            Join League IQ and gain the edge
-        </p>
+    <section id="signup-screen" class="screen">
+      <div class="auth-brand">
+        <div class="auth-logo">
+          <span class="logo-league"> LEAGUE </span>
+          <span class="logo-iq"> IQ </span>
+        </div>
+        <div class="auth-tagline">Fantasy Sports Intelligence</div>
+      </div>
+      <div class="card">
+        <h1 class="auth-title">Create Your Account</h1>
+        <p class="auth-subtitle">Join League IQ and gain the edge</p>
         <!-- USERNAME -->
         <div class="input-group">
-            <label>Username</label>
-            <div class="input-wrapper">
-                <span class="input-icon">
-                    <i class="fa-regular fa-user"></i>
-                </span>
-                <input
-                type="text"
-                id="signup-username"
-		maxlength="15"
-                placeholder="Choose a username"
-		autocomplete="off">
-            </div>
+          <label>Username</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i class="fa-regular fa-user"></i>
+            </span>
+            <input
+              type="text"
+              id="signup-username"
+              maxlength="15"
+              placeholder="Choose a username"
+              autocomplete="off"
+            />
+          </div>
         </div>
-	<div
-	id="username-error"
-	class="auth-error hidden">
-    	    Username taken or not between 3 and 15 characters
-	</div>
+        <div id="username-error" class="auth-error hidden">
+          Username taken or not between 3 and 15 characters
+        </div>
         <!-- EMAIL -->
         <div class="input-group">
-            <label>Email</label>
-            <div class="input-wrapper">
-                <span class="input-icon">
-                    <i class="fa-regular fa-envelope"></i>
-                </span>
-                <input
-                type="email"
-                id="signup-email"
-		spellcheck="false"
-                placeholder="Enter your email"
-		autocomplete="email"
-		autocapitalize="off"
-		autocorrect="off">
-            </div>
+          <label>Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i class="fa-regular fa-envelope"></i>
+            </span>
+            <input
+              type="email"
+              id="signup-email"
+              spellcheck="false"
+              placeholder="Enter your email"
+              autocomplete="email"
+              autocapitalize="off"
+              autocorrect="off"
+            />
+          </div>
         </div>
-	<div
-	id="email-error"
-	class="auth-error hidden">
-    	    Please enter a valid email address.
-	</div>
+        <div id="email-error" class="auth-error hidden">
+          Please enter a valid email address.
+        </div>
         <!-- PASSWORD -->
         <div class="input-group">
-            <label>Password</label>
-            <div class="input-wrapper">
-                <span class="input-icon">
-                    <i class="fa-solid fa-lock"></i>
-                </span>
-                <input
-                type="text"
-                id="signup-password"
-		maxlength="40"
-                placeholder="Create your password"
-		autocomplete="new-password">
-            </div>
+          <label>Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <input
+              type="text"
+              id="signup-password"
+              maxlength="40"
+              placeholder="Create your password"
+              autocomplete="new-password"
+            />
+          </div>
         </div>
         <!-- CONFIRM PASSWORD -->
         <div class="input-group">
-            <label>Confirm Password</label>
-            <div class="input-wrapper">
-                <span class="input-icon">
-                    <i class="fa-solid fa-lock"></i>
-                </span>
-                <input
-                type="password"
-                id="signup-confirm-password"
-		maxlength="40"
-                placeholder="Confirm your password"
-		autocomplete="new-password">
-                <span
-                class="toggle-password"
-                id="toggle-confirm-password">
-                    <i class="fa-regular fa-eye"></i>
-                </span>
-            </div>
+          <label>Confirm Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <i class="fa-solid fa-lock"></i>
+            </span>
+            <input
+              type="password"
+              id="signup-confirm-password"
+              maxlength="40"
+              placeholder="Confirm your password"
+              autocomplete="new-password"
+            />
+            <span class="toggle-password" id="toggle-confirm-password">
+              <i class="fa-regular fa-eye"></i>
+            </span>
+          </div>
         </div>
         <!-- FAVORITE SPORT -->
         <div class="input-group">
-    	    <label>Favorite Sport</label>
-    	    <div
-    	    class="custom-select"
-    	    id="sport-select">
-        	<div
-        	class="custom-select-trigger">
-            	    <span class="input-icon">
-                	<i class="fa-solid fa-trophy"></i>
-            	    </span>
-            	    <span
-            	    id="selected-sport"
-		    class="placeholder-text">
-                	Select Sport
-            	    </span>
-            	    <span class="select-arrow">
-                	<i class="fa-solid fa-chevron-down"></i>
-            	    </span>
-        	</div>
-        	<div
-        	class="custom-options">
-		    <div
-		    class="custom-option placeholder-option">
-    			Select Sport
-		    </div>
-            	    <div
-            	    class="custom-option">
-                	MLB
-            	    </div>
-            	    <div
-            	    class="custom-option">
-                	NFL
-            	    </div>
-            	    <div
-            	    class="custom-option">
-                	NBA
-            	    </div>
-            	    <div
-            	    class="custom-option">
-                	NHL
-            	    </div>
-                </div>
-    	    </div>
-	</div>
-	<div
-	id="sport-error"
-	class="auth-error hidden">
-    	    Please select your favorite sport.
-	</div>
+          <label>Favorite Sport</label>
+          <div class="custom-select" id="sport-select">
+            <div class="custom-select-trigger">
+              <span class="input-icon">
+                <i class="fa-solid fa-trophy"></i>
+              </span>
+              <span id="selected-sport" class="placeholder-text">
+                Select Sport
+              </span>
+              <span class="select-arrow">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <div class="custom-options">
+              <div class="custom-option placeholder-option">Select Sport</div>
+              <div class="custom-option">MLB</div>
+              <div class="custom-option">NFL</div>
+              <div class="custom-option">NBA</div>
+              <div class="custom-option">NHL</div>
+            </div>
+          </div>
+        </div>
+        <div id="sport-error" class="auth-error hidden">
+          Please select your favorite sport.
+        </div>
         <!-- EXPERIENCE -->
         <div class="input-group">
-    	    <label>Fantasy Experience</label>
-    	    <div
-    	    class="custom-select"
-    	    id="experience-select">
-        	<div
-        	class="custom-select-trigger">
-            	    <span class="input-icon">
-                	<i class="fa-solid fa-chart-column"></i>
-            	    </span>
-            	    <span
-            	    id="selected-experience"
-		    class="placeholder-text">
-                	Select Experience
-            	    </span>
-            	    <span class="select-arrow">
-                	<i class="fa-solid fa-chevron-down"></i>
-            	    </span>
-        	</div>
-        	<div
-        	class="custom-options">
-		    <div
-		    class="custom-option placeholder-option">
-    			Select Experience
-		    </div>
-            	    <div
-            	    class="custom-option">
-                	Beginner
-            	    </div>
-            	    <div
-            	    class="custom-option">
-                	Intermediate
-            	    </div>
-            	    <div
-            	    class="custom-option">
-                	Advanced
-            	    </div>
-            	    <div
-            	    class="custom-option">
-                	Expert
-            	    </div>
-        	</div>
-    	    </div>
-	</div>
-	<div
-	id="experience-error"
-	class="auth-error hidden">
-    	    Please select your fantasy experience.
-	</div>
-	<div
-	id="password-error"
-	class="auth-error hidden">
-    	    Passwords do not match.
-	</div>
-	<div
-	id="password-requirements-error"
-	class="auth-error hidden">
-    	    Password must be at least 8 characters and contain at least 1 number.
-	</div>
-        <button id="signup-btn">
-            SIGN UP
-        </button>
-    </div>
-    <div class="auth-footer">
-        <button
-        id="back-home-btn"
-        class="auth-link-btn">
-            ← Back To Homepage
+          <label>Fantasy Experience</label>
+          <div class="custom-select" id="experience-select">
+            <div class="custom-select-trigger">
+              <span class="input-icon">
+                <i class="fa-solid fa-chart-column"></i>
+              </span>
+              <span id="selected-experience" class="placeholder-text">
+                Select Experience
+              </span>
+              <span class="select-arrow">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <div class="custom-options">
+              <div class="custom-option placeholder-option">
+                Select Experience
+              </div>
+              <div class="custom-option">Beginner</div>
+              <div class="custom-option">Intermediate</div>
+              <div class="custom-option">Advanced</div>
+              <div class="custom-option">Expert</div>
+            </div>
+          </div>
+        </div>
+        <div id="experience-error" class="auth-error hidden">
+          Please select your fantasy experience.
+        </div>
+        <div id="password-error" class="auth-error hidden">
+          Passwords do not match.
+        </div>
+        <div id="password-requirements-error" class="auth-error hidden">
+          Password must be at least 8 characters and contain at least 1 number.
+        </div>
+        <button id="signup-btn">SIGN UP</button>
+      </div>
+      <div class="auth-footer">
+        <button id="back-home-btn" class="auth-link-btn">
+          ← Back To Homepage
         </button>
         <div class="footer-divider">
-            <span class="footer-line"></span>
-            <span class="footer-divider-text">
-                OR
-            </span>
-            <span class="footer-line"></span>
+          <span class="footer-line"></span>
+          <span class="footer-divider-text"> OR </span>
+          <span class="footer-line"></span>
         </div>
-        <button
-        id="login-instead-btn"
-        class="auth-link-btn">
-            Log In Instead →
+        <button id="login-instead-btn" class="auth-link-btn">
+          Log In Instead →
         </button>
-    </div>
-</section>
-<script src=
-"https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js">
-</script>
-<script src=
-"https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js">
-</script>
-<script src=
-"https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js">
-</script>
-<script src="firebase.js"></script>
-<script>
-const sportSelect =
-document.getElementById(
-    "sport-select");
-const selectedSport =
-document.getElementById(
-    "selected-sport");
-sportSelect
-.querySelector(
-    ".custom-select-trigger")
-.addEventListener(
-    "click",
-    () => {
-        sportSelect.classList.toggle(
-            "open");}
-);
-sportSelect
-.querySelectorAll(
-    ".custom-option")
-.forEach(
-    option => {
-        option.addEventListener(
-    	    "click",
-    	    () => {
-        	if(
-            	    option.classList.contains(
-                	"placeholder-option")){
-            	    return;}
-        	selectedSport.textContent =
-        	option.textContent;
-        	selectedSport.classList.remove(
-            	    "placeholder-text");
-        	sportSelect.classList.remove(
-            	    "open");});}
-);
-document.addEventListener(
-    "click",
-    event => {
-        if(
-            !sportSelect.contains(
-                event.target)){
-            sportSelect.classList.remove(
-                "open");}}
-);
-// EXPERIENCE DROPDOWN ==============================
-const experienceSelect =
-document.getElementById(
-    "experience-select");
-const selectedExperience =
-document.getElementById(
-    "selected-experience");
-experienceSelect
-.querySelector(
-    ".custom-select-trigger")
-.addEventListener(
-    "click",
-    () => {
-        experienceSelect.classList.toggle(
-            "open");}
-);
-experienceSelect
-.querySelectorAll(
-    ".custom-option")
-.forEach(
-    option => {
-        option.addEventListener(
-    	    "click",
-    	    () => {
-        	if(
-            	    option.classList.contains(
-                	"placeholder-option")){
-            	    return;}
-        	selectedExperience.textContent =
-        	option.textContent;
-        	selectedExperience.classList.remove(
-            	    "placeholder-text");
-        	experienceSelect.classList.remove(
-            	    "open");});}
-);
-document.addEventListener(
-    "click",
-    event => {
-        if(
-            !experienceSelect.contains(
-                event.target)){
-            experienceSelect.classList.remove(
-                "open");}}
-);
-document.getElementById(
-    "login-instead-btn"
-).addEventListener(
-    "click",
-    () => {
-        window.location.href =
-        "login.html";});
-document.getElementById(
-    "back-home-btn"
-).addEventListener(
-    "click",
-    () => {
-        window.location.href =
-        "index.html";});
-// SIGN UP PAGE ERRORS
-const signupBtn =
-document.getElementById(
-    "signup-btn");
-const signupPassword =
-document.getElementById(
-    "signup-password");
-const confirmPassword =
-document.getElementById(
-    "signup-confirm-password");
-const passwordError =
-document.getElementById(
-    "password-error");
-const passwordRequirementsError =
-document.getElementById(
-    "password-requirements-error");
-const signupEmail =
-document.getElementById(
-    "signup-email");
-const emailError =
-document.getElementById(
-    "email-error");
-const signupUsername =
-document.getElementById(
-    "signup-username");
-const usernameError =
-document.getElementById(
-    "username-error");
-const sportError =
-document.getElementById(
-    "sport-error");
-const experienceError =
-document.getElementById(
-    "experience-error");
-signupBtn.addEventListener(
-    "click",
-    event => {
-        const username =
-        signupUsername.value.trim().toLowerCase();
-        if(
-            username.length < 3 ||
-            username.length > 15){
-            event.preventDefault();
-            usernameError.classList.remove(
-                "hidden");
-	    usernameError.textContent =
-		"Username must be between 3 and 15 characters.";
-            return;}
-        usernameError.classList.add(
-            "hidden");
-        const email =
-        signupEmail.value.trim();
-        const emailRegex =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(
-            !emailRegex.test(
-                email
-            )){
-            event.preventDefault();
-            emailError.classList.remove(
-                "hidden");
-            return;}
-        emailError.classList.add(
-            "hidden");
-        const password =
-        signupPassword.value;
-        if(
-            password.length < 8 ||
-            !/\d/.test(
-                password
-            )){
-            event.preventDefault();
-            passwordRequirementsError
-            .classList.remove(
-                "hidden");
-            return;}
-        passwordRequirementsError
-        .classList.add(
-            "hidden");
-        if(
-            signupPassword.value !==
-            confirmPassword.value){
-            event.preventDefault();
-            passwordError.classList.remove(
-                "hidden");
-            return;}
-        passwordError.classList.add(
-            "hidden");
-        if(
-            selectedSport.textContent.trim() ===
-            "Select Sport"){
-            event.preventDefault();
-            sportError.classList.remove(
-                "hidden");
-            return;}
-        sportError.classList.add(
-            "hidden");
-        if(
-            selectedExperience.textContent.trim() ===
-            "Select Experience"){
-            event.preventDefault();
-            experienceError.classList.remove(
-                "hidden");
-            return;}
-        experienceError.classList.add(
-            "hidden");
-	// NO DUPLICATE USERNAME
-        db.collection(
-	    "users")
-	.where(
-	    "username",
-	    "==",
-	    username)
-	.get()
-	.then(
-	    snapshot => {
-	        if(
-	            !snapshot.empty){
-	            usernameError.textContent =
-	            "Username already exists.";
-	            usernameError.classList.remove(
-	                "hidden");
-	            return Promise.reject(
-	                "duplicate-username");
-	        }
-	        return auth
-	        .createUserWithEmailAndPassword(
-	            email,
-	            password);}
-	)
-	.then(
-	    userCredential => {
-	        const user =
-	        userCredential.user;
-	        return db.collection(
-	            "users"
-	        ).doc(
-	            user.uid
-	        ).set({
-	            username:
-	            username,
-	            email:
-	            email,
-	            favoriteSport:
-	            selectedSport.textContent.trim(),
-	            experience:
-	            selectedExperience.textContent.trim(),
-	            plan:
-	            "Free",
-	            createdAt:
-	            firebase.firestore.FieldValue.serverTimestamp()});}
-	)
-	.then(
-	    () => {
-	        window.location.href =
-	        "login.html";}
-	)
-	.catch(
-	    error => {
-	        if(
-	            error ===
-	            "duplicate-username"){
-	            return;}
-	        console.error(
-	            error);}
-	);
-    }
-);
-// CONFIRM PASSWORD VISIBILITY
-const toggleConfirmPassword =
-document.getElementById(
-    "toggle-confirm-password");
-toggleConfirmPassword.addEventListener(
-    "click",
-    () => {
-        if(
-            confirmPassword.type ===
-            "password"){
-            confirmPassword.type =
-            "text";
-        }else{
-            confirmPassword.type =
-            "password";}}
-);
-</script>
-</body>
+      </div>
+    </section>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="firebase.js"></script>
+    <script>
+      const sportSelect = document.getElementById("sport-select");
+      const selectedSport = document.getElementById("selected-sport");
+      sportSelect
+        .querySelector(".custom-select-trigger")
+        .addEventListener("click", () => {
+          sportSelect.classList.toggle("open");
+        });
+      sportSelect.querySelectorAll(".custom-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          if (option.classList.contains("placeholder-option")) {
+            return;
+          }
+          selectedSport.textContent = option.textContent;
+          selectedSport.classList.remove("placeholder-text");
+          sportSelect.classList.remove("open");
+        });
+      });
+      document.addEventListener("click", (event) => {
+        if (!sportSelect.contains(event.target)) {
+          sportSelect.classList.remove("open");
+        }
+      });
+      // EXPERIENCE DROPDOWN ==============================
+      const experienceSelect = document.getElementById("experience-select");
+      const selectedExperience = document.getElementById("selected-experience");
+      experienceSelect
+        .querySelector(".custom-select-trigger")
+        .addEventListener("click", () => {
+          experienceSelect.classList.toggle("open");
+        });
+      experienceSelect.querySelectorAll(".custom-option").forEach((option) => {
+        option.addEventListener("click", () => {
+          if (option.classList.contains("placeholder-option")) {
+            return;
+          }
+          selectedExperience.textContent = option.textContent;
+          selectedExperience.classList.remove("placeholder-text");
+          experienceSelect.classList.remove("open");
+        });
+      });
+      document.addEventListener("click", (event) => {
+        if (!experienceSelect.contains(event.target)) {
+          experienceSelect.classList.remove("open");
+        }
+      });
+      document
+        .getElementById("login-instead-btn")
+        .addEventListener("click", () => {
+          window.location.href = "login.html";
+        });
+      document.getElementById("back-home-btn").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+      // SIGN UP PAGE ERRORS
+      const signupBtn = document.getElementById("signup-btn");
+      const signupPassword = document.getElementById("signup-password");
+      const confirmPassword = document.getElementById(
+        "signup-confirm-password",
+      );
+      const passwordError = document.getElementById("password-error");
+      const passwordRequirementsError = document.getElementById(
+        "password-requirements-error",
+      );
+      const signupEmail = document.getElementById("signup-email");
+      const emailError = document.getElementById("email-error");
+      const signupUsername = document.getElementById("signup-username");
+      const usernameError = document.getElementById("username-error");
+      const sportError = document.getElementById("sport-error");
+      const experienceError = document.getElementById("experience-error");
+      signupBtn.addEventListener("click", (event) => {
+        const username = signupUsername.value.trim().toLowerCase();
+        if (username.length < 3 || username.length > 15) {
+          event.preventDefault();
+          usernameError.classList.remove("hidden");
+          usernameError.textContent =
+            "Username must be between 3 and 15 characters.";
+          return;
+        }
+        usernameError.classList.add("hidden");
+        const email = signupEmail.value.trim();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          event.preventDefault();
+          emailError.classList.remove("hidden");
+          return;
+        }
+        emailError.classList.add("hidden");
+        const password = signupPassword.value;
+        if (password.length < 8 || !/\d/.test(password)) {
+          event.preventDefault();
+          passwordRequirementsError.classList.remove("hidden");
+          return;
+        }
+        passwordRequirementsError.classList.add("hidden");
+        if (signupPassword.value !== confirmPassword.value) {
+          event.preventDefault();
+          passwordError.classList.remove("hidden");
+          return;
+        }
+        passwordError.classList.add("hidden");
+        if (selectedSport.textContent.trim() === "Select Sport") {
+          event.preventDefault();
+          sportError.classList.remove("hidden");
+          return;
+        }
+        sportError.classList.add("hidden");
+        if (selectedExperience.textContent.trim() === "Select Experience") {
+          event.preventDefault();
+          experienceError.classList.remove("hidden");
+          return;
+        }
+        experienceError.classList.add("hidden");
+        // NO DUPLICATE USERNAME
+        db.collection("users")
+          .where("username", "==", username)
+          .get()
+          .then((snapshot) => {
+            if (!snapshot.empty) {
+              usernameError.textContent = "Username already exists.";
+              usernameError.classList.remove("hidden");
+              return Promise.reject("duplicate-username");
+            }
+            return auth.createUserWithEmailAndPassword(email, password);
+          })
+          .then((userCredential) => {
+            const user = userCredential.user;
+            return db.collection("users").doc(user.uid).set({
+              username: username,
+              email: email,
+              favoriteSport: selectedSport.textContent.trim(),
+              experience: selectedExperience.textContent.trim(),
+              plan: "Free",
+              createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+            });
+          })
+          .then(() => {
+            window.location.href = "login.html";
+          })
+          .catch((error) => {
+            if (error === "duplicate-username") {
+              return;
+            }
+            console.error(error);
+          });
+      });
+      // CONFIRM PASSWORD VISIBILITY
+      const toggleConfirmPassword = document.getElementById(
+        "toggle-confirm-password",
+      );
+      toggleConfirmPassword.addEventListener("click", () => {
+        if (confirmPassword.type === "password") {
+          confirmPassword.type = "text";
+        } else {
+          confirmPassword.type = "password";
+        }
+      });
+    </script>
+  </body>
 </html>

@@ -1,25 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeagueIQ Dashboard</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <script src="firebase.js"></script>
-  </head>
-  <body>
-    <div id="app-container">
-      <!-- =========================
-     DYNAMIC HEADER CONTAINER
-========================== -->
-      <div id="header-container"></div>
-      <!-- =========================
+<!-- =========================
      DASHBOARD
 ========================== -->
-      <header id="dashboard-header" class="public-header" style="display: none;">
+      <header id="dashboard-header" class="public-header">
         <div class="public-header-left">
           <div class="brand-container">
             <div class="public-logo">
@@ -44,6 +26,12 @@
               <button class="dropdown-option">League 2</button>
             </div>
           </div>
+
+          <button
+            id="dashboard-home-btn"
+            class="hidden">
+            ← Dashboard
+          </button>
 
           <nav class="public-nav">
             <button class="nav-btn" id="nav-rankings">Rankings</button>
@@ -92,29 +80,3 @@
           <button id="logout-btn">Logout</button>
         </div>
       </header>
-      <div id="search-overlay" class="search-overlay hidden">
-        <div class="search-overlay-box">
-          <input
-            type="text"
-            id="expanded-search"
-            placeholder="Search any active player"
-            autocomplete="off"
-          />
-          <div
-            id="expanded-search-results"
-            class="expanded-search-results"
-          ></div>
-        </div>
-      </div>
-      <main>
-        <section id="dashboard-tab" class="tab-content active-content">
-          <div class="card">
-            <h2 id="team-title">Welcome To LeagueIQ</h2>
-            <p id="team-analytics">
-              Connect your first fantasy league to unlock analytics.
-            </p>
-          </div>
-        </section>
-      </main>
-    </div>
-    <script src="header-loader.js"></script>

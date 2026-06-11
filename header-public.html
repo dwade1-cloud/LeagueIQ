@@ -1,16 +1,7 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LeagueIQ Trending</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- =========================
+<!-- =========================
      PUBLIC HEADER
 ========================== -->
-    <header class="public-header">
+    <header id="public-header" class="public-header">
       <div class="public-header-left">
         <div class="brand-container">
           <div class="public-logo">
@@ -19,7 +10,21 @@
           </div>
           <div class="logo-subtitle">Fantasy Sports Intelligence</div>
         </div>
-        <button id="homepage-btn">← Homepage</button>
+        <div class="custom-dropdown" id="custom-dropdown">
+          <button id="dropdown-selected" class="dropdown-selected">
+            <span id="selected-sport"> MLB </span>
+            <span class="dropdown-arrow"> ▼ </span>
+          </button>
+          <div id="dropdown-options" class="dropdown-options">
+            <button class="dropdown-option active-option" data-sport="mlb">
+              MLB
+            </button>
+            <button class="dropdown-option" data-sport="nfl">NFL</button>
+            <button class="dropdown-option" data-sport="nba">NBA</button>
+            <button class="dropdown-option" data-sport="nhl">NHL</button>
+          </div>
+        </div>
+        <button id="homepage-btn" class="hidden">← Homepage</button>
         <nav class="public-nav">
           <button class="nav-btn" id="nav-rankings">Rankings</button>
           <button class="nav-btn" id="nav-trending">Trending</button>
@@ -66,30 +71,3 @@
         </button>
       </div>
     </header>
-    <!-- ===========================
-     SEARCH OVERLAY
-============================ -->
-    <div id="search-overlay" class="search-overlay hidden">
-      <div class="search-overlay-box">
-        <input
-          type="text"
-          id="expanded-search"
-          placeholder="Search any active player"
-          autocomplete="off"
-        />
-        <div id="expanded-search-results" class="expanded-search-results"></div>
-      </div>
-    </div>
-    <!-- ===========================
-     PAGE CONTENT
-============================ -->
-    <div class="page-shell">
-      <h1>Trending Players</h1>
-      <p>Trending page coming soon.</p>
-    </div>
-    <!-- ===========================
-     JAVASCRIPT
-============================ -->
-    <script src="header-public.js"></script>
-  </body>
-</html>

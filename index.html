@@ -1,687 +1,443 @@
 <!-- =========================
      START
 ========================== -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <!-- META ====================================== -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- TITLE ===================================== -->
     <title>LeagueIQ</title>
     <!-- GOOGLE FONTS ============================== -->
-    <link rel="preconnect" 
-          href="https://fonts.googleapis.com">
-    <link rel="preconnect" 
-          href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- CSS ======================================= -->
     <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <!-- FIREBASE ================================== -->
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-</head>
+    <script src="firebase.js"></script>
+  </head>
 
-<body>
-<!-- =========================
+  <body>
+    <!-- =========================
      SPORT BACKGROUND
 ========================= -->
-<div id="sport-background">
-    <img
-    id="sport-image"
-    class="sport-mlb"
-    src="images/baseball.png">
-</div>
-<!-- =========================
+    <div id="sport-background">
+      <img id="sport-image" class="sport-mlb" src="images/baseball.png" />
+    </div>
+    <!-- =========================
+     DYNAMIC HEADER CONTAINER
+========================== -->
+    <div id="header-container"></div>
+    <!-- =========================
      PUBLIC HEADER
 ========================== -->
-<header 
-id="public-header"
-class="public-header">
-    <div class="public-header-left">
+    <header id="public-header" class="public-header" style="display: none;">
+      <div class="public-header-left">
         <div class="brand-container">
-    	    <div class="public-logo">
-    		<span class="logo-league">
-        	    LEAGUE
-    		</span>
-    		<span class="logo-iq">
-        	    IQ
-    	  	</span>
-	    </div>
-            <div class="logo-subtitle">
-                Fantasy Sports Intelligence
-            </div>
+          <div class="public-logo">
+            <span class="logo-league"> LEAGUE </span>
+            <span class="logo-iq"> IQ </span>
+          </div>
+          <div class="logo-subtitle">Fantasy Sports Intelligence</div>
         </div>
-        <div
-        class="custom-dropdown"
-        id="custom-dropdown">
-            <button
-            id="dropdown-selected"
-            class="dropdown-selected">
-                <span id="selected-sport">
-                    MLB
-                </span>
-                <span class="dropdown-arrow">
-                    ▼
-                </span>
+        <div class="custom-dropdown" id="custom-dropdown">
+          <button id="dropdown-selected" class="dropdown-selected">
+            <span id="selected-sport"> MLB </span>
+            <span class="dropdown-arrow"> ▼ </span>
+          </button>
+          <div id="dropdown-options" class="dropdown-options">
+            <button class="dropdown-option active-option" data-sport="mlb">
+              MLB
             </button>
-            <div
-            id="dropdown-options"
-            class="dropdown-options">
-                <button
-                class="dropdown-option active-option"
-                data-sport="mlb">
-                    MLB
-                </button>
-                <button
-                class="dropdown-option"
-                data-sport="nfl">
-                    NFL
-                </button>
-                <button
-                class="dropdown-option"
-                data-sport="nba">
-                    NBA
-                </button>
-                <button
-                class="dropdown-option"
-                data-sport="nhl">
-                    NHL
-                </button>
-            </div>
+            <button class="dropdown-option" data-sport="nfl">NFL</button>
+            <button class="dropdown-option" data-sport="nba">NBA</button>
+            <button class="dropdown-option" data-sport="nhl">NHL</button>
+          </div>
         </div>
-	<button
-	id="homepage-btn"
-	class="hidden">
-    	    ← Homepage
-	</button>
+        <button id="homepage-btn" class="hidden">← Homepage</button>
         <nav class="public-nav">
-    	    <button 
-		class="nav-btn"
-		id="nav-rankings">
-		    Rankings
-	    </button>
-    	    <button 
-		class="nav-btn"
-		id="nav-trending">
-		    Trending
-	    </button>
-	    <button 
-		class="nav-btn"
-		id="nav-trade">
-		    Trade Calculator
-	    </button>
-	    <div
-            class="more-dropdown"
-            id="more-dropdown">
-                <button
-                class="nav-btn"
-                id="more-btn">
-                    More
-		    <span class="more-arrow">
-			▼
-		    </span>
-                </button>
-                <div
-                class="more-dropdown-menu"
-                id="more-dropdown-menu">
-                    <button
-		    id="nav-injuries"
-		    class="more-option">
-    			Injuries
-		    </button>
-                    <button 
-	       	    id="nav-waiver"
-		    class="more-option">
-                        Waiver Wire Insight
-                    </button>
-                    <button 
-		    id="nav-buylow"
-		    class="more-option">
-                        Buy Low / Sell High
-                    </button>
-                    <button
-		    id="nav-boombust" 
-		    class="more-option">
-                        Boom / Bust
-                    </button>
-                    <button
-		    id="nav-teamstats" 
-		    class="more-option">
-                        Team Stats
-		    </button>
-		    <button
-		    id="more-rankings"
-		    class="more-option">
-    		        Rankings
-		    </button>
-		    <button
-		    id="more-trending"
-		    class="more-option">
-    			Trending
-		    </button>
-		    <button
-		    id="more-trade"
-		    class="more-option">
-    			Trade Calculator
-		    </button>
-        	</div>
-	    </div>
-	</nav>
-    </div>
-    <div class="public-header-right">
+          <button class="nav-btn" id="nav-rankings">Rankings</button>
+          <button class="nav-btn" id="nav-trending">Trending</button>
+          <button class="nav-btn" id="nav-trade">Trade Calculator</button>
+          <div class="more-dropdown" id="more-dropdown">
+            <button class="nav-btn" id="more-btn">
+              More
+              <span class="more-arrow"> ▼ </span>
+            </button>
+            <div class="more-dropdown-menu" id="more-dropdown-menu">
+              <button id="nav-injuries" class="more-option">Injuries</button>
+              <button id="nav-waiver" class="more-option">
+                Waiver Wire Insight
+              </button>
+              <button id="nav-buylow" class="more-option">
+                Buy Low / Sell High
+              </button>
+              <button id="nav-boombust" class="more-option">Boom / Bust</button>
+              <button id="nav-teamstats" class="more-option">Team Stats</button>
+              <button id="more-rankings" class="more-option">Rankings</button>
+              <button id="more-trending" class="more-option">Trending</button>
+              <button id="more-trade" class="more-option">
+                Trade Calculator
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="public-header-right">
         <div class="search-container">
-            <input
+          <input
             type="text"
             id="player-search"
             placeholder="Search any active player"
-            autocomplete="off">
-            <div class="search-icon">
-                🔍
-            </div>
-            <div
-            id="search-results"
-            class="search-results hidden">
-            </div>
+            autocomplete="off"
+          />
+          <div class="search-icon">🔍</div>
+          <div id="search-results" class="search-results hidden"></div>
         </div>
-	<button
-	id="mobile-search-btn"
-	class="mobile-search-btn">
-    	    🔍
-	</button>
-        <button
-        id="public-signup-btn"
-        class="signup-btn">
-	    Sign Up
+        <button id="mobile-search-btn" class="mobile-search-btn">🔍</button>
+        <button id="public-signup-btn" class="signup-btn">Sign Up</button>
+        <button id="public-login-btn" class="public-auth-btn login-btn">
+          Log In
         </button>
-        <button
-        id="public-login-btn"
-        class="public-auth-btn login-btn">
-            Log In
-        </button>
-    </div>
-</header>
-<!-- =========================
+      </div>
+    </header>
+    <!-- =========================
      PUBLIC HOMEPAGE
 ========================== -->
-<section id="public-homepage">
-    <!-- SEARCH OVERLAY ============================ -->
-    <div
-    id="search-overlay"
-    class="search-overlay hidden">
-	<div class="search-overlay-box">
-	    <input
+    <section id="public-homepage">
+      <!-- SEARCH OVERLAY ============================ -->
+      <div id="search-overlay" class="search-overlay hidden">
+        <div class="search-overlay-box">
+          <input
             type="text"
             id="expanded-search"
             placeholder="Search any active player"
-            autocomplete="off">
-            <div
+            autocomplete="off"
+          />
+          <div
             id="expanded-search-results"
-            class="expanded-search-results">
-            </div>
-    	</div>
-    </div>
-    <!-- HERO SECTION ============================== -->
-    <section class="homepage-hero">
-	<h1 id="hero-title">
-            <span class="homepage-hero-fantasy">Fantasy</span>
-            <span class="homepage-hero-sport">Baseball</span>
-	</h1>
-        <p id="hero-text">
-            Built to help you win more fantasy baseball leagues.
-	</p>
-	<button
-	id="hero-signup-btn"
-	class="hero-signup-btn">
-            Create Free Account
-	</button>
-    </section>
-    <!-- COMING SOON =============================== -->
-    <section
-    id="coming-soon-section"
-    class="homepage-section hidden">
-    	<h2 class="section-title">
-    	<span class="coming-soon-white">
-            Coming
-    	</span>
-    	<span class="coming-soon-gold">
-            Soon
-    	</span>
-    	</h2>
-    	<p 
-    	id="coming-soon-description"
-    	class="section-description">
-    	</p>
-    	<div class="coming-soon-grid">
-            <div class="coming-soon-card">
-            	✓ Player Rankings
-            </div>
-            <div class="coming-soon-card">
-                ✓ Trending Players
-            </div>
-            <div class="coming-soon-card">
-                ✓ Buy Low / Sell High
-            </div>
-            <div class="coming-soon-card">
-                ✓ Trade Calculator
-            </div>
-            <div class="coming-soon-card">
-                ✓ Waiver Wire Insights
-            </div>
-            <div class="coming-soon-card">
-                ✓ Boom / Bust Analysis
-            </div>
-            <div class="coming-soon-card">
-                ✓ Injury Reports
-            </div>
-            <div class="coming-soon-card">
-                ✓ Team Stats
-            </div>
-	    </div>
-	    <div class="early-access-section">
-    	    <h3 class="early-access-title">
-	        <span class="coming-soon-white">
-        	    The Future
-    	        </span>
-    	        <span class="coming-soon-gold">
-        	    of LeagueIQ
-    	        </span>
-    	    </h3>
-    	    <p
-	    id="future-leagueiq-text"
-	    class="early-access-text">
-	    </p>
-    	    <button
-    	    id="coming-soon-signup-btn"
-    	    class="hero-signup-btn">
-                Create Free Account
-    	    </button>
+            class="expanded-search-results"
+          ></div>
         </div>
-    </section>
-    <!-- PLAYER RANKINGS =========================== -->
-    <section
-    id="mlb-rankings-section"
-    class="homepage-section">
-    	<h2 class="section-title">
-	    Player Rankings
-	</h2>
-    	<p class="section-description">
-	    LeagueIQ rankings combine performance,
-	    consistency, trends, opportunity,
-	    value, and advanced stats into one
-	    fantasy ranking system.
-	</p>
-	<div class="ranking-preview">
-	<div class="ranking-header">
-	    <span>Rank</span>
-	    <span>Player</span>
-	    <span>Team</span>
-	    <span>Pos</span>
-	    <span>Trend</span>
-	</div>
-    	<div class="ranking-row">
-	    <span class="rank">1</span>
-	    <span class="player-name">Aaron Judge</span>
-	    <span class="team">NYY</span>
-	    <span class="position">OF</span>
-	    <span class="trend">Trending ↑</span>
-	</div>
-    	<div class="ranking-row">
-	    <span class="rank">2</span>
-	    <span class="player-name">Bobby Witt Jr.</span>
-	    <span class="team">KC</span>
-  	    <span class="position">SS</span>
-	    <span class="trend">Trending ↑</span>
-	</div>
-    	<div class="ranking-row">
-	    <span class="rank">3</span>
-	    <span class="player-name">Shohei Ohtani</span>
-	    <span class="team">LAD</span>
+      </div>
+      <!-- HERO SECTION ============================== -->
+      <section class="homepage-hero">
+        <h1 id="hero-title">
+          <span class="homepage-hero-fantasy">Fantasy</span>
+          <span class="homepage-hero-sport">Baseball</span>
+        </h1>
+        <p id="hero-text">
+          Built to help you win more fantasy baseball leagues.
+        </p>
+        <button id="hero-signup-btn" class="hero-signup-btn">
+          Create Free Account
+        </button>
+      </section>
+      <!-- COMING SOON =============================== -->
+      <section id="coming-soon-section" class="homepage-section hidden">
+        <h2 class="section-title">
+          <span class="coming-soon-white"> Coming </span>
+          <span class="coming-soon-gold"> Soon </span>
+        </h2>
+        <p id="coming-soon-description" class="section-description"></p>
+        <div class="coming-soon-grid">
+          <div class="coming-soon-card">✓ Player Rankings</div>
+          <div class="coming-soon-card">✓ Trending Players</div>
+          <div class="coming-soon-card">✓ Buy Low / Sell High</div>
+          <div class="coming-soon-card">✓ Trade Calculator</div>
+          <div class="coming-soon-card">✓ Waiver Wire Insights</div>
+          <div class="coming-soon-card">✓ Boom / Bust Analysis</div>
+          <div class="coming-soon-card">✓ Injury Reports</div>
+          <div class="coming-soon-card">✓ Team Stats</div>
+        </div>
+        <div class="early-access-section">
+          <h3 class="early-access-title">
+            <span class="coming-soon-white"> The Future </span>
+            <span class="coming-soon-gold"> of LeagueIQ </span>
+          </h3>
+          <p id="future-leagueiq-text" class="early-access-text"></p>
+          <button id="coming-soon-signup-btn" class="hero-signup-btn">
+            Create Free Account
+          </button>
+        </div>
+      </section>
+      <!-- PLAYER RANKINGS =========================== -->
+      <section id="mlb-rankings-section" class="homepage-section">
+        <h2 class="section-title">Player Rankings</h2>
+        <p class="section-description">
+          LeagueIQ rankings combine performance, consistency, trends,
+          opportunity, value, and advanced stats into one fantasy ranking
+          system.
+        </p>
+        <div class="ranking-preview">
+          <div class="ranking-header">
+            <span>Rank</span>
+            <span>Player</span>
+            <span>Team</span>
+            <span>Pos</span>
+            <span>Trend</span>
+          </div>
+          <div class="ranking-row">
+            <span class="rank">1</span>
+            <span class="player-name">Aaron Judge</span>
+            <span class="team">NYY</span>
+            <span class="position">OF</span>
+            <span class="trend">Trending ↑</span>
+          </div>
+          <div class="ranking-row">
+            <span class="rank">2</span>
+            <span class="player-name">Bobby Witt Jr.</span>
+            <span class="team">KC</span>
+            <span class="position">SS</span>
+            <span class="trend">Trending ↑</span>
+          </div>
+          <div class="ranking-row">
+            <span class="rank">3</span>
+            <span class="player-name">Shohei Ohtani</span>
+            <span class="team">LAD</span>
             <span class="position">DH</span>
             <span class="trend">Trending ↑</span>
-	</div>
-   	<div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">4</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-    	<div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">5</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-    	<div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">6</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-        <div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">7</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-        <div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">8</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-    	<div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">9</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-    	<div class="ranking-row">
+          </div>
+          <div class="ranking-row">
             <span class="rank">10</span>
             <span class="player-name">Elly De La Cruz</span>
             <span class="team">CIN</span>
             <span class="position">SS</span>
             <span class="trend">Trending ↑</span>
-	</div>
-	</div> 
-	<a
-    	href="player-rankings.html"
-    	class="section-btn">
-        View Full Rankings
-	</a>
+          </div>
+        </div>
+        <a href="player-rankings.html" class="section-btn">
+          View Full Rankings
+        </a>
+      </section>
     </section>
-</section>
-<!-- =========================
+    <!-- =========================
      TOOL PAGES
 ========================== -->
-<section
-    id="rankings-page"
-    class="tool-page hidden">
-        <h1>
-            Player Rankings
-        </h1>
+    <section id="rankings-page" class="tool-page hidden">
+      <h1>Player Rankings</h1>
     </section>
-    <section
-    id="trending-page"
-    class="tool-page hidden">
-        <h1>
-            Trending Players
-        </h1>
+    <section id="trending-page" class="tool-page hidden">
+      <h1>Trending Players</h1>
     </section>
-    <section
-    id="trade-page"
-    class="tool-page hidden">
-        <h1>
-            Trade Calculator
-        </h1>
+    <section id="trade-page" class="tool-page hidden">
+      <h1>Trade Calculator</h1>
     </section>
-    <section
-    id="injuries-page"
-    class="tool-page hidden">
-        <h1>
-            Injury Report
-        </h1>
+    <section id="injuries-page" class="tool-page hidden">
+      <h1>Injury Report</h1>
     </section>
-    <section
-    id="waiver-page"
-    class="tool-page hidden">
-        <h1>
-            Waiver Wire Insight
-        </h1>
+    <section id="waiver-page" class="tool-page hidden">
+      <h1>Waiver Wire Insight</h1>
     </section>
-    <section
-    id="buylow-page"
-    class="tool-page hidden">
-        <h1>
-            Buy Low / Sell High
-        </h1>
+    <section id="buylow-page" class="tool-page hidden">
+      <h1>Buy Low / Sell High</h1>
     </section>
-    <section
-    id="boombust-page"
-    class="tool-page hidden">
-        <h1>
-            Boom / Bust Analysis
-        </h1>
+    <section id="boombust-page" class="tool-page hidden">
+      <h1>Boom / Bust Analysis</h1>
     </section>
-    <section
-    id="teamstats-page"
-    class="tool-page hidden">
-        <h1>
-            Team Stats
-    	</h1>
-</section>
-<!-- =========================
+    <section id="teamstats-page" class="tool-page hidden">
+      <h1>Team Stats</h1>
+    </section>
+    <!-- =========================
      LEAGUE CONNECT SCREEN
 ========================== -->
-<div
-id="league-connect-screen"
-class="screen hidden">
-    <!-- HEADER ==================================== -->
-    <div class="card">
-        <h1>
-	    Add League
-	</h1>
-        <p class="subtitle">
-            Connect your fantasy league
-            to LeagueIQ
-        </p>
-	<!-- SPORT ================================= -->
+    <div id="league-connect-screen" class="screen hidden">
+      <!-- HEADER ==================================== -->
+      <div class="card">
+        <h1>Add League</h1>
+        <p class="subtitle">Connect your fantasy league to LeagueIQ</p>
+        <!-- SPORT ================================= -->
         <div class="input-group">
-            <label>
-                Sport
-            </label>
-            <select
-            id="sport-select"
-            required>
-                <option value="">
-                    Select Sport
-                </option>
-                <option value="mlb">
-                    MLB
-                </option>
-            </select>
+          <label> Sport </label>
+          <select id="sport-select" required>
+            <option value="">Select Sport</option>
+            <option value="mlb">MLB</option>
+          </select>
         </div>
-	<!-- PLATFORM ============================== -->
+        <!-- PLATFORM ============================== -->
         <div class="input-group">
-            <label>
-                Fantasy Platform
-            </label>
-            <select
-            id="platform-select"
-            disabled
-            required>
-                <option value="">
-                    Select Platform
-                </option>
-                <option value="sleeper">
-                    Sleeper
-                </option>
-            </select>
+          <label> Fantasy Platform </label>
+          <select id="platform-select" disabled required>
+            <option value="">Select Platform</option>
+            <option value="sleeper">Sleeper</option>
+          </select>
         </div>
-	<!-- LEAGUE NAME =========================== -->
+        <!-- LEAGUE NAME =========================== -->
         <div class="input-group">
-            <label>
-                League Name
-            </label>
-            <input
+          <label> League Name </label>
+          <input
             type="text"
             id="league-name"
             placeholder="Customize League Name"
-            disabled>
-            <div
+            disabled
+          />
+          <div
             style="
-            margin-top:12px;
-            display:flex;
-            align-items:center;
-            gap:10px;
-            ">
-                <input
-                type="checkbox"
-                id="auto-import-name"
-                style="
-                width:18px;
-                height:18px;
-                "
-                disabled>
-                <span
-                style="
-                color:#9a9a9a;
-                font-size:14px;
-                ">
-                    Auto Import League Name
-                </span>
-            </div>
-        </div>
-	<!-- LEAGUE ID ============================= -->
-        <div class="input-group">
-            <label>
-                League ID
-            </label>
+              margin-top: 12px;
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            "
+          >
             <input
+              type="checkbox"
+              id="auto-import-name"
+              style="width: 18px; height: 18px"
+              disabled
+            />
+            <span style="color: #9a9a9a; font-size: 14px">
+              Auto Import League Name
+            </span>
+          </div>
+        </div>
+        <!-- LEAGUE ID ============================= -->
+        <div class="input-group">
+          <label> League ID </label>
+          <input
             type="text"
             id="league-id-input"
             placeholder="Enter League ID"
-	    pattern="[0-9]*"
-            disabled>
-        </div>
-	<!-- LEAGUE TYPE =========================== -->
-        <div class="input-group">
-            <label>
-                League Type
-            </label>
-            <select
-            id="league-type"
+            pattern="[0-9]*"
             disabled
-            required>
-                <option value="">
-                    Select League Type
-                </option>
-                <option value="redraft">
-                    Redraft
-                </option>
-                <option value="dynasty">
-                    Dynasty
-                </option>
-                <option value="keeper">
-                    Keeper
-                </option>
-		<option value="bestball">
-		    Best Ball
-		</option>
-            </select>
+          />
         </div>
-	<!-- FANTASY NAME ========================== -->
+        <!-- LEAGUE TYPE =========================== -->
         <div class="input-group">
-            <label>
-                Fantasy Name
-            </label>
-            <input
+          <label> League Type </label>
+          <select id="league-type" disabled required>
+            <option value="">Select League Type</option>
+            <option value="redraft">Redraft</option>
+            <option value="dynasty">Dynasty</option>
+            <option value="keeper">Keeper</option>
+            <option value="bestball">Best Ball</option>
+          </select>
+        </div>
+        <!-- FANTASY NAME ========================== -->
+        <div class="input-group">
+          <label> Fantasy Name </label>
+          <input
             type="text"
             id="fantasy-name"
             placeholder="Enter Fantasy Team Name"
-            disabled>
+            disabled
+          />
         </div>
-	<!-- BUTTON ================================ -->
-	<div class="league-action-buttons">
-    	    <button
-    	    id="back-dashboard-btn"
-    	    class="secondary-btn">
-        	Back To Dashboard
-    	    </button>
-    	    <button
-    	    id="continue-dashboard-btn"
-    	    disabled>
-        	Continue To Dashboard
-    	    </button>
-	</div>
+        <!-- BUTTON ================================ -->
+        <div class="league-action-buttons">
+          <button id="back-dashboard-btn" class="secondary-btn">
+            Back To Dashboard
+          </button>
+          <button id="continue-dashboard-btn" disabled>
+            Continue To Dashboard
+          </button>
+        </div>
+      </div>
     </div>
-</div>
-<!-- =========================
+    <!-- =========================
      TRADE
 ========================== -->
-<section
-id="trade-tab"
-class="tab-content">
-    <div class="hero-card">
-        <h2 id="trade-title">
-            Trade Analyzer
-	</h2>
-        <p id="trade-description">
-            Analyze trades and compare
-            player value.
-	</p>
-    </div>
-</section>
-<!-- =========================
+    <section id="trade-tab" class="tab-content">
+      <div class="hero-card">
+        <h2 id="trade-title">Trade Analyzer</h2>
+        <p id="trade-description">Analyze trades and compare player value.</p>
+      </div>
+    </section>
+    <!-- =========================
      LEAGUE
 ========================== -->
-<section
-id="league-tab"
-class="tab-content">
-    <div class="hero-card">
-        <h2 id="league-title">
-            League Rankings
-	</h2>
+    <section id="league-tab" class="tab-content">
+      <div class="hero-card">
+        <h2 id="league-title">League Rankings</h2>
         <p id="league-description">
-            Team rankings, league odds,
-            and comparisons.
-	</p>
-    </div>
-</section>
-<!-- =========================
+          Team rankings, league odds, and comparisons.
+        </p>
+      </div>
+    </section>
+    <!-- =========================
      PLAYERS
 ========================== -->
-<section
-id="players-tab"
-class="tab-content">
-    <div 
-    class="hero-card">
-	<h2 
-	id="players-title">
-            Player Search
-	</h2>
-	<p 
-	id="players-description">
-            Search all MLB players and
-            view LeagueIQ grades.
-	</p>
-    </div>
-</section>
-<script>
-<!-- =========================
-     USER REDIRECT
-========================== -->
-auth.onAuthStateChanged(
-    user => {
+    <section id="players-tab" class="tab-content">
+      <div class="hero-card">
+        <h2 id="players-title">Player Search</h2>
+        <p id="players-description">
+          Search all MLB players and view LeagueIQ grades.
+        </p>
+      </div>
+    </section>
+    <script>
+     // =========================
+     // USER REDIRECT
+     // ==========================
+      auth.onAuthStateChanged(
+          user => {
 
-        if(
-            user
-        ){
+              if(
+                  user
+              ){
 
-            window.location.href =
-            "dashboard.html";
+                  window.location.href =
+                  "dashboard.html";
 
-        }
+              }
 
-    }
-);
-</script>
-<!-- =========================
+          }
+      );
+    </script>
+    <!-- =========================
      END
 ========================== -->
-</div>
-<script src="firebase.js"></script>
-<script src="header-public.js"></script>
-<script src="homepage.js"></script>
-<script src="main.js"></script>
-</body>
+    <script src="header-loader.js"></script>
+    <script src="homepage.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>

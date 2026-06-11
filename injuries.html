@@ -1,172 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LeagueIQ Injuries</title>
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<!-- =========================
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LeagueIQ Injuries</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- =========================
      PUBLIC HEADER
 ========================== -->
-<header class="public-header">
-    <div class="public-header-left">
+    <header class="public-header">
+      <div class="public-header-left">
         <div class="brand-container">
-    	    <div class="public-logo">
-    		<span class="logo-league">
-        	    LEAGUE
-    		</span>
-    		<span class="logo-iq">
-        	    IQ
-    	  	</span>
-	    </div>
-            <div class="logo-subtitle">
-                Fantasy Sports Intelligence
-            </div>
+          <div class="public-logo">
+            <span class="logo-league"> LEAGUE </span>
+            <span class="logo-iq"> IQ </span>
+          </div>
+          <div class="logo-subtitle">Fantasy Sports Intelligence</div>
         </div>
-	<button
-	id="homepage-btn">
-    	    ← Homepage
-	</button>
+        <button id="homepage-btn">← Homepage</button>
         <nav class="public-nav">
-    	    <button 
-		class="nav-btn"
-		id="nav-rankings">
-		    Rankings
-	    </button>
-    	    <button 
-		class="nav-btn"
-		id="nav-trending">
-		    Trending
-	    </button>
-	    <button 
-		class="nav-btn"
-		id="nav-trade">
-		    Trade Calculator
-	    </button>
-	    <div
-            class="more-dropdown"
-            id="more-dropdown">
-                <button
-                class="nav-btn"
-                id="more-btn">
-                    More
-		    <span class="more-arrow">
-			▼
-		    </span>
-                </button>
-                <div
-                class="more-dropdown-menu"
-                id="more-dropdown-menu">
-                    <button
-		    id="nav-injuries"
-		    class="more-option">
-    			Injuries
-		    </button>
-                    <button 
-	       	    id="nav-waiver"
-		    class="more-option">
-                        Waiver Wire Insight
-                    </button>
-                    <button 
-		    id="nav-buylow"
-		    class="more-option">
-                        Buy Low / Sell High
-                    </button>
-                    <button
-		    id="nav-boombust" 
-		    class="more-option">
-                        Boom / Bust
-                    </button>
-                    <button
-		    id="nav-teamstats" 
-		    class="more-option">
-                        Team Stats
-		    </button>
-		    <button
-		    id="more-rankings"
-		    class="more-option">
-    		        Rankings
-		    </button>
-		    <button
-		    id="more-trending"
-		    class="more-option">
-    			Trending
-		    </button>
-		    <button
-		    id="more-trade"
-		    class="more-option">
-    			Trade Calculator
-		    </button>
-        	</div>
-	    </div>
-	</nav>
-    </div>
-    <div class="public-header-right">
+          <button class="nav-btn" id="nav-rankings">Rankings</button>
+          <button class="nav-btn" id="nav-trending">Trending</button>
+          <button class="nav-btn" id="nav-trade">Trade Calculator</button>
+          <div class="more-dropdown" id="more-dropdown">
+            <button class="nav-btn" id="more-btn">
+              More
+              <span class="more-arrow"> ▼ </span>
+            </button>
+            <div class="more-dropdown-menu" id="more-dropdown-menu">
+              <button id="nav-injuries" class="more-option">Injuries</button>
+              <button id="nav-waiver" class="more-option">
+                Waiver Wire Insight
+              </button>
+              <button id="nav-buylow" class="more-option">
+                Buy Low / Sell High
+              </button>
+              <button id="nav-boombust" class="more-option">Boom / Bust</button>
+              <button id="nav-teamstats" class="more-option">Team Stats</button>
+              <button id="more-rankings" class="more-option">Rankings</button>
+              <button id="more-trending" class="more-option">Trending</button>
+              <button id="more-trade" class="more-option">
+                Trade Calculator
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="public-header-right">
         <div class="search-container">
-            <input
+          <input
             type="text"
             id="player-search"
             placeholder="Search any active player"
-            autocomplete="off">
-            <div class="search-icon">
-                🔍
-            </div>
-            <div
-            id="search-results"
-            class="search-results hidden">
-            </div>
+            autocomplete="off"
+          />
+          <div class="search-icon">🔍</div>
+          <div id="search-results" class="search-results hidden"></div>
         </div>
-	<button
-	id="mobile-search-btn"
-	class="mobile-search-btn">
-    	    🔍
-	</button>
-        <button
-        id="public-signup-btn"
-        class="signup-btn">
-	    Sign Up
+        <button id="mobile-search-btn" class="mobile-search-btn">🔍</button>
+        <button id="public-signup-btn" class="signup-btn">Sign Up</button>
+        <button id="public-login-btn" class="public-auth-btn login-btn">
+          Log In
         </button>
-        <button
-        id="public-login-btn"
-        class="public-auth-btn login-btn">
-            Log In
-        </button>
-    </div>
-</header>
-<!-- ===========================
+      </div>
+    </header>
+    <!-- ===========================
      SEARCH OVERLAY
 ============================ -->
-<div
-id="search-overlay"
-class="search-overlay hidden">
-    <div class="search-overlay-box">
+    <div id="search-overlay" class="search-overlay hidden">
+      <div class="search-overlay-box">
         <input
-        type="text"
-        id="expanded-search"
-        placeholder="Search any active player"
-        autocomplete="off">
-        <div
-        id="expanded-search-results"
-        class="expanded-search-results">
-        </div>
+          type="text"
+          id="expanded-search"
+          placeholder="Search any active player"
+          autocomplete="off"
+        />
+        <div id="expanded-search-results" class="expanded-search-results"></div>
+      </div>
     </div>
-</div>
-<!-- ===========================
+    <!-- ===========================
      PAGE CONTENT
 ============================ -->
-<div class="page-shell">
-    <h1>
-        Player Injuries 
-    </h1>
-    <p>
-        Injuries page coming soon.
-    </p>
-</div>
-<!-- ===========================
+    <div class="page-shell">
+      <h1>Player Injuries</h1>
+      <p>Injuries page coming soon.</p>
+    </div>
+    <!-- ===========================
      JAVASCRIPT
 ============================ -->
-<script src="header-public.js"></script>
-</body>
+    <script src="header-public.js"></script>
+  </body>
 </html>
