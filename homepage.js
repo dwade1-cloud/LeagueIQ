@@ -55,49 +55,70 @@ const sportContent = {
 // =========================
 // SPORT DROPDOWN
 // =========================
-// Wait for header to be injected before attaching listeners
-function initSportDropdown() {
-  const customDropdown = document.getElementById("custom-dropdown");
-  if (!customDropdown) {
-    // Header not loaded yet, try again in 100ms
-    setTimeout(initSportDropdown, 100);
-    return;
+let homepageDropdownInitialized = false;
+function initializeHomepageDropdown() {
+  if (homepageDropdownInitialized) return true;
+
+  const headerContainer = document.getElementById("header-container");
+  if (!headerContainer) return false;
+
+  const customDropdown = headerContainer.querySelector("#custom-dropdown");
+  const dropdownSelected = headerContainer.querySelector("#dropdown-selected");
+  const selectedSport = headerContainer.querySelector("#selected-sport");
+  const dropdownOptionButtons = headerContainer.querySelectorAll(".dropdown-option");
+
+  if (!customDropdown || !dropdownSelected || !selectedSport || dropdownOptionButtons.length === 0) {
+    return false;
   }
-  
-  // NOW attach all the listeners (existing code)
-  const dropdownSelected = document.getElementById("dropdown-selected");
-  // ... rest of dropdown code
+
+  dropdownSelected.addEventListener("click", (event) => {
+    event.stopPropagation();
+    customDropdown.classList.toggle("dropdown-open");
+  });
+
+  dropdownOptionButtons.forEach((option) => {
+    option.addEventListener("click", () => {
+      currentSport = option.dataset.sport;
+      selectedSport.innerText = currentSport.toUpperCase();
+      changeSportBackground(currentSport);
+      updateHomepageContent(currentSport);
+      dropdownOptionButtons.forEach((btn) => {
+        btn.classList.remove("active-option");
+      });
+      option.classList.add("active-option");
+      customDropdown.classList.remove("dropdown-open");
+      console.log("Current Sport:", currentSport);
+    });
+  });
+
+  document.addEventListener("click", () => {
+    customDropdown.classList.remove("dropdown-open");
+  });
+
+  homepageDropdownInitialized = true;
+  return true;
 }
 
-initSportDropdown();
-const customDropdown = document.getElementById("custom-dropdown");
-const dropdownSelected = document.getElementById("dropdown-selected");
-const selectedSport = document.getElementById("selected-sport");
-const dropdownOptionButtons = document.querySelectorAll(".dropdown-option");
-// OPEN / CLOSE DROPDOWN ==============================
-dropdownSelected.addEventListener("click", (event) => {
-  event.stopPropagation();
-  customDropdown.classList.toggle("dropdown-open");
-});
-// SELECT OPTION ======================================
-dropdownOptionButtons.forEach((option) => {
-  option.addEventListener("click", () => {
-    currentSport = option.dataset.sport;
-    selectedSport.innerText = currentSport.toUpperCase();
-    changeSportBackground(currentSport);
-    updateHomepageContent(currentSport);
-    dropdownOptionButtons.forEach((btn) => {
-      btn.classList.remove("active-option");
-    });
-    option.classList.add("active-option");
-    customDropdown.classList.remove("dropdown-open");
-    console.log("Current Sport:", currentSport);
+function waitForHomepageDropdown() {
+  if (initializeHomepageDropdown()) {
+    return;
+  }
+
+  const headerContainer = document.getElementById("header-container");
+  if (!headerContainer) {
+    return;
+  }
+
+  const observer = new MutationObserver(() => {
+    if (initializeHomepageDropdown()) {
+      observer.disconnect();
+    }
   });
-});
-// CLOSE OUTSIDE CLICK ================================
-document.addEventListener("click", () => {
-  customDropdown.classList.remove("dropdown-open");
-});
+
+  observer.observe(headerContainer, { childList: true, subtree: true });
+}
+
+waitForHomepageDropdown();
 // =========================
 // HOMEPAGE INITIALIZATION
 // =========================
@@ -176,17 +197,20 @@ const publicPages = [
   "teamstats-page",
 ];
 // HOMEPAGE BUTTON ====================================
-const homepageBtn = document.getElementById("homepage-btn");
 function showPage(pageId) {
+  const headerContainer = document.getElementById("header-container");
+  const homepageBtn = headerContainer?.querySelector("#homepage-btn");
+  const customDropdown = headerContainer?.querySelector("#custom-dropdown");
+
   publicPages.forEach((page) => {
     document.getElementById(page).classList.add("hidden");
   });
   document.getElementById(pageId).classList.remove("hidden");
   if (pageId === "public-homepage") {
-    homepageBtn.classList.add("hidden");
-    customDropdown.classList.remove("hidden");
+    homepageBtn?.classList.add("hidden");
+    customDropdown?.classList.remove("hidden");
   } else {
-    homepageBtn.classList.remove("hidden");
-    customDropdown.classList.add("hidden");
+    homepageBtn?.classList.remove("hidden");
+    customDropdown?.classList.add("hidden");
   }
 }

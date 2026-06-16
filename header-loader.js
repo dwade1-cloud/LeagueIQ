@@ -7,10 +7,18 @@ document.getElementById(
 auth.onAuthStateChanged(
     user => {
 
+        const path = window.location.pathname;
+        const isDashboardPage = path.includes("dashboard");
+
         const headerFile =
-        user
-        ? "header-dashboard.html"
-        : "header-public.html";
+            isDashboardPage || user
+                ? "header-dashboard.html"
+                : "header-public.html";
+
+        const scriptFile =
+            isDashboardPage || user
+                ? "header-dashboard.js"
+                : "header-public.js";
 
         fetch(
             headerFile
@@ -30,10 +38,7 @@ auth.onAuthStateChanged(
                     "script"
                 );
 
-                script.src =
-                user
-                ? "header-dashboard.js"
-                : "header-public.js";
+                script.src = scriptFile;
 
                 document.body.appendChild(
                     script

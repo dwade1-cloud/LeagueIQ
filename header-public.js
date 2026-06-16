@@ -215,23 +215,9 @@ document.getElementById("public-login-btn")?.addEventListener("click", () => {
 document.getElementById("public-signup-btn")?.addEventListener("click", () => {
   window.location.href = "signup.html";
 });
-const isHomepage =
-window.location.pathname.endsWith(
-    "index.html"
-);
+const isHomepage = document.getElementById("public-homepage") !== null;
 
-if(
-    !isHomepage
-){
-    document.getElementById(
-        "custom-dropdown"
-    )?.classList.add(
-        "hidden"
-    );
-
-    document.getElementById(
-        "homepage-btn"
-    )?.classList.remove(
-        "hidden"
-    );
+if (!isHomepage) {
+  document.getElementById("custom-dropdown")?.classList.add("hidden");
+  document.getElementById("homepage-btn")?.classList.remove("hidden");
 }
