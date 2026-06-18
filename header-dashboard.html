@@ -1,10 +1,10 @@
 <!-- =========================
      DASHBOARD
 ========================== -->
-      <header id="dashboard-header" class="public-header">
-        <div class="public-header-left">
+      <header id="dashboard-header" class="dashboard-header">
+        <div class="dashboard-header-left">
           <div class="brand-container">
-            <div class="public-logo">
+            <div class="dashboard-logo">
               <span class="logo-league"> LEAGUE </span>
 
               <span class="logo-iq"> IQ </span>
@@ -33,7 +33,7 @@
             ← Dashboard
           </button>
 
-          <nav class="public-nav">
+          <nav class="dashboard-nav">
             <button class="nav-btn" id="nav-rankings">Rankings</button>
 
             <button class="nav-btn" id="nav-trending">Trending</button>
@@ -70,7 +70,17 @@
           </nav>
         </div>
 
-        <div class="public-header-right">
+        <div class="dashboard-header-right">
+          <div class="search-container">
+            <input
+              type="text"
+              id="player-search"
+              placeholder="Search any active player"
+              autocomplete="off"
+            />
+            <div class="search-icon">🔍</div>
+            <div id="search-results" class="search-results hidden"></div>
+          </div>
           <button id="mobile-search-btn" class="mobile-search-btn">🔍</button>
 
           <div id="plan-badge">FREE PLAN</div>

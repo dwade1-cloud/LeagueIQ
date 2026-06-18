@@ -1128,6 +1128,68 @@ nav {
   color: #090909;
   transform: translateY(-3px);
 }
+/* ===== DASHBOARD HEADER ============================= */
+/* DASHBOARD HEADER --------------------------------- */
+.dashboard-header {
+  width: 100%;
+  height: 78px;
+  position: sticky;
+  top: 0;
+  z-index: 9998;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background: rgba(10, 10, 10, 0.95);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  gap: 14px;
+  border-bottom: 1px solid #1f1f1f;
+}
+/* DASHBOARD LEFT ----------------------------------- */
+.dashboard-header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.dashboard-logo {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+/* DASHBOARD NAV ------------------------------------ */
+.dashboard-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.dashboard-nav button {
+  background: none;
+  border: none;
+  color: #cfcfcf;
+  font-size: 13px;
+  font-weight: 600;
+}
+.dashboard-nav button:hover {
+  color: #d4af37;
+}
+/* DASHBOARD RIGHT ---------------------------------- */
+.dashboard-header-right {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+#plan-badge {
+  color: #d4af37;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 /* HERO --------------------------------------------- */
 .homepage-hero {
   width: 100%;
@@ -1410,6 +1472,44 @@ nav {
     display: none;
   }
   .mobile-search-btn {
+    display: flex;
+  }
+}
+/* ===== DASHBOARD HEADER RESPONSIVE ================= */
+.dashboard-header #more-rankings,
+.dashboard-header #more-trending,
+.dashboard-header #more-trade {
+  display: none;
+}
+@media (max-width: 1069px) {
+  .dashboard-header #nav-trade {
+    display: none;
+  }
+  .dashboard-header #more-trade {
+    display: block;
+  }
+}
+@media (max-width: 945px) {
+  .dashboard-header #nav-trending {
+    display: none;
+  }
+  .dashboard-header #more-trending {
+    display: block;
+  }
+}
+@media (max-width: 868px) {
+  .dashboard-header #nav-rankings {
+    display: none;
+  }
+  .dashboard-header #more-rankings {
+    display: block;
+  }
+}
+@media (max-width: 1300px) {
+  .dashboard-header .search-container {
+    display: none;
+  }
+  .dashboard-header .mobile-search-btn {
     display: flex;
   }
 }
