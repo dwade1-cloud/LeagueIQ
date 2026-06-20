@@ -398,6 +398,24 @@ input[type="number"] {
 #selected-experience {
   color: white;
 }
+
+/* -------------------------
+   HEADER: Back / Dashboard
+------------------------- */
+#dashboard-home-btn {
+  background: transparent;
+  border: none;
+  color: #cfcfcf;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.2s;
+  white-space: nowrap;
+}
+#dashboard-home-btn:hover {
+  color: #d4af37;
+}
 .placeholder-text {
   color: #8a8a8a !important;
 }
